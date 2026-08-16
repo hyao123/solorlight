@@ -13,13 +13,13 @@
   "contact": {
     "name": "Your Name",
     "company": "Company Name",
-    "country": "Country",
-    "product": "Product of Interest",
-    "quantity": "Quantity",
-    "message": "Message",
+    "country": "Select Country",
+    "product": "Product Interest (optional)",
+    "quantity": "Estimated Quantity (optional)",
+    "message": "Your Message",
     "submit": "Send Inquiry",
-    "success": "Thank you! We will reply within 24 hours.",
-    "error": "Something went wrong. Please try WhatsApp instead."
+    "success": "Thank you! We'll respond within 24 hours.",
+    "error": "Failed to send. Please try again or contact us directly."
   },
   "footer": {
     "rights": "All rights reserved."
