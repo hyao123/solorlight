@@ -1,0 +1,80 @@
+[
+  {
+    "id": "case-1",
+    "image": "/images/cases/rural-village-1.jpg",
+    "location": {
+      "en": "Rural Village Road, China",
+      "ru": "Сельская дорога, Китай"
+    },
+    "scene": "rural",
+    "caption": {
+      "en": "30W solar street light installed along a rural village road. Blue accent pole with single-arm bracket.",
+      "ru": "Солнечный фонарь 30 Вт на сельской дороге. Синий акцент на столбе с одноплечным кронштейном."
+    }
+  },
+  {
+    "id": "case-2",
+    "image": "/images/cases/rural-school.jpg",
+    "location": {
+      "en": "School Entrance, Rural Area",
+      "ru": "Въезд в школу, сельская местность"
+    },
+    "scene": "community",
+    "caption": {
+      "en": "Solar street light at a school entrance in a rural community. Clean installation with blue accent pole.",
+      "ru": "Солнечный фонарь у входа в школу в сельской общине. Аккуратная установка с синим акцентом."
+    }
+  },
+  {
+    "id": "case-3",
+    "image": "/images/cases/closeup-panel-lamp.jpg",
+    "location": {
+      "en": "Retrofit Installation on Existing Pole",
+      "ru": "Установка на существующий столб"
+    },
+    "scene": "road",
+    "caption": {
+      "en": "Close-up of solar panel and LED lamp head mounted on an existing utility pole. Retrofit solution.",
+      "ru": "Крупный план солнечной панели и светодиодной головки фонаря на существующем столбе. Решение для модернизации."
+    }
+  },
+  {
+    "id": "case-4",
+    "image": "/images/cases/wall-mount-led.jpg",
+    "location": {
+      "en": "Wall Mount, Building Exterior",
+      "ru": "Настенный монтаж, фасад здания"
+    },
+    "scene": "industrial",
+    "caption": {
+      "en": "LED IP65 solar light wall-mounted bracket. Flexible installation for buildings and rooftops.",
+      "ru": "Настенный кронштейн солнечного светодиодного фонаря IP65. Гибкая установка для зданий и крыш."
+    }
+  },
+  {
+    "id": "case-5",
+    "image": "/images/cases/product-display.jpg",
+    "location": {
+      "en": "Factory Showroom",
+      "ru": "Заводской шоурум"
+    },
+    "scene": "community",
+    "caption": {
+      "en": "Pre-assembly product display showing complete LED solar street light system with panel, bracket and lamp head.",
+      "ru": "Предсборочная демонстрация комплектного солнечного светодиодного фонаря с панелью, кронштейном и головкой."
+    }
+  },
+  {
+    "id": "case-6",
+    "image": "/images/cases/community-building.jpg",
+    "location": {
+      "en": "Commercial Zone, Urban Area",
+      "ru": "Коммерческая зона, городской район"
+    },
+    "scene": "community",
+    "caption": {
+      "en": "Solar street light installation in a commercial building area. Decorative dome lamp head with blue accent pole.",
+      "ru": "Установка солнечного уличного фонаря в коммерческой зоне. Декоративная куполообразная голова с синим акцентом."
+    }
+  }
+]

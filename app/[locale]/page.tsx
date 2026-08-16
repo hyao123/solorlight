@@ -1,10 +1,11 @@
 import Link from 'next/link'
-import { getProducts, getSiteSettings } from '@/sanity/lib/queries'
+import { getProducts, getSiteSettings, getProjectCases } from '@/sanity/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
+import { CaseGallery } from '@/components/CaseGallery'
 
 export default async function HomePage({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }) {
   const { locale } = await params
-  const [products, settings] = await Promise.all([getProducts(), getSiteSettings()])
+  const [products, settings, cases] = await Promise.all([getProducts(), getSiteSettings(), getProjectCases()])
   const hotProducts = products.filter((p) => p.isHotProduct).slice(0, 8)
 
   return (
@@ -47,6 +48,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: '
             >
               {locale === 'en' ? 'View All Products →' : 'Все продукты →'}
             </Link>
+          </div>
+        </section>
+      )}
+
+      {/* Project Cases Gallery */}
+      {cases.length > 0 && (
+        <section className="bg-slate-950 py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <h2 className="mb-3 text-2xl font-bold text-slate-50">
+              {locale === 'en' ? 'Real Installations' : 'Реальные установки'}
+            </h2>
+            <p className="mb-10 text-slate-400">
+              {locale === 'en'
+                ? 'Photos from actual project sites across China and export markets.'
+                : 'Фотографии с реальных объектов в Китае и экспортных рынках.'}
+            </p>
+            <CaseGallery cases={cases} locale={locale} />
           </div>
         </section>
       )}

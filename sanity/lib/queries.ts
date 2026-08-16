@@ -55,3 +55,15 @@ export async function getProductSeries(): Promise<SanityProductSeries[]> {
 export async function getSiteSettings(): Promise<SanitySiteSettings> {
   return readJsonFile<SanitySiteSettings>('settings.json')
 }
+
+export interface ProjectCase {
+  id: string
+  image: string
+  location: { en: string; ru: string }
+  scene: string
+  caption: { en: string; ru: string }
+}
+
+export async function getProjectCases(): Promise<ProjectCase[]> {
+  return readJsonFile<ProjectCase[]>('cases.json')
+}
