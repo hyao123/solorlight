@@ -1,4 +1,4 @@
-import { getProducts, getProductSeries, getSiteSettings } from '@/sanity/lib/queries'
+import { getProducts, getProductSeries } from '@/sanity/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
 
 export default async function ProductsPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {

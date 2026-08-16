@@ -61,7 +61,9 @@ export default async function ProductDetailPage({ params }: { params: Params }) 
           </div>
           <div>
             <h1 className="text-3xl font-bold text-slate-900">{name}</h1>
-            <p className="mt-2 text-sm text-slate-500">{product.series?.name[locale]}</p>
+            {product.series?.name[locale] && (
+              <p className="mt-2 text-sm text-slate-500">{product.series.name[locale]}</p>
+            )}
 
             <div className="mt-6">
               <ProductSpecs specs={product.specs} locale={locale} />
@@ -81,18 +83,20 @@ export default async function ProductDetailPage({ params }: { params: Params }) 
             )}
 
             <div className="mt-8 flex gap-3">
-              <a
-                href={`https://wa.me/${settings.whatsappNumber?.replace(/\D/g, '') ?? ''}?text=${encodeURIComponent(
-                  locale === 'en'
-                    ? `I'm interested in ${name}`
-                    : `Интересует ${name}`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white shadow-lg hover:bg-orange-600"
-              >
-                {locale === 'en' ? 'Request Quote' : 'Запросить цену'}
-              </a>
+              {settings.whatsappNumber && (
+                <a
+                  href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(
+                    locale === 'en'
+                      ? `I'm interested in ${name}`
+                      : `Интересует ${name}`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white shadow-lg hover:bg-orange-600"
+                >
+                  {locale === 'en' ? 'Request Quote' : 'Запросить цену'}
+                </a>
+              )}
             </div>
           </div>
         </div>
