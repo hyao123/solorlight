@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "products": "Products",
+    "about": "About Us",
+    "solutions": "Solutions",
+    "contact": "Contact"
+  },
+  "cta": {
+    "getQuote": "Get a Free Quote",
+    "inquireNow": "Inquire Now",
+    "whatsapp": "Chat on WhatsApp"
+  },
+  "contact": {
+    "name": "Your Name",
+    "company": "Company Name",
+    "country": "Country",
+    "product": "Product of Interest",
+    "quantity": "Quantity",
+    "message": "Message",
+    "submit": "Send Inquiry",
+    "success": "Thank you! We will reply within 24 hours.",
+    "error": "Something went wrong. Please try WhatsApp instead."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
