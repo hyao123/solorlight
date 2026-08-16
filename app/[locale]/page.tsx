@@ -22,10 +22,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
               : 'Сертифицировано CE и RoHS · Гарантия 5 лет · Доставка в Казахстан, Узбекистан и другие страны'}
           </p>
           <a
-            href={`https://wa.me/${settings.whatsappNumber.replace(/\D/g, '')}`}
+            href={`https://wa.me/${settings.whatsappNumber?.replace(/\D/g, '') ?? ''}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-block rounded-full bg-white px-8 py-3 font-semibold text-yellow-600 shadow-lg hover:bg-yellow-50"
+            className="mt-8 inline-block rounded-full bg-white px-8 py-3 font-semibold text-orange-600 shadow-lg hover:bg-orange-50"
           >
             {locale === 'en' ? 'Get a Free Quote' : 'Получить бесплатное предложение'}
           </a>
@@ -35,14 +35,14 @@ export default async function HomePage({ params: { locale } }: { params: { local
       {/* Hot Products */}
       {hotProducts.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">
+          <h2 className="mb-8 text-2xl font-bold text-slate-900">
             {locale === 'en' ? 'Popular Products' : 'Популярные товары'}
           </h2>
           <ProductGrid products={hotProducts} locale={locale} />
           <div className="mt-8 text-center">
             <Link
               href={`/${locale}/products`}
-              className="rounded-full border border-yellow-400 px-6 py-2 text-sm font-semibold text-yellow-600 hover:bg-yellow-50"
+              className="rounded-full border border-slate-700 px-6 py-2 text-sm font-semibold text-slate-900 hover:bg-sky-50"
             >
               {locale === 'en' ? 'View All Products →' : 'Все продукты →'}
             </Link>
@@ -53,7 +53,10 @@ export default async function HomePage({ params: { locale } }: { params: { local
       {/* Trust strip */}
       <section className="border-t bg-gray-50 py-10 text-center">
         <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-8 px-4">
-          {['CE Certified', 'RoHS Compliant', 'ISO 9001', '5-Year Warranty', '10+ Years Export'].map((badge) => (
+          {(locale === 'en'
+            ? ['CE Certified', 'RoHS Compliant', 'ISO 9001', '5-Year Warranty', '10+ Years Export']
+            : ['Сертификат CE', 'Соответствует RoHS', 'ISO 9001', 'Гарантия 5 лет', 'Экспорт 10+ лет']
+          ).map((badge) => (
             <span key={badge} className="text-sm font-semibold text-gray-600">✓ {badge}</span>
           ))}
         </div>
