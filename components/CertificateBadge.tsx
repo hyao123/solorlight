@@ -10,7 +10,7 @@ export function CertificateBadge({ certificate }: CertificateBadgeProps) {
   const logoUrl = urlFor(certificate.logo).width(80).height(80).url()
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border border-slate-800 bg-slate-900 p-3">
+    <div className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900 p-3">
       <div className="relative h-12 w-12 flex-shrink-0">
         <Image src={logoUrl} alt={certificate.name} fill className="object-contain" />
       </div>

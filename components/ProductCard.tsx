@@ -9,7 +9,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, locale }: ProductCardProps) {
-  const imageUrl = product.images[0] ? urlFor(product.images[0]).width(400).height(300).url() : '/placeholder.jpg'
+  const imageUrl = product.images?.[0] ? urlFor(product.images[0]).width(400).height(300).url() : '/placeholder.jpg'
 
   return (
     <Link
@@ -33,7 +33,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
 
       <div className="p-4">
         <h3 className="mb-2 text-lg font-semibold text-slate-50 group-hover:text-sky-400">
-          {product.name[locale]}
+          {product.name[locale] ?? product.name.en ?? 'Product'}
         </h3>
         <div className="mb-3 flex flex-wrap gap-2 text-sm text-slate-400">
           <span>{product.specs.wattage}W</span>
