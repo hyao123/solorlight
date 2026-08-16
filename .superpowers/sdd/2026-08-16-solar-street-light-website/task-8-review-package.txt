@@ -1,0 +1,223 @@
+4a08f28 feat: contact page with EmailJS inquiry form
+
+---
+
+ .../progress.md                                    |  10 +
+ .../task-7-report.md                               |  12 +-
+ .../task-8-brief.md                                | 220 +++++++++++++++++++++
+ app/[locale]/contact/page.tsx                      |  31 +++
+ components/ContactForm.tsx                         | 100 ++++++++++
+ messages/en.json                                   |  12 +-
+ messages/ru.json                                   |  10 +-
+ 7 files changed, 381 insertions(+), 14 deletions(-)
+
+---
+
+diff --git a/app/[locale]/contact/page.tsx b/app/[locale]/contact/page.tsx
+new file mode 100644
+index 0000000..11b4b6d
+--- /dev/null
++++ b/app/[locale]/contact/page.tsx
+@@ -0,0 +1,31 @@
++import { getSiteSettings } from '@/sanity/lib/queries'
++import { ContactForm } from '@/components/ContactForm'
++
++export default async function ContactPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
++  const settings = await getSiteSettings()
++
++  return (
++    <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
++      <h1 className="mb-10 text-center text-3xl font-bold text-slate-900">
++        {locale === 'en' ? 'Contact Us' : 'Свяжитесь с нами'}
++      </h1>
++      <div className="grid gap-12 md:grid-cols-2">
++        <div>
++          <h2 className="mb-4 text-lg font-semibold text-slate-900">
++            {locale === 'en' ? 'Get in Touch' : 'Как с нами связаться'}
++          </h2>
++          <p className="text-slate-600">{settings.address[locale]}</p>
++          <p className="mt-3 text-slate-600">📧 {settings.contactEmail}</p>
++          {settings.whatsappNumber && (
++            <p className="mt-1 text-slate-600">💬 {settings.whatsappNumber}</p>
++          )}
++        </div>
++        <ContactForm locale={locale} />
++      </div>
++    </div>
++  )
++}
++
++export async function generateStaticParams() {
++  return [{ locale: 'en' }, { locale: 'ru' }]
++}
+diff --git a/components/ContactForm.tsx b/components/ContactForm.tsx
+new file mode 100644
+index 0000000..0d273a2
+--- /dev/null
++++ b/components/ContactForm.tsx
+@@ -0,0 +1,100 @@
++'use client'
++
++import { useState } from 'react'
++import emailjs from 'emailjs-com'
++import { useTranslations } from 'next-intl'
++
++const COUNTRIES_EN = ['Kazakhstan', 'Uzbekistan', 'Kyrgyzstan', 'Tajikistan', 'Turkmenistan',
++  'Afghanistan', 'Azerbaijan', 'Georgia', 'United Arab Emirates', 'Saudi Arabia',
++  'Iraq', 'Iran', 'Turkey', 'Other']
++const COUNTRIES_RU = ['Казахстан', 'Узбекистан', 'Кыргызстан', 'Таджикистан', 'Туркменистан',
++  'Афганистан', 'Азербайджан', 'Грузия', 'ОАЭ', 'Саудовская Аравия',
++  'Ирак', 'Иран', 'Турция', 'Другое']
++
++interface ContactFormProps {
++  locale: 'en' | 'ru'
++}
++
++export function ContactForm({ locale }: ContactFormProps) {
++  const t = useTranslations('contact')
++  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
++  const countries = locale === 'ru' ? COUNTRIES_RU : COUNTRIES_EN
++
++  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
++    e.preventDefault()
++    setStatus('sending')
++    try {
++      await emailjs.sendForm(
++        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
++        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
++        e.currentTarget,
++        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
++      )
++      setStatus('success')
++      ;(e.target as HTMLFormElement).reset()
++    } catch {
++      setStatus('error')
++    }
++  }
++
++  if (status === 'success') {
++    return (
++      <div className="rounded-xl border border-green-200 bg-green-50 p-6 text-center text-green-800">
++        {t('success')}
++      </div>
++    )
++  }
++
++  return (
++    <form onSubmit={handleSubmit} className="space-y-4">
++      <input
++        required
++        name="from_name"
++        placeholder={t('name')}
++        className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
++      />
++      <input
++        required
++        name="company"
++        placeholder={t('company')}
++        className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
++      />
++      <select
++        required
++        name="country"
++        className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-700 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
++      >
++        <option value="">{t('country')}</option>
++        {countries.map((c) => <option key={c} value={c}>{c}</option>)}
++      </select>
++      <input
++        name="product"
++        placeholder={t('product')}
++        className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
++      />
++      <input
++        name="quantity"
++        placeholder={t('quantity')}
++        className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
++      />
++      <textarea
++        required
++        name="message"
++        rows={4}
++        placeholder={t('message')}
++        className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
++      />
++      <input name="reply_to" type="hidden" />
++      {status === 'error' && (
++        <p className="text-sm text-red-600">{t('error')}</p>
++      )}
++      <button
++        type="submit"
++        disabled={status === 'sending'}
++        className="w-full rounded-xl bg-orange-500 py-3 font-semibold text-white shadow-lg hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed"
++      >
++        {status === 'sending' ? '...' : t('submit')}
++      </button>
++    </form>
++  )
++}
+diff --git a/messages/en.json b/messages/en.json
+index 10d3087..b31d350 100644
+--- a/messages/en.json
++++ b/messages/en.json
+@@ -6,22 +6,22 @@
+     "contact": "Contact"
+   },
+   "cta": {
+     "getQuote": "Get a Free Quote",
+     "inquireNow": "Inquire Now",
+     "whatsapp": "Chat on WhatsApp"
+   },
+   "contact": {
+     "name": "Your Name",
+     "company": "Company Name",
+-    "country": "Country",
+-    "product": "Product of Interest",
+-    "quantity": "Quantity",
+-    "message": "Message",
++    "country": "Select Country",
++    "product": "Product Interest (optional)",
++    "quantity": "Estimated Quantity (optional)",
++    "message": "Your Message",
+     "submit": "Send Inquiry",
+-    "success": "Thank you! We will reply within 24 hours.",
+-    "error": "Something went wrong. Please try WhatsApp instead."
++    "success": "Thank you! We'll respond within 24 hours.",
++    "error": "Failed to send. Please try again or contact us directly."
+   },
+   "footer": {
+     "rights": "All rights reserved."
+   }
+ }
+diff --git a/messages/ru.json b/messages/ru.json
+index de9807d..f1b937a 100644
+--- a/messages/ru.json
++++ b/messages/ru.json
+@@ -6,22 +6,22 @@
+     "contact": "Контакты"
+   },
+   "cta": {
+     "getQuote": "Получить бесплатное предложение",
+     "inquireNow": "Отправить запрос",
+     "whatsapp": "Написать в WhatsApp"
+   },
+   "contact": {
+     "name": "Ваше имя",
+     "company": "Название компании",
+-    "country": "Страна",
+-    "product": "Интересующий продукт",
+-    "quantity": "Количество",
+-    "message": "Сообщение",
++    "country": "Выберите страну",
++    "product": "Интересующий продукт (необязательно)",
++    "quantity": "Примерное количество (необязательно)",
++    "message": "Ваше сообщение",
+     "submit": "Отправить запрос",
+     "success": "Спасибо! Мы ответим в течение 24 часов.",
+-    "error": "Что-то пошло не так. Пожалуйста, напишите нам в WhatsApp."
++    "error": "Не удалось отправить. Попробуйте еще раз или свяжитесь с нами напрямую."
+   },
+   "footer": {
+     "rights": "Все права защищены."
+   }
+ }

@@ -77,6 +77,13 @@ export function ContactForm({ locale }: ContactFormProps) {
         placeholder={t('quantity')}
         className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
       />
+      <input
+        required
+        name="reply_to"
+        type="email"
+        placeholder={t('email')}
+        className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
+      />
       <textarea
         required
         name="message"
@@ -84,14 +91,13 @@ export function ContactForm({ locale }: ContactFormProps) {
         placeholder={t('message')}
         className="w-full rounded-lg border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
       />
-      <input name="reply_to" type="hidden" />
       {status === 'error' && (
         <p className="text-sm text-red-600">{t('error')}</p>
       )}
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="w-full rounded-xl bg-orange-500 py-3 font-semibold text-white shadow-lg hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full rounded-xl bg-orange-500 py-3 font-semibold text-white shadow-lg hover:bg-orange-600 disabled:opacity-60 cursor-not-allowed"
       >
         {status === 'sending' ? '...' : t('submit')}
       </button>

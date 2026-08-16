@@ -11,11 +11,14 @@
     "whatsapp": "Chat on WhatsApp"
   },
   "contact": {
+    "pageTitle": "Contact Us",
+    "sectionTitle": "Get in Touch",
     "name": "Your Name",
     "company": "Company Name",
     "country": "Select Country",
     "product": "Product Interest (optional)",
     "quantity": "Estimated Quantity (optional)",
+    "email": "Email Address",
     "message": "Your Message",
     "submit": "Send Inquiry",
     "success": "Thank you! We'll respond within 24 hours.",
