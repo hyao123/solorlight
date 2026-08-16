@@ -4,8 +4,8 @@ export interface BilingualString {
 }
 
 export interface SanityImage {
-  _type: 'image'
-  asset: { _ref: string; _type: 'reference' }
+  _type?: 'image'
+  asset?: { _ref: string; _type: 'reference' }
   hotspot?: { x: number; y: number; width: number; height: number }
 }
 
@@ -14,36 +14,42 @@ export interface SanityProductSeries {
   slug: { current: string }
   name: BilingualString
   description: BilingualString
-  coverImage: SanityImage
+  coverImage?: SanityImage
   targetScene: 'road' | 'community' | 'rural' | 'industrial'
-  sortOrder: number
+  sortOrder?: number
 }
 
 export interface SanityProductSpecs {
-  wattage: number
-  batteryCapacity: number
-  lumens: number
-  colorTemp: string
-  ipRating: string
-  poleHeight: number
-  workingHours: number
+  power?: string
+  wattage?: number
+  solarPanel?: string
+  battery?: string
+  batteryCapacity?: number
+  lumens?: string | number
+  lightingTime?: string
+  chargingTime?: string
+  colorTemp?: string
+  ipRating?: string
+  poleHeight?: number
+  workingHours?: number
 }
 
 export interface SanityCertificate {
   _id: string
-  name: string
-  logo: SanityImage
-  validUntil: string
+  name: BilingualString
+  image?: string
+  logo?: SanityImage
+  validUntil?: string
 }
 
 export interface SanityProduct {
   _id: string
   slug: { current: string }
   name: BilingualString
-  series: SanityProductSeries
-  images: SanityImage[]
+  series: SanityProductSeries | null
+  images: (SanityImage | string)[]
   specs: SanityProductSpecs
-  description: { en: unknown[]; ru: unknown[] }
+  description?: { en: unknown[]; ru: unknown[] }
   certificates: SanityCertificate[]
   isHotProduct: boolean
   seoTitle: BilingualString
@@ -51,11 +57,13 @@ export interface SanityProduct {
 }
 
 export interface SanitySiteSettings {
-  companyName: string
+  companyName: BilingualString
+  tagline?: BilingualString
   whatsappNumber: string
-  contactEmail: string
+  email?: string
+  contactEmail?: string
   address: BilingualString
-  socialLinks: {
+  socialLinks?: {
     linkedin?: string
     youtube?: string
     alibaba?: string

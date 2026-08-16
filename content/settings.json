@@ -1,0 +1,16 @@
+{
+  "companyName": {
+    "en": "SolarLight Solutions",
+    "ru": "Решения Солнечного Света"
+  },
+  "tagline": {
+    "en": "Premium Solar Street Lights for Central Asia",
+    "ru": "Премиум солнечные фонари для Центральной Азии"
+  },
+  "whatsappNumber": "+86 138 0000 0000",
+  "email": "info@solarlight.example.com",
+  "address": {
+    "en": "Shenzhen, Guangdong, China",
+    "ru": "Шэньчжэнь, Гуандун, Китай"
+  }
+}

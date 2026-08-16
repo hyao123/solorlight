@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "cert-ce",
+    "name": {
+      "en": "CE Certified",
+      "ru": "Сертификат CE"
+    },
+    "image": "/images/certificates/ce.svg"
+  },
+  {
+    "_id": "cert-rohs",
+    "name": {
+      "en": "RoHS Compliant",
+      "ru": "Соответствует RoHS"
+    },
+    "image": "/images/certificates/rohs.svg"
+  },
+  {
+    "_id": "cert-iso9001",
+    "name": {
+      "en": "ISO 9001",
+      "ru": "ISO 9001"
+    },
+    "image": "/images/certificates/iso9001.svg"
+  }
+]

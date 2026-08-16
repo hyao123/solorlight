@@ -36,11 +36,21 @@ export function ProductCard({ product, locale }: ProductCardProps) {
           {product.name[locale] ?? product.name.en ?? 'Product'}
         </h3>
         <div className="mb-3 flex flex-wrap gap-2 text-sm text-slate-400">
-          <span>{product.specs.wattage}W</span>
-          <span>•</span>
-          <span>{product.specs.lumens} lm</span>
-          <span>•</span>
-          <span>{product.specs.ipRating}</span>
+          {(product.specs.power || product.specs.wattage) && (
+            <span>{product.specs.power ?? `${product.specs.wattage}W`}</span>
+          )}
+          {product.specs.lumens && (
+            <>
+              <span>•</span>
+              <span>{product.specs.lumens}</span>
+            </>
+          )}
+          {product.specs.ipRating && (
+            <>
+              <span>•</span>
+              <span>{product.specs.ipRating}</span>
+            </>
+          )}
         </div>
         <div className="flex items-center gap-2 text-sm text-slate-500">
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

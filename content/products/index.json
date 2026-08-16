@@ -1,0 +1,162 @@
+[
+  {
+    "_id": "prod-road-60w",
+    "name": {
+      "en": "Road Pro 60W",
+      "ru": "Road Pro 60 Вт"
+    },
+    "slug": {
+      "current": "road-pro-60w"
+    },
+    "series": "series-road",
+    "images": [
+      "/images/products/road-60w.jpg"
+    ],
+    "specs": {
+      "power": "60W",
+      "solarPanel": "100W Monocrystalline",
+      "battery": "40Ah LiFePO4",
+      "lumens": "8000lm",
+      "lightingTime": "12-14 hours",
+      "chargingTime": "6-8 hours"
+    },
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": true,
+    "seoTitle": {
+      "en": "60W Solar Street Light - Road Pro Series",
+      "ru": "Солнечный уличный фонарь 60 Вт - Серия Road Pro"
+    },
+    "seoDescription": {
+      "en": "Professional 60W solar street light with 100W panel and 40Ah LiFePO4 battery. Perfect for main roads. CE certified.",
+      "ru": "Профессиональный солнечный уличный фонарь 60 Вт с панелью 100 Вт и батареей LiFePO4 40 Ач. Идеально для основных дорог. Сертификат CE."
+    }
+  },
+  {
+    "_id": "prod-road-90w",
+    "name": {
+      "en": "Road Pro 90W",
+      "ru": "Road Pro 90 Вт"
+    },
+    "slug": {
+      "current": "road-pro-90w"
+    },
+    "series": "series-road",
+    "images": [
+      "/images/products/road-90w.jpg"
+    ],
+    "specs": {
+      "power": "90W",
+      "solarPanel": "150W Monocrystalline",
+      "battery": "60Ah LiFePO4",
+      "lumens": "12000lm",
+      "lightingTime": "12-14 hours",
+      "chargingTime": "6-8 hours"
+    },
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": true,
+    "seoTitle": {
+      "en": "90W Solar Street Light - Road Pro Series",
+      "ru": "Солнечный уличный фонарь 90 Вт - Серия Road Pro"
+    },
+    "seoDescription": {
+      "en": "High-power 90W solar street light with 150W panel. Ideal for highways and main roads.",
+      "ru": "Мощный солнечный уличный фонарь 90 Вт с панелью 150 Вт. Идеально для магистралей и основных дорог."
+    }
+  },
+  {
+    "_id": "prod-community-40w",
+    "name": {
+      "en": "Community Light 40W",
+      "ru": "Community Light 40 Вт"
+    },
+    "slug": {
+      "current": "community-light-40w"
+    },
+    "series": "series-community",
+    "images": [
+      "/images/products/community-40w.jpg"
+    ],
+    "specs": {
+      "power": "40W",
+      "solarPanel": "70W Monocrystalline",
+      "battery": "30Ah LiFePO4",
+      "lumens": "5000lm",
+      "lightingTime": "10-12 hours",
+      "chargingTime": "5-7 hours"
+    },
+    "certificates": ["cert-ce", "cert-rohs"],
+    "isHotProduct": true,
+    "seoTitle": {
+      "en": "40W Solar Street Light - Community Series",
+      "ru": "Солнечный уличный фонарь 40 Вт - Общественная серия"
+    },
+    "seoDescription": {
+      "en": "40W solar light for residential areas and parks. Energy-efficient with long battery life.",
+      "ru": "Солнечный фонарь 40 Вт для жилых районов и парков. Энергоэффективный с долгим сроком службы батареи."
+    }
+  },
+  {
+    "_id": "prod-rural-30w",
+    "name": {
+      "en": "Rural Basic 30W",
+      "ru": "Rural Basic 30 Вт"
+    },
+    "slug": {
+      "current": "rural-basic-30w"
+    },
+    "series": "series-rural",
+    "images": [
+      "/images/products/rural-30w.jpg"
+    ],
+    "specs": {
+      "power": "30W",
+      "solarPanel": "50W Polycrystalline",
+      "battery": "24Ah LiFePO4",
+      "lumens": "3500lm",
+      "lightingTime": "10-12 hours",
+      "chargingTime": "5-7 hours"
+    },
+    "certificates": ["cert-ce"],
+    "isHotProduct": false,
+    "seoTitle": {
+      "en": "30W Solar Street Light - Rural Series",
+      "ru": "Солнечный уличный фонарь 30 Вт - Сельская серия"
+    },
+    "seoDescription": {
+      "en": "Cost-effective 30W solar light for rural roads and villages. Reliable and durable.",
+      "ru": "Экономичный солнечный фонарь 30 Вт для сельских дорог и деревень. Надежный и долговечный."
+    }
+  },
+  {
+    "_id": "prod-industrial-120w",
+    "name": {
+      "en": "Industrial Max 120W",
+      "ru": "Industrial Max 120 Вт"
+    },
+    "slug": {
+      "current": "industrial-max-120w"
+    },
+    "series": "series-industrial",
+    "images": [
+      "/images/products/industrial-120w.jpg"
+    ],
+    "specs": {
+      "power": "120W",
+      "solarPanel": "200W Monocrystalline",
+      "battery": "80Ah LiFePO4",
+      "lumens": "16000lm",
+      "lightingTime": "12-14 hours",
+      "chargingTime": "6-8 hours"
+    },
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": true,
+    "seoTitle": {
+      "en": "120W Industrial Solar Street Light",
+      "ru": "Промышленный солнечный уличный фонарь 120 Вт"
+    },
+    "seoDescription": {
+      "en": "Heavy-duty 120W solar light for industrial zones and ports. Maximum brightness and durability.",
+      "ru": "Сверхмощный солнечный фонарь 120 Вт для промышленных зон и портов. Максимальная яркость и долговечность."
+    }
+  }
+]

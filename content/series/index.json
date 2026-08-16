@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "series-road",
+    "name": {
+      "en": "Road Series",
+      "ru": "Дорожная серия"
+    },
+    "slug": {
+      "current": "road"
+    },
+    "description": {
+      "en": "High-power solar street lights for main roads and highways. 60W-120W output with extended lighting duration.",
+      "ru": "Мощные солнечные фонари для основных дорог и магистралей. Мощность 60-120 Вт с продолжительным освещением."
+    },
+    "targetScene": "road"
+  },
+  {
+    "_id": "series-community",
+    "name": {
+      "en": "Community Series",
+      "ru": "Общественная серия"
+    },
+    "slug": {
+      "current": "community"
+    },
+    "description": {
+      "en": "Balanced solar lights for residential areas, parks, and community spaces. 30W-60W output.",
+      "ru": "Сбалансированные солнечные фонари для жилых районов, парков и общественных мест. Мощность 30-60 Вт."
+    },
+    "targetScene": "community"
+  },
+  {
+    "_id": "series-rural",
+    "name": {
+      "en": "Rural Series",
+      "ru": "Сельская серия"
+    },
+    "slug": {
+      "current": "rural"
+    },
+    "description": {
+      "en": "Cost-effective solar lights for rural roads and villages. 20W-40W output with long battery life.",
+      "ru": "Экономичные солнечные фонари для сельских дорог и деревень. Мощность 20-40 Вт с длительным сроком службы батареи."
+    },
+    "targetScene": "rural"
+  },
+  {
+    "_id": "series-industrial",
+    "name": {
+      "en": "Industrial Series",
+      "ru": "Промышленная серия"
+    },
+    "slug": {
+      "current": "industrial"
+    },
+    "description": {
+      "en": "Heavy-duty solar lights for industrial zones, ports, and large facilities. 80W-150W output.",
+      "ru": "Сверхмощные солнечные фонари для промышленных зон, портов и крупных объектов. Мощность 80-150 Вт."
+    },
+    "targetScene": "industrial"
+  }
+]

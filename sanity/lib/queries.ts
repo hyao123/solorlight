@@ -1,49 +1,57 @@
-import { sanityClient } from './client'
-import type { SanityProduct, SanityProductSeries, SanitySiteSettings } from '@/types/sanity'
+import { promises as fs } from 'fs'
+import path from 'path'
+import type { SanityProduct, SanityProductSeries, SanitySiteSettings, SanityCertificate } from '@/types/sanity'
 
-const PRODUCT_FIELDS = `
-  _id,
-  slug,
-  name,
-  series->{ _id, slug, name, targetScene },
-  images,
-  specs,
-  description,
-  certificates[]->{ _id, name, logo, validUntil },
-  isHotProduct,
-  seoTitle,
-  seoDescription
-`
+const contentDir = path.join(process.cwd(), 'content')
+
+async function readJsonFile<T>(filePath: string): Promise<T> {
+  const fullPath = path.join(contentDir, filePath)
+  const fileContent = await fs.readFile(fullPath, 'utf-8')
+  return JSON.parse(fileContent)
+}
+
+let certificatesCache: SanityCertificate[] | null = null
+let seriesCache: SanityProductSeries[] | null = null
+
+async function getCertificates(): Promise<SanityCertificate[]> {
+  if (!certificatesCache) {
+    certificatesCache = await readJsonFile<SanityCertificate[]>('certificates/index.json')
+  }
+  return certificatesCache
+}
+
+async function getSeries(): Promise<SanityProductSeries[]> {
+  if (!seriesCache) {
+    seriesCache = await readJsonFile<SanityProductSeries[]>('series/index.json')
+  }
+  return seriesCache
+}
 
 export async function getProducts(): Promise<SanityProduct[]> {
-  return sanityClient.fetch(
-    `*[_type == "product"] | order(isHotProduct desc) { ${PRODUCT_FIELDS} }`,
-    {},
-    { next: { revalidate: 300 } }
-  )
+  const [products, certificates, series] = await Promise.all([
+    readJsonFile<any[]>('products/index.json'),
+    getCertificates(),
+    getSeries(),
+  ])
+
+  return products.map((product) => ({
+    ...product,
+    certificates: product.certificates
+      .map((certId: string) => certificates.find((c) => c._id === certId))
+      .filter(Boolean),
+    series: series.find((s) => s._id === product.series) || null,
+  }))
 }
 
 export async function getProduct(slug: string): Promise<SanityProduct | null> {
-  const results = await sanityClient.fetch<SanityProduct[]>(
-    `*[_type == "product" && slug.current == $slug] { ${PRODUCT_FIELDS} }`,
-    { slug },
-    { next: { revalidate: 300 } }
-  )
-  return results[0] ?? null
+  const products = await getProducts()
+  return products.find((p) => p.slug.current === slug) || null
 }
 
 export async function getProductSeries(): Promise<SanityProductSeries[]> {
-  return sanityClient.fetch(
-    `*[_type == "productSeries"] | order(sortOrder asc)`,
-    {},
-    { next: { revalidate: 300 } }
-  )
+  return getSeries()
 }
 
 export async function getSiteSettings(): Promise<SanitySiteSettings> {
-  return sanityClient.fetch<SanitySiteSettings>(
-    `*[_type == "siteSettings"][0]`,
-    {},
-    { next: { revalidate: 3600 } }
-  )
+  return readJsonFile<SanitySiteSettings>('settings.json')
 }

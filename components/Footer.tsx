@@ -18,9 +18,9 @@ export function Footer({ settings }: FooterProps) {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Company info */}
           <div>
-            <h3 className="mb-3 text-lg font-semibold text-slate-50">{settings.companyName}</h3>
+            <h3 className="mb-3 text-lg font-semibold text-slate-50">{settings.companyName[locale as 'en' | 'ru']}</h3>
             <p className="text-sm text-slate-400">{settings.address[locale as 'en' | 'ru']}</p>
-            <p className="mt-2 text-sm text-slate-400">{settings.contactEmail}</p>
+            <p className="mt-2 text-sm text-slate-400">{settings.email || settings.contactEmail}</p>
           </div>
 
           {/* Quick links */}
@@ -46,7 +46,7 @@ export function Footer({ settings }: FooterProps) {
           <div>
             <h3 className="mb-3 text-lg font-semibold text-slate-50">Connect</h3>
             <div className="flex gap-4">
-              {settings.socialLinks.linkedin && (
+              {settings.socialLinks?.linkedin && (
                 <a
                   href={settings.socialLinks.linkedin}
                   target="_blank"
@@ -59,7 +59,7 @@ export function Footer({ settings }: FooterProps) {
                   </svg>
                 </a>
               )}
-              {settings.socialLinks.youtube && (
+              {settings.socialLinks?.youtube && (
                 <a
                   href={settings.socialLinks.youtube}
                   target="_blank"
@@ -77,7 +77,7 @@ export function Footer({ settings }: FooterProps) {
         </div>
 
         <div className="mt-8 border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} {settings.companyName}. {t('footer.rights')}
+          © {new Date().getFullYear()} {settings.companyName[locale as 'en' | 'ru']}. {t('footer.rights')}
         </div>
       </div>
     </footer>
