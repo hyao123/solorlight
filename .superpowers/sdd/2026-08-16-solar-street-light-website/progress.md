@@ -1,20 +1,21 @@
-# SDD ledger — plan: docs/superpowers/plans/2026-08-16-solar-street-light-website.md
+# SDD ledger — plan: C:/Users/24960/claudework/docs/superpowers/plans/2026-08-16-solar-street-light-website.md
 
-## Pre-flight Conflict Scan
+## Task 5: Product Components — complete
 
-| Tasks | Shared file / interface | Finding |
-|-------|------------------------|---------|
-| T1 → T4 | `messages/en.json`, `messages/ru.json` | T1 creates them; T4 consumes via `useTranslations` — keys match |
-| T2 → T3 | Sanity schema type names | T2 produces `product`, `productSeries`, `certificate`, `siteSettings`; T3 GROQ queries use same names — consistent |
-| T3 → T4,5,6,7,8,9 | `getProducts()`, `getProduct()`, `getSiteSettings()`, `getProductSeries()` | All downstream tasks consume these exact signatures from T3 — consistent |
-| T3 → T5 | `SanityProduct`, `SanityProductSeries`, `urlFor` | T5 imports from `@/types/sanity` and `@/sanity/lib/image` — matches T3 output |
-| T5 → T6,7 | `ProductGrid`, `InquireButton`, `SpecsTable` | T6/T7 consume these exact component names and props — consistent |
-| T3 `getSiteSettings()` | Returns `SanitySiteSettings` (singleton, not array) | T3 plan text does `.fetch<SanitySiteSettings[]>(...)[0]` — correct, returns single object |
-| T1 `messages/ru.json` | `contact.error` key | Present in T1; consumed in T8 `ContactForm` — consistent |
+**Base:** 52e5729  
+**Implementation commit:** ba53f80  
+**Fix commit:** 3c926fa  
+**Review:** Approved after fixes (null safety, card radius)  
+**Implementer:** Task completed on first attempt  
+**Reviewer findings:** 3 issues (1 Important, 2 Minor) — all fixed  
+**Re-review:** Clean, approved
 
-Scan result: **CLEAN** — no contradictions between tasks or Global Constraints.
+## Task 6: Homepage — complete
 
----
-
-## Task Progress
-
+**Base:** 3c926fa  
+**Implementation commit:** c5bb1fe  
+**Fix commit:** 20c0b08  
+**Review:** Approved after fixes (orange CTA, slate base, bilingual badges)  
+**Implementer:** Task completed on first attempt  
+**Reviewer findings:** 6 issues (3 Critical, 2 Important, 1 Minor) — all fixed  
+**Re-review:** Clean, approved
