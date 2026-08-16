@@ -97,7 +97,7 @@ export function ContactForm({ locale }: ContactFormProps) {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="w-full rounded-xl bg-orange-500 py-3 font-semibold text-white shadow-lg hover:bg-orange-600 disabled:opacity-60 cursor-not-allowed"
+        className="w-full rounded-xl bg-orange-500 py-3 font-semibold text-white shadow-lg hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === 'sending' ? '...' : t('submit')}
       </button>
