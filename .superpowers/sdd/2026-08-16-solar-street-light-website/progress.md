@@ -29,3 +29,13 @@
 **Implementer:** Task completed on first attempt  
 **Reviewer findings:** 5 issues (3 Important, 2 Minor) — Important issues fixed  
 **Re-review:** Clean, approved
+
+## Task 8: Contact Page with EmailJS Form — complete
+
+**Base:** 4714861  
+**Implementation commit:** 4a08f28  
+**Fix commits:** 076837d, 04c664f  
+**Review:** Approved after fixes (email field, translations, cursor style)  
+**Implementer:** Task completed on first attempt  
+**Reviewer findings:** 3 issues (1 Important, 2 Minor) — all fixed in two rounds  
+**Re-review:** Clean, approved
