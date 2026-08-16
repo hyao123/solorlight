@@ -1,4 +1,24 @@
 import { getSiteSettings } from '@/sanity/lib/queries'
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: 'en' | 'ru' } }): Promise<Metadata> {
+  const settings = await getSiteSettings()
+  const title = locale === 'en' ? 'About Us' : 'О нас'
+  const description = locale === 'en'
+    ? `Learn about ${settings.companyName}, a professional solar street light manufacturer with over 10 years of export experience.`
+    : `Узнайте о ${settings.companyName}, профессиональном производителе солнечных уличных фонарей с более чем 10-летним опытом экспорта.`
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        en: '/en/about',
+        ru: '/ru/about',
+      },
+    },
+  }
+}
 
 export default async function AboutPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
   const settings = await getSiteSettings()

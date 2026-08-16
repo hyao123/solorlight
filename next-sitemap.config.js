@@ -11,7 +11,7 @@ module.exports = {
   },
   exclude: ['/studio/*'],
   alternateRefs: [
-    { href: 'https://your-domain.com/en', hreflang: 'en' },
-    { href: 'https://your-domain.com/ru', hreflang: 'ru' },
+    { href: `${process.env.SITE_URL || 'https://your-domain.com'}/en`, hreflang: 'en' },
+    { href: `${process.env.SITE_URL || 'https://your-domain.com'}/ru`, hreflang: 'ru' },
   ],
 }

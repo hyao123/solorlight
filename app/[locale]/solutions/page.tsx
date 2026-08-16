@@ -1,8 +1,27 @@
 import Link from 'next/link'
 import { getProductSeries } from '@/sanity/lib/queries'
+import type { Metadata } from 'next'
 
 const SCENE_ICONS: Record<string, string> = {
   road: '🛣️', community: '🏘️', rural: '🌾', industrial: '🏭',
+}
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: 'en' | 'ru' } }): Promise<Metadata> {
+  const title = locale === 'en' ? 'Solutions by Application' : 'Решения по применению'
+  const description = locale === 'en'
+    ? 'We match the right solar street light product to your project type: roads, communities, rural areas, and industrial sites.'
+    : 'Мы подбираем солнечный уличный фонарь под ваш тип проекта: дороги, сообщества, сельские районы и промышленные объекты.'
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        en: '/en/solutions',
+        ru: '/ru/solutions',
+      },
+    },
+  }
 }
 
 export default async function SolutionsPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {

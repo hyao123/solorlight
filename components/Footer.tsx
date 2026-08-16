@@ -1,9 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
-import { getSiteSettings } from '@/sanity/lib/queries'
+import type { SanitySiteSettings } from '@/types/sanity'
 
-export async function Footer() {
-  const settings = await getSiteSettings()
+interface FooterProps {
+  settings: SanitySiteSettings
+}
+
+export function Footer({ settings }: FooterProps) {
   const locale = useLocale()
   const t = useTranslations()
 

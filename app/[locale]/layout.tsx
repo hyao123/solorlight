@@ -32,7 +32,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="min-h-screen">{children}</main>
-          <Footer />
+          <Footer settings={settings} />
           <WhatsAppButton phone={settings.whatsappNumber} />
         </NextIntlClientProvider>
       </body>

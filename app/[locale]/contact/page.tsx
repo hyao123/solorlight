@@ -1,6 +1,25 @@
 import { getSiteSettings } from '@/sanity/lib/queries'
 import { ContactForm } from '@/components/ContactForm'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: 'en' | 'ru' } }): Promise<Metadata> {
+  const title = locale === 'en' ? 'Contact Us' : 'Связаться с нами'
+  const description = locale === 'en'
+    ? 'Get in touch with our solar street light experts. Request a quote or discuss your project requirements.'
+    : 'Свяжитесь с нашими экспертами по солнечным уличным фонарям. Запросите предложение или обсудите требования вашего проекта.'
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        en: '/en/contact',
+        ru: '/ru/contact',
+      },
+    },
+  }
+}
 
 export default async function ContactPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
   const settings = await getSiteSettings()

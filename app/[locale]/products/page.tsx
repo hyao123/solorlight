@@ -1,5 +1,24 @@
 import { getProducts, getProductSeries } from '@/sanity/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: 'en' | 'ru' } }): Promise<Metadata> {
+  const title = locale === 'en' ? 'Solar Street Lights' : 'Солнечные уличные фонари'
+  const description = locale === 'en'
+    ? 'Browse our complete range of solar street lights. High-efficiency panels, long-life LiFePO4 batteries, and professional-grade construction.'
+    : 'Просмотрите наш полный ассортимент солнечных уличных фонарей. Высокоэффективные панели, долговечные батареи LiFePO4 и конструкция профессионального уровня.'
+
+  return {
+    title,
+    description,
+    alternates: {
+      languages: {
+        en: '/en/products',
+        ru: '/ru/products',
+      },
+    },
+  }
+}
 
 export default async function ProductsPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
   const [products, series] = await Promise.all([
