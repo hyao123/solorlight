@@ -2,7 +2,8 @@ import Link from 'next/link'
 import { getProducts, getSiteSettings } from '@/sanity/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
 
-export default async function HomePage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
+export default async function HomePage({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }) {
+  const { locale } = await params
   const [products, settings] = await Promise.all([getProducts(), getSiteSettings()])
   const hotProducts = products.filter((p) => p.isHotProduct).slice(0, 8)
 
@@ -51,13 +52,13 @@ export default async function HomePage({ params: { locale } }: { params: { local
       )}
 
       {/* Trust strip */}
-      <section className="border-t bg-gray-50 py-10 text-center">
+      <section className="border-t bg-slate-50 py-10 text-center">
         <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-8 px-4">
           {(locale === 'en'
             ? ['CE Certified', 'RoHS Compliant', 'ISO 9001', '5-Year Warranty', '10+ Years Export']
             : ['Сертификат CE', 'Соответствует RoHS', 'ISO 9001', 'Гарантия 5 лет', 'Экспорт 10+ лет']
           ).map((badge) => (
-            <span key={badge} className="text-sm font-semibold text-gray-600">✓ {badge}</span>
+            <span key={badge} className="text-sm font-semibold text-slate-600">✓ {badge}</span>
           ))}
         </div>
       </section>

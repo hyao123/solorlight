@@ -1,7 +1,8 @@
 import { getSiteSettings } from '@/sanity/lib/queries'
 import type { Metadata } from 'next'
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: 'en' | 'ru' } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
+  const { locale } = await params
   const settings = await getSiteSettings()
   const title = locale === 'en' ? 'About Us' : 'О нас'
   const description = locale === 'en'
@@ -20,7 +21,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   }
 }
 
-export default async function AboutPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
+export default async function AboutPage({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }) {
+  const { locale } = await params
   const settings = await getSiteSettings()
 
   const content = {

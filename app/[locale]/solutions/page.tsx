@@ -6,7 +6,8 @@ const SCENE_ICONS: Record<string, string> = {
   road: '🛣️', community: '🏘️', rural: '🌾', industrial: '🏭',
 }
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: 'en' | 'ru' } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
+  const { locale } = await params
   const title = locale === 'en' ? 'Solutions by Application' : 'Решения по применению'
   const description = locale === 'en'
     ? 'We match the right solar street light product to your project type: roads, communities, rural areas, and industrial sites.'
@@ -24,7 +25,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   }
 }
 
-export default async function SolutionsPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
+export default async function SolutionsPage({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }) {
+  const { locale } = await params
   const series = await getProductSeries()
 
   return (

@@ -8,16 +8,17 @@ import { CertificateBadge } from '@/components/CertificateBadge'
 
 interface Params { locale: 'en' | 'ru'; slug: string }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const product = await getProduct(params.slug)
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { locale, slug } = await params
+  const product = await getProduct(slug)
   if (!product) return {}
   return {
-    title: product.seoTitle[params.locale] || product.name[params.locale],
-    description: product.seoDescription[params.locale],
+    title: product.seoTitle[locale] || product.name[locale],
+    description: product.seoDescription[locale],
     alternates: {
       languages: {
-        en: `/en/products/${params.slug}`,
-        ru: `/ru/products/${params.slug}`,
+        en: `/en/products/${slug}`,
+        ru: `/ru/products/${slug}`,
       },
     },
   }
@@ -30,14 +31,14 @@ export async function generateStaticParams() {
   )
 }
 
-export default async function ProductDetailPage({ params }: { params: Params }) {
+export default async function ProductDetailPage({ params }: { params: Promise<Params> }) {
+  const { locale, slug } = await params
   const [product, settings] = await Promise.all([
-    getProduct(params.slug),
+    getProduct(slug),
     getSiteSettings(),
   ])
   if (!product) notFound()
 
-  const { locale } = params
   const name = product.name[locale]
   const mainImg = product.images?.[0]
     ? urlFor(product.images[0]).width(800).height(600).url()

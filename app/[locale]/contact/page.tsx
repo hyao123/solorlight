@@ -3,7 +3,8 @@ import { ContactForm } from '@/components/ContactForm'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: 'en' | 'ru' } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
+  const { locale } = await params
   const title = locale === 'en' ? 'Contact Us' : 'Связаться с нами'
   const description = locale === 'en'
     ? 'Get in touch with our solar street light experts. Request a quote or discuss your project requirements.'
@@ -21,7 +22,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   }
 }
 
-export default async function ContactPage({ params: { locale } }: { params: { locale: 'en' | 'ru' } }) {
+export default async function ContactPage({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }) {
+  const { locale } = await params
   const settings = await getSiteSettings()
   const t = await getTranslations('contact')
 
