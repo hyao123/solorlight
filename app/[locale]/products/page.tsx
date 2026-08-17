@@ -1,5 +1,5 @@
 import { getProducts, getProductSeries } from '@/sanity/lib/queries'
-import { ProductGrid } from '@/components/ProductGrid'
+import { ProductsFilter } from '@/components/ProductsFilter'
 import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
@@ -33,16 +33,7 @@ export default async function ProductsPage({ params }: { params: Promise<{ local
         {locale === 'en' ? 'Solar Street Lights' : 'Солнечные уличные фонари'}
       </h1>
 
-      {/* Series filter tabs */}
-      <div className="mb-8 flex flex-wrap gap-2">
-        {series.map((s) => (
-          <span key={s._id} className="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-700">
-            {s.name[locale]}
-          </span>
-        ))}
-      </div>
-
-      <ProductGrid products={products} locale={locale} />
+      <ProductsFilter products={products} series={series} locale={locale} />
     </div>
   )
 }
