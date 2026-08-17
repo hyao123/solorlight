@@ -29,9 +29,13 @@ export interface SanityProductSpecs {
   lightingTime?: string
   chargingTime?: string
   colorTemp?: string
+  cct?: string
   ipRating?: string
   poleHeight?: number
+  mountHeight?: string
   workingHours?: number
+  controller?: string
+  motionSensor?: string
 }
 
 export interface SanityCertificate {

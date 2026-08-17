@@ -5,7 +5,10 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts')
 
 const config: NextConfig = {
   images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'cdn.sanity.io' }],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.sanity.io' },
+      { protocol: 'https', hostname: 'www.zgsm-china.com' },
+    ],
   },
 }
 

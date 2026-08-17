@@ -1,162 +1,363 @@
 [
   {
-    "_id": "prod-road-60w",
-    "name": {
-      "en": "Road Pro 60W",
-      "ru": "Road Pro 60 Вт"
-    },
-    "slug": {
-      "current": "road-pro-60w"
-    },
+    "_id": "prod-falcon-60w",
+    "name": { "en": "Falcon Pro 60W", "ru": "Falcon Pro 60 Вт" },
+    "slug": { "current": "falcon-pro-60w" },
     "series": "series-road",
     "images": [
-      "/images/products/road-60w.jpg"
+      "https://www.zgsm-china.com/wp-content/uploads/2024/01/Falcon-Solar-Street-Light.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2024/01/Falcon-Split-Solar-Street-Light.jpg"
     ],
     "specs": {
       "power": "60W",
-      "solarPanel": "100W Monocrystalline",
-      "battery": "40Ah LiFePO4",
-      "lumens": "8000lm",
-      "lightingTime": "12-14 hours",
-      "chargingTime": "6-8 hours"
+      "solarPanel": "100W Monocrystalline 23%",
+      "battery": "40Ah LiFePO4 · 512Wh",
+      "lumens": "9,600 lm",
+      "lightingTime": "12–14 hrs · 3 rainy days",
+      "chargingTime": "6–8 hrs",
+      "ipRating": "IP66 / IK10",
+      "cct": "4000K / 5700K",
+      "mountHeight": "8–10 m",
+      "controller": "MPPT",
+      "motionSensor": "Optional PIR"
     },
     "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
     "isHotProduct": true,
-    "seoTitle": {
-      "en": "60W Solar Street Light - Road Pro Series",
-      "ru": "Солнечный уличный фонарь 60 Вт - Серия Road Pro"
-    },
+    "seoTitle": { "en": "60W Split Solar Street Light – Falcon Pro", "ru": "Солнечный фонарь 60 Вт – Falcon Pro" },
     "seoDescription": {
-      "en": "Professional 60W solar street light with 100W panel and 40Ah LiFePO4 battery. Perfect for main roads. CE certified.",
-      "ru": "Профессиональный солнечный уличный фонарь 60 Вт с панелью 100 Вт и батареей LiFePO4 40 Ач. Идеально для основных дорог. Сертификат CE."
+      "en": "60W split-type solar street light. 9,600 lm, IP66, LiFePO4 battery, MPPT controller. CE & RoHS certified.",
+      "ru": "Раздельный солнечный фонарь 60 Вт. 9 600 лм, IP66, батарея LiFePO4, контроллер MPPT. Сертификат CE и RoHS."
     }
   },
   {
-    "_id": "prod-road-90w",
-    "name": {
-      "en": "Road Pro 90W",
-      "ru": "Road Pro 90 Вт"
-    },
-    "slug": {
-      "current": "road-pro-90w"
-    },
+    "_id": "prod-falcon-90w",
+    "name": { "en": "Falcon Pro 90W", "ru": "Falcon Pro 90 Вт" },
+    "slug": { "current": "falcon-pro-90w" },
     "series": "series-road",
     "images": [
-      "/images/products/road-90w.jpg"
+      "https://www.zgsm-china.com/wp-content/uploads/2024/01/PV-falcon-scaled.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2024/01/Falcon-Solar-Street-Light.jpg"
     ],
     "specs": {
       "power": "90W",
-      "solarPanel": "150W Monocrystalline",
-      "battery": "60Ah LiFePO4",
-      "lumens": "12000lm",
-      "lightingTime": "12-14 hours",
-      "chargingTime": "6-8 hours"
+      "solarPanel": "150W Monocrystalline 23%",
+      "battery": "60Ah LiFePO4 · 768Wh",
+      "lumens": "14,400 lm",
+      "lightingTime": "12–14 hrs · 3 rainy days",
+      "chargingTime": "6–8 hrs",
+      "ipRating": "IP66 / IK10",
+      "cct": "4000K / 5700K",
+      "mountHeight": "9–11 m",
+      "controller": "MPPT",
+      "motionSensor": "Optional PIR"
     },
     "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
     "isHotProduct": true,
-    "seoTitle": {
-      "en": "90W Solar Street Light - Road Pro Series",
-      "ru": "Солнечный уличный фонарь 90 Вт - Серия Road Pro"
-    },
+    "seoTitle": { "en": "90W Split Solar Street Light – Falcon Pro", "ru": "Солнечный фонарь 90 Вт – Falcon Pro" },
     "seoDescription": {
-      "en": "High-power 90W solar street light with 150W panel. Ideal for highways and main roads.",
-      "ru": "Мощный солнечный уличный фонарь 90 Вт с панелью 150 Вт. Идеально для магистралей и основных дорог."
+      "en": "High-power 90W split solar street light for main roads. 14,400 lm, IP66 rated, CE certified.",
+      "ru": "Мощный раздельный солнечный фонарь 90 Вт для основных дорог. 14 400 лм, IP66, сертификат CE."
     }
   },
   {
-    "_id": "prod-community-40w",
-    "name": {
-      "en": "Community Light 40W",
-      "ru": "Community Light 40 Вт"
+    "_id": "prod-alca-120w",
+    "name": { "en": "ALCA Split 120W", "ru": "ALCA Split 120 Вт" },
+    "slug": { "current": "alca-split-120w" },
+    "series": "series-road",
+    "images": [
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/1-2.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/2-2.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/3-2.jpg"
+    ],
+    "specs": {
+      "power": "120W",
+      "solarPanel": "200W Monocrystalline 23%",
+      "battery": "80Ah LiFePO4 · 1024Wh",
+      "lumens": "19,200 lm",
+      "lightingTime": "12–14 hrs · 3 rainy days",
+      "chargingTime": "6–8 hrs",
+      "ipRating": "IP66 / IK09",
+      "cct": "3000K–6500K",
+      "mountHeight": "11–14 m",
+      "controller": "MPPT",
+      "motionSensor": "Built-in PIR"
     },
-    "slug": {
-      "current": "community-light-40w"
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": true,
+    "seoTitle": { "en": "120W High-Efficacy Solar Street Light – ALCA", "ru": "Солнечный фонарь 120 Вт – ALCA" },
+    "seoDescription": {
+      "en": "ALCA 120W split-type solar street light. 176 lm/W efficacy, IP66, Ra>80, CE certified. For highways and large roads.",
+      "ru": "Раздельный солнечный фонарь ALCA 120 Вт. Эффективность 176 лм/Вт, IP66, Ra>80, сертификат CE. Для магистралей."
+    }
+  },
+  {
+    "_id": "prod-pv-150w",
+    "name": { "en": "PV Series 150W", "ru": "PV Series 150 Вт" },
+    "slug": { "current": "pv-series-150w" },
+    "series": "series-road",
+    "images": [
+      "https://www.zgsm-china.com/wp-content/uploads/2026/04/PV-Solar-Street-LED-Light.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2026/04/Solar-Street-LED-Light-2.jpg"
+    ],
+    "specs": {
+      "power": "150W",
+      "solarPanel": "250W Monocrystalline 23%",
+      "battery": "100Ah LiFePO4 · 1280Wh",
+      "lumens": "24,000 lm",
+      "lightingTime": "12–14 hrs · 3 rainy days",
+      "chargingTime": "6–8 hrs",
+      "ipRating": "IP66 / IK10",
+      "cct": "4000K / 5700K",
+      "mountHeight": "12–15 m",
+      "controller": "MPPT",
+      "motionSensor": "Built-in PIR"
     },
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": false,
+    "seoTitle": { "en": "150W Solar Street Light – PV Series", "ru": "Солнечный фонарь 150 Вт – PV Series" },
+    "seoDescription": {
+      "en": "150W PV series solar street light for highways. 24,000 lm, CE certified, 3-year warranty.",
+      "ru": "Солнечный фонарь 150 Вт PV Series для магистралей. 24 000 лм, сертификат CE, гарантия 3 года."
+    }
+  },
+  {
+    "_id": "prod-leaf-30w",
+    "name": { "en": "Leaf AIO 30W", "ru": "Leaf AIO 30 Вт" },
+    "slug": { "current": "leaf-aio-30w" },
     "series": "series-community",
     "images": [
-      "/images/products/community-40w.jpg"
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Integrated-Solar-Powered-Street-Light.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Solar-Powered-Street-Lamp.jpg"
+    ],
+    "specs": {
+      "power": "30W",
+      "solarPanel": "50W Monocrystalline",
+      "battery": "24Ah LiFePO4 · 307Wh",
+      "lumens": "4,800 lm",
+      "lightingTime": "10–12 hrs",
+      "chargingTime": "5–7 hrs",
+      "ipRating": "IP66",
+      "cct": "4000K / 5700K",
+      "mountHeight": "5–6 m",
+      "controller": "MPPT",
+      "motionSensor": "Optional PIR"
+    },
+    "certificates": ["cert-ce", "cert-rohs"],
+    "isHotProduct": false,
+    "seoTitle": { "en": "30W All-in-One Solar Light – Leaf Series", "ru": "Солнечный фонарь 30 Вт – Leaf AIO" },
+    "seoDescription": {
+      "en": "Compact all-in-one 30W solar light for parks and pathways. IP66, Lumileds chip, CE certified.",
+      "ru": "Компактный универсальный солнечный фонарь 30 Вт для парков и дорожек. IP66, чип Lumileds, сертификат CE."
+    }
+  },
+  {
+    "_id": "prod-leaf-40w",
+    "name": { "en": "Leaf AIO 40W", "ru": "Leaf AIO 40 Вт" },
+    "slug": { "current": "leaf-aio-40w" },
+    "series": "series-community",
+    "images": [
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Leaf-Integrated-Solar-Street-Lamp.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Leaf-Integrated-Solar-Powered-Street-Light.jpg"
     ],
     "specs": {
       "power": "40W",
       "solarPanel": "70W Monocrystalline",
-      "battery": "30Ah LiFePO4",
-      "lumens": "5000lm",
-      "lightingTime": "10-12 hours",
-      "chargingTime": "5-7 hours"
+      "battery": "30Ah LiFePO4 · 384Wh",
+      "lumens": "6,400 lm",
+      "lightingTime": "10–12 hrs",
+      "chargingTime": "5–7 hrs",
+      "ipRating": "IP66",
+      "cct": "4000K / 5700K",
+      "mountHeight": "6–7 m",
+      "controller": "MPPT",
+      "motionSensor": "Optional PIR"
     },
     "certificates": ["cert-ce", "cert-rohs"],
     "isHotProduct": true,
-    "seoTitle": {
-      "en": "40W Solar Street Light - Community Series",
-      "ru": "Солнечный уличный фонарь 40 Вт - Общественная серия"
-    },
+    "seoTitle": { "en": "40W All-in-One Solar Street Light – Leaf", "ru": "Солнечный фонарь 40 Вт – Leaf AIO" },
     "seoDescription": {
-      "en": "40W solar light for residential areas and parks. Energy-efficient with long battery life.",
-      "ru": "Солнечный фонарь 40 Вт для жилых районов и парков. Энергоэффективный с долгим сроком службы батареи."
+      "en": "40W all-in-one solar light for residential areas and community spaces. Lumileds chip, IP66.",
+      "ru": "Универсальный солнечный фонарь 40 Вт для жилых районов. Чип Lumileds, IP66."
     }
   },
   {
-    "_id": "prod-rural-30w",
-    "name": {
-      "en": "Rural Basic 30W",
-      "ru": "Rural Basic 30 Вт"
+    "_id": "prod-leaf-60w",
+    "name": { "en": "Leaf AIO 60W", "ru": "Leaf AIO 60 Вт" },
+    "slug": { "current": "leaf-aio-60w" },
+    "series": "series-community",
+    "images": [
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Integrated-Solar-Powered-Street-Lamp.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Leaf-Integrated-Solar-Street-Lamp.jpg"
+    ],
+    "specs": {
+      "power": "60W",
+      "solarPanel": "100W Monocrystalline",
+      "battery": "40Ah LiFePO4 · 512Wh",
+      "lumens": "9,600 lm",
+      "lightingTime": "10–12 hrs",
+      "chargingTime": "5–7 hrs",
+      "ipRating": "IP66",
+      "cct": "4000K / 5700K",
+      "mountHeight": "8–10 m",
+      "controller": "MPPT",
+      "motionSensor": "Built-in PIR"
     },
-    "slug": {
-      "current": "rural-basic-30w"
-    },
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": true,
+    "seoTitle": { "en": "60W All-in-One Solar Street Light – Leaf", "ru": "Солнечный фонарь 60 Вт – Leaf AIO" },
+    "seoDescription": {
+      "en": "60W all-in-one solar street light ideal for town squares and commercial areas. IP66, CE certified.",
+      "ru": "Универсальный солнечный фонарь 60 Вт для городских площадей и коммерческих зон. IP66, сертификат CE."
+    }
+  },
+  {
+    "_id": "prod-kmini-20w",
+    "name": { "en": "Kmini Rural 20W", "ru": "Kmini Rural 20 Вт" },
+    "slug": { "current": "kmini-rural-20w" },
     "series": "series-rural",
     "images": [
-      "/images/products/rural-30w.jpg"
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/PV-kmini.jpg"
+    ],
+    "specs": {
+      "power": "20W",
+      "solarPanel": "40W Monocrystalline",
+      "battery": "15Ah LiFePO4 · 192Wh",
+      "lumens": "3,000 lm",
+      "lightingTime": "10–12 hrs",
+      "chargingTime": "5–6 hrs",
+      "ipRating": "IP65",
+      "cct": "5700K",
+      "mountHeight": "4–5 m",
+      "controller": "PWM",
+      "motionSensor": "No"
+    },
+    "certificates": ["cert-ce"],
+    "isHotProduct": false,
+    "seoTitle": { "en": "20W Budget Solar Street Light – Kmini", "ru": "Бюджетный солнечный фонарь 20 Вт – Kmini" },
+    "seoDescription": {
+      "en": "Affordable 20W solar street light for rural villages and footpaths. No grid required, CE certified.",
+      "ru": "Доступный солнечный фонарь 20 Вт для сельских деревень. Не требует сети, сертификат CE."
+    }
+  },
+  {
+    "_id": "prod-kmini-30w",
+    "name": { "en": "Kmini Rural 30W", "ru": "Kmini Rural 30 Вт" },
+    "slug": { "current": "kmini-rural-30w" },
+    "series": "series-rural",
+    "images": [
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/AIO-solar-street-lights-ZGSM.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2023/12/PV-kmini.jpg"
     ],
     "specs": {
       "power": "30W",
       "solarPanel": "50W Polycrystalline",
-      "battery": "24Ah LiFePO4",
-      "lumens": "3500lm",
-      "lightingTime": "10-12 hours",
-      "chargingTime": "5-7 hours"
+      "battery": "24Ah LiFePO4 · 307Wh",
+      "lumens": "4,500 lm",
+      "lightingTime": "10–12 hrs",
+      "chargingTime": "5–7 hrs",
+      "ipRating": "IP65",
+      "cct": "4000K / 5700K",
+      "mountHeight": "5–6 m",
+      "controller": "MPPT",
+      "motionSensor": "Optional PIR"
     },
-    "certificates": ["cert-ce"],
-    "isHotProduct": false,
-    "seoTitle": {
-      "en": "30W Solar Street Light - Rural Series",
-      "ru": "Солнечный уличный фонарь 30 Вт - Сельская серия"
-    },
+    "certificates": ["cert-ce", "cert-rohs"],
+    "isHotProduct": true,
+    "seoTitle": { "en": "30W Rural Solar Street Light – Kmini", "ru": "Сельский солнечный фонарь 30 Вт – Kmini" },
     "seoDescription": {
-      "en": "Cost-effective 30W solar light for rural roads and villages. Reliable and durable.",
-      "ru": "Экономичный солнечный фонарь 30 Вт для сельских дорог и деревень. Надежный и долговечный."
+      "en": "30W solar light for rural roads. Cost-effective, reliable in off-grid areas, CE certified.",
+      "ru": "Солнечный фонарь 30 Вт для сельских дорог. Экономичный, надёжный в автономных районах, сертификат CE."
     }
   },
   {
-    "_id": "prod-industrial-120w",
-    "name": {
-      "en": "Industrial Max 120W",
-      "ru": "Industrial Max 120 Вт"
-    },
-    "slug": {
-      "current": "industrial-max-120w"
-    },
+    "_id": "prod-nova-100w",
+    "name": { "en": "Nova Industrial 100W", "ru": "Nova Industrial 100 Вт" },
+    "slug": { "current": "nova-industrial-100w" },
     "series": "series-industrial",
     "images": [
-      "/images/products/industrial-120w.jpg"
+      "https://www.zgsm-china.com/wp-content/uploads/2024/01/PV-nova3.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/Split-Type.jpg"
     ],
     "specs": {
-      "power": "120W",
-      "solarPanel": "200W Monocrystalline",
-      "battery": "80Ah LiFePO4",
-      "lumens": "16000lm",
-      "lightingTime": "12-14 hours",
-      "chargingTime": "6-8 hours"
+      "power": "100W",
+      "solarPanel": "160W Monocrystalline 23%",
+      "battery": "70Ah LiFePO4 · 896Wh",
+      "lumens": "16,000 lm",
+      "lightingTime": "12–14 hrs · 3 rainy days",
+      "chargingTime": "6–8 hrs",
+      "ipRating": "IP66 / IK10",
+      "cct": "4000K / 5700K",
+      "mountHeight": "10–12 m",
+      "controller": "MPPT",
+      "motionSensor": "Built-in PIR"
     },
     "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
     "isHotProduct": true,
-    "seoTitle": {
-      "en": "120W Industrial Solar Street Light",
-      "ru": "Промышленный солнечный уличный фонарь 120 Вт"
-    },
+    "seoTitle": { "en": "100W Industrial Solar Street Light – Nova", "ru": "Промышленный солнечный фонарь 100 Вт – Nova" },
     "seoDescription": {
-      "en": "Heavy-duty 120W solar light for industrial zones and ports. Maximum brightness and durability.",
-      "ru": "Сверхмощный солнечный фонарь 120 Вт для промышленных зон и портов. Максимальная яркость и долговечность."
+      "en": "100W Nova industrial solar street light. 16,000 lm, IP66, LiFePO4, MPPT. For ports and warehouses.",
+      "ru": "Промышленный солнечный фонарь Nova 100 Вт. 16 000 лм, IP66, LiFePO4, MPPT. Для портов и складов."
+    }
+  },
+  {
+    "_id": "prod-rifle-120w",
+    "name": { "en": "Rifle Industrial 120W", "ru": "Rifle Industrial 120 Вт" },
+    "slug": { "current": "rifle-industrial-120w" },
+    "series": "series-industrial",
+    "images": [
+      "https://www.zgsm-china.com/wp-content/uploads/2024/01/PV-rifle3.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/Split-Type-2.jpg"
+    ],
+    "specs": {
+      "power": "120W",
+      "solarPanel": "200W Monocrystalline 23%",
+      "battery": "80Ah LiFePO4 · 1024Wh",
+      "lumens": "19,200 lm",
+      "lightingTime": "12–14 hrs · 3 rainy days",
+      "chargingTime": "6–8 hrs",
+      "ipRating": "IP66 / IK10",
+      "cct": "4000K / 5700K",
+      "mountHeight": "11–14 m",
+      "controller": "MPPT",
+      "motionSensor": "Built-in PIR + Remote"
+    },
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": true,
+    "seoTitle": { "en": "120W Industrial Solar Street Light – Rifle", "ru": "Промышленный солнечный фонарь 120 Вт – Rifle" },
+    "seoDescription": {
+      "en": "120W Rifle industrial solar light. Remote control, motion sensor, IP66, 19,200 lm output.",
+      "ru": "Промышленный солнечный фонарь Rifle 120 Вт. Дистанционное управление, датчик движения, IP66, 19 200 лм."
+    }
+  },
+  {
+    "_id": "prod-alca-150w",
+    "name": { "en": "ALCA Industrial 150W", "ru": "ALCA Industrial 150 Вт" },
+    "slug": { "current": "alca-industrial-150w" },
+    "series": "series-industrial",
+    "images": [
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/4.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/5.jpg",
+      "https://www.zgsm-china.com/wp-content/uploads/2025/12/Split-Type-installation-2.jpg"
+    ],
+    "specs": {
+      "power": "150W",
+      "solarPanel": "250W Monocrystalline 23%",
+      "battery": "100Ah LiFePO4 · 1280Wh",
+      "lumens": "26,400 lm",
+      "lightingTime": "12–14 hrs · 3 rainy days",
+      "chargingTime": "6–8 hrs",
+      "ipRating": "IP66 / IK09",
+      "cct": "3000K–6500K",
+      "mountHeight": "12–16 m",
+      "controller": "MPPT",
+      "motionSensor": "Built-in PIR + Remote"
+    },
+    "certificates": ["cert-ce", "cert-rohs", "cert-iso9001"],
+    "isHotProduct": false,
+    "seoTitle": { "en": "150W Heavy-Duty Solar Street Light – ALCA Industrial", "ru": "Промышленный солнечный фонарь 150 Вт – ALCA" },
+    "seoDescription": {
+      "en": "150W ALCA heavy-duty solar street light. 176 lm/W, Ra>80, 26,400 lm. For large industrial sites.",
+      "ru": "Тяжелопромышленный солнечный фонарь ALCA 150 Вт. 176 лм/Вт, Ra>80, 26 400 лм. Для крупных промышленных объектов."
     }
   }
 ]
