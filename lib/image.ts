@@ -14,6 +14,17 @@ function makeResult(src: string): ImageUrlResult {
 }
 
 export function urlFor(source: unknown): ImageUrlResult {
-  if (typeof source === 'string') return makeResult(source)
+  if (typeof source === 'string') {
+    return makeResult(source)
+  }
+  if (source && typeof source === 'object' && 'asset' in source) {
+    const asset = (source as any).asset
+    if (typeof asset === 'string') {
+      return makeResult(asset)
+    }
+    if (asset && typeof asset === 'object' && 'url' in asset) {
+      return makeResult(asset.url)
+    }
+  }
   return makeResult('/placeholder.jpg')
 }

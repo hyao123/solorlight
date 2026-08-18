@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import type { ProjectCase } from '@/sanity/lib/queries'
+import type { ProjectCase } from '@/lib/queries'
 
 interface CaseGalleryProps {
   cases: ProjectCase[]

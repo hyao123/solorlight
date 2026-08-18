@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getProductSeries, getProducts, getSiteSettings } from '@/sanity/lib/queries'
-import { urlFor } from '@/sanity/lib/image'
+import { getProductSeries, getProducts, getSiteSettings } from '@/lib/queries'
+import { urlFor } from '@/lib/image'
 import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {

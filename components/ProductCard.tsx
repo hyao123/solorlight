@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { urlFor } from '@/sanity/lib/image'
+import { urlFor } from '@/lib/image'
 import type { SanityProduct } from '@/types/sanity'
 
 interface ProductCardProps {

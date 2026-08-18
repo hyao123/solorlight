@@ -1,4 +1,4 @@
-import { getProducts, getProductSeries } from '@/sanity/lib/queries'
+import { getProducts, getProductSeries } from '@/lib/queries'
 import { ProductsFilter } from '@/components/ProductsFilter'
 import type { Metadata } from 'next'
 

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getProducts } from '@/sanity/lib/queries'
+import { getProducts } from '@/lib/queries'
 
 const BASE_URL = process.env.SITE_URL ?? 'https://solarlight-solutions.com'
 

@@ -1,4 +1,4 @@
-import { getSiteSettings } from '@/sanity/lib/queries'
+import { getSiteSettings } from '@/lib/queries'
 import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {

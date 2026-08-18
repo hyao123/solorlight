@@ -1,4 +1,4 @@
-import { getSiteSettings } from '@/sanity/lib/queries'
+import { getSiteSettings } from '@/lib/queries'
 import { ContactForm } from '@/components/ContactForm'
 import type { Metadata } from 'next'
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getProducts, getSiteSettings, getProjectCases } from '@/sanity/lib/queries'
+import { getProducts, getSiteSettings, getProjectCases } from '@/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
 import { CaseGallery } from '@/components/CaseGallery'
 
