@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
 import { getSiteSettings } from '@/lib/queries'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -70,13 +69,12 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const messages = await getMessages()
   const settings = await getSiteSettings()
 
   return (
     <html lang={locale}>
       <body className={`${inter.className} bg-slate-950 text-slate-50 antialiased`}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={{}}>
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer settings={settings} />
