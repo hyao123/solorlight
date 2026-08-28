@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 import { getSiteSettings } from '@/lib/queries'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { FloatingInquiryWidget } from '@/components/FloatingInquiryWidget'
+import { OrganizationJsonLd } from '@/components/StructuredData'
 import '../globals.css'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
@@ -69,16 +71,29 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const settings = await getSiteSettings()
+  const [settings, messages] = await Promise.all([
+    getSiteSettings(),
+    getMessages(),
+  ])
 
   return (
     <html lang={locale}>
       <body className={`${inter.className} bg-slate-950 text-slate-50 antialiased`}>
-        <NextIntlClientProvider messages={{}}>
+        <OrganizationJsonLd
+          name={settings.companyName[locale === 'ru' ? 'ru' : 'en']}
+          url={process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'}
+          contactPhone={settings.whatsappNumber}
+          email={settings.email}
+        />
+        <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer settings={settings} />
-          <WhatsAppButton phone={settings.whatsappNumber} />
+          <FloatingInquiryWidget
+            whatsappNumber={settings.whatsappNumber}
+            email={settings.email}
+            locale={locale === 'ru' ? 'ru' : 'en'}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

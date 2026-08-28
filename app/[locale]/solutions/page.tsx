@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getProductSeries, getProducts, getSiteSettings } from '@/lib/queries'
-import { urlFor } from '@/lib/image'
+import { SolarCalculator } from '@/components/SolarCalculator'
+import { BreadcrumbJsonLd } from '@/components/StructuredData'
 import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
@@ -37,7 +38,7 @@ const SCENE_CONFIG: Record<string, {
 }> = {
   road: {
     icon: '🛣️',
-    heroImg: 'https://www.zgsm-china.com/wp-content/uploads/2022/01/65w-outdoor-solar-street-lights-for-Road-lighting-in-industrial-area-in-JIANGXI-OF-CHINA-1024x683.jpg',
+    heroImg: '/images/products/road-90w.jpg',
     colorFrom: 'from-blue-900',
     colorTo: 'to-slate-900',
     accent: 'text-blue-400',
@@ -61,7 +62,7 @@ const SCENE_CONFIG: Record<string, {
   },
   community: {
     icon: '🏘️',
-    heroImg: 'https://www.zgsm-china.com/wp-content/uploads/2022/01/Series-PV-solar-powered-parking-lot-lights-in-amusement-park-in-Thailand-1024x683.jpg',
+    heroImg: '/images/products/community-40w.jpg',
     colorFrom: 'from-emerald-900',
     colorTo: 'to-slate-900',
     accent: 'text-emerald-400',
@@ -85,7 +86,7 @@ const SCENE_CONFIG: Record<string, {
   },
   rural: {
     icon: '🌾',
-    heroImg: 'https://www.zgsm-china.com/wp-content/uploads/2022/08/Series-Kmini-led-solar-street-lamp-on-Suburban-highway-in-Tunisia-2-1024x683.jpg',
+    heroImg: '/images/products/rural-30w.jpg',
     colorFrom: 'from-amber-900',
     colorTo: 'to-slate-900',
     accent: 'text-amber-400',
@@ -109,7 +110,7 @@ const SCENE_CONFIG: Record<string, {
   },
   industrial: {
     icon: '🏭',
-    heroImg: 'https://www.zgsm-china.com/wp-content/uploads/2022/01/solar-street-led-light-in-road-lighting-in-Ecuador-2-1024x683.jpg',
+    heroImg: '/images/products/industrial-120w.jpg',
     colorFrom: 'from-violet-900',
     colorTo: 'to-slate-900',
     accent: 'text-violet-400',
@@ -140,9 +141,16 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
   ])
 
   const en = locale === 'en'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: en ? 'Home' : 'Главная', url: `${siteUrl}/${locale}` },
+          { name: en ? 'Solutions' : 'Решения', url: `${siteUrl}/${locale}/solutions` },
+        ]}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-slate-900 to-slate-800 py-20 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
@@ -161,7 +169,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
       </section>
 
       {/* Solution cards — one per series */}
-      <div className="divide-y divide-slate-100">
+      <div className="divide-y divide-slate-800">
         {series.map((s, idx) => {
           const cfg = SCENE_CONFIG[s.targetScene]
           if (!cfg) return null
@@ -184,7 +192,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
 
                   {/* Image side */}
                   <div className={isEven ? '' : 'lg:col-start-2'}>
-                    <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${cfg.colorFrom} ${cfg.colorTo}`}>
+                    <div className={`relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br ${cfg.colorFrom} ${cfg.colorTo}`}>
                       <div className="relative aspect-[3/2] w-full">
                         <Image
                           src={cfg.heroImg}
@@ -195,7 +203,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
                         />
                       </div>
                       {/* Stats overlay */}
-                      <div className="grid grid-cols-2 divide-x divide-white/10 border-t border-white/10">
+                      <div className="grid grid-cols-2 divide-x divide-white/10 border-t border-white/10 bg-slate-950/70">
                         {stats.map((st) => (
                           <div key={st.label} className="px-5 py-4">
                             <div className="text-base font-bold text-white">{st.value}</div>
@@ -214,20 +222,20 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
                         {s.name[locale]}
                       </span>
                     </div>
-                    <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
+                    <h2 className="mt-2 text-2xl font-bold text-slate-50 sm:text-3xl">
                       {s.description[locale]}
                     </h2>
-                    <p className="mt-4 text-slate-500 leading-relaxed">{challenge}</p>
+                    <p className="mt-4 text-slate-400 leading-relaxed">{challenge}</p>
 
                     {/* Use cases */}
                     <div className="mt-6">
-                      <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                      <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
                         {en ? 'Typical applications' : 'Типичные применения'}
                       </div>
                       <ul className="grid grid-cols-2 gap-1.5">
                         {useCases.map((uc) => (
-                          <li key={uc} className="flex items-start gap-2 text-sm text-slate-700">
-                            <span className="mt-0.5 text-green-500">✓</span> {uc}
+                          <li key={uc} className="flex items-start gap-2 text-sm text-slate-300">
+                            <span className="mt-0.5 text-emerald-400">✓</span> {uc}
                           </li>
                         ))}
                       </ul>
@@ -236,7 +244,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
                     {/* Recommended models */}
                     {seriesProducts.length > 0 && (
                       <div className="mt-6">
-                        <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
                           {en ? 'Recommended models' : 'Рекомендуемые модели'}
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -244,7 +252,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
                             <Link
                               key={p._id}
                               href={`/${locale}/products/${p.slug.current}`}
-                              className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-orange-400 hover:text-orange-600 transition"
+                              className="rounded-full border border-slate-800 bg-slate-900 px-3 py-1.5 text-sm font-medium text-slate-300 hover:border-yellow-400/50 hover:text-yellow-400 transition"
                             >
                               {p.name[locale]}
                             </Link>
@@ -256,7 +264,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
                     <div className="mt-8 flex flex-wrap gap-3">
                       <Link
                         href={`/${locale}/products?series=${s.slug.current}`}
-                        className="rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-700"
+                        className="rounded-xl bg-yellow-400 px-5 py-2.5 text-sm font-semibold text-slate-900 hover:bg-yellow-300 transition"
                       >
                         {en ? `View all ${s.name.en} products →` : `Все продукты серии ${s.name.ru} →`}
                       </Link>
@@ -264,7 +272,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
                         href={`https://wa.me/${settings.whatsappNumber?.replace(/\D/g, '') ?? ''}?text=${encodeURIComponent(en ? `I need solar lights for: ${s.name.en}` : `Нужны фонари для: ${s.name.ru}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-green-400 hover:text-green-600 transition"
+                        className="rounded-xl border border-slate-700 bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-200 hover:border-emerald-400 hover:text-emerald-400 transition"
                       >
                         💬 {en ? 'Quick quote' : 'Быстрый запрос'}
                       </a>
@@ -277,24 +285,34 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
         })}
       </div>
 
+      {/* Interactive Sizing Calculator */}
+      <section className="bg-slate-950/80 py-16 border-t border-slate-800/80">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SolarCalculator
+            locale={locale}
+            whatsappNumber={settings.whatsappNumber}
+          />
+        </div>
+      </section>
+
       {/* Comparison table */}
-      <section className="bg-slate-50 py-16">
+      <section className="bg-slate-950 py-16 border-t border-slate-800">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <h2 className="mb-8 text-2xl font-bold text-slate-900 text-center">
+          <h2 className="mb-8 text-2xl font-bold text-slate-50 text-center">
             {en ? 'Quick Selection Guide' : 'Краткое руководство по выбору'}
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900 shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50">
-                  <th className="px-5 py-3 text-left font-semibold text-slate-700">{en ? 'Application' : 'Применение'}</th>
-                  <th className="px-5 py-3 text-left font-semibold text-slate-700">{en ? 'Power' : 'Мощность'}</th>
-                  <th className="px-5 py-3 text-left font-semibold text-slate-700">{en ? 'Mount height' : 'Высота'}</th>
-                  <th className="px-5 py-3 text-left font-semibold text-slate-700">{en ? 'Type' : 'Тип'}</th>
-                  <th className="px-5 py-3 text-left font-semibold text-slate-700">{en ? 'Autonomy' : 'Автономность'}</th>
+                <tr className="border-b border-slate-800 bg-slate-950">
+                  <th className="px-5 py-3 text-left font-semibold text-slate-300">{en ? 'Application' : 'Применение'}</th>
+                  <th className="px-5 py-3 text-left font-semibold text-slate-300">{en ? 'Power' : 'Мощность'}</th>
+                  <th className="px-5 py-3 text-left font-semibold text-slate-300">{en ? 'Mount height' : 'Высота'}</th>
+                  <th className="px-5 py-3 text-left font-semibold text-slate-300">{en ? 'Type' : 'Тип'}</th>
+                  <th className="px-5 py-3 text-left font-semibold text-slate-300">{en ? 'Autonomy' : 'Автономность'}</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-slate-800/60">
                 {[
                   { scene: en ? 'Highway / Main road' : 'Магистраль / Основная дорога', power: '90–150 W', height: '10–15 m', type: en ? 'Split' : 'Раздельный', auto: en ? '3 days' : '3 дня' },
                   { scene: en ? 'Secondary road' : 'Второстепенная дорога', power: '60–90 W', height: '8–10 m', type: en ? 'Split / AIO' : 'Раздельный / AIO', auto: en ? '3 days' : '3 дня' },
@@ -303,12 +321,12 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
                   { scene: en ? 'Park / Pathway' : 'Парк / Дорожка', power: '30–40 W', height: '5–6 m', type: en ? 'All-in-one' : 'Универсальный', auto: en ? '2 days' : '2 дня' },
                   { scene: en ? 'Industrial yard' : 'Промышленный двор', power: '100–150 W', height: '10–16 m', type: en ? 'Split' : 'Раздельный', auto: en ? '3 days' : '3 дня' },
                 ].map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td className="px-5 py-3 font-medium text-slate-900">{row.scene}</td>
-                    <td className="px-5 py-3 text-slate-600">{row.power}</td>
-                    <td className="px-5 py-3 text-slate-600">{row.height}</td>
-                    <td className="px-5 py-3 text-slate-600">{row.type}</td>
-                    <td className="px-5 py-3 text-slate-600">{row.auto}</td>
+                  <tr key={i} className={i % 2 === 0 ? 'bg-slate-900' : 'bg-slate-950/50'}>
+                    <td className="px-5 py-3 font-medium text-slate-200">{row.scene}</td>
+                    <td className="px-5 py-3 text-slate-400">{row.power}</td>
+                    <td className="px-5 py-3 text-slate-400">{row.height}</td>
+                    <td className="px-5 py-3 text-slate-400">{row.type}</td>
+                    <td className="px-5 py-3 text-slate-400">{row.auto}</td>
                   </tr>
                 ))}
               </tbody>
@@ -326,7 +344,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
           {en ? 'Send us photos and the road width — we will pick the right model and send a lux simulation.' : 'Пришлите фото и ширину дороги — подберём модель и пришлём расчёт освещённости.'}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
-          <Link href={`/${locale}/contact`} className="rounded-full bg-slate-900 px-8 py-3 font-semibold text-white hover:bg-slate-700">
+          <Link href={`/${locale}/contact`} className="rounded-full bg-slate-900 px-8 py-3 font-semibold text-white hover:bg-slate-800 transition">
             {en ? 'Get Free Lighting Plan' : 'Получить бесплатный проект'}
           </Link>
           <a

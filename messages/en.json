@@ -8,11 +8,184 @@
   "cta": {
     "getQuote": "Get a Free Quote",
     "inquireNow": "Inquire Now",
-    "whatsapp": "Chat on WhatsApp"
+    "whatsapp": "Chat on WhatsApp",
+    "browseProducts": "Browse Products",
+    "downloadCatalogue": "Download Catalogue",
+    "contactUs": "Contact Us",
+    "quickQuote": "Quick Quote"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "connect": "Connect With Us"
+  },
+  "home": {
+    "badge": "B2B Solar Lighting Manufacturer",
+    "heroTitle": "Solar Street Lights Built for Harsh Climates",
+    "heroSub": "CE & RoHS certified · LiFePO4 battery · 5-year warranty · Ships to Kazakhstan, Uzbekistan & beyond",
+    "heroBtn": "Get a Free Quote",
+    "heroBtn2": "Browse Products",
+    "stats": {
+      "projects": "500+ Projects",
+      "projectsSub": "Completed worldwide",
+      "countries": "20+ Countries",
+      "countriesSub": "Active export markets",
+      "warranty": "5-Year Warranty",
+      "warrantySub": "On all products",
+      "exp": "10+ Years",
+      "expSub": "Manufacturing experience"
+    },
+    "whyTitle": "Why Choose SolarLight?",
+    "whySub": "Engineered for reliability in extreme heat, dust, and off-grid environments.",
+    "features": [
+      { "icon": "🔋", "title": "LiFePO4 Battery", "desc": "Safer and longer-lasting than Li-ion. Rated 2000+ cycles, works from -20°C to +60°C." },
+      { "icon": "☀️", "title": "Monocrystalline Panel", "desc": "22%+ efficiency panels with anti-reflective glass. Charges fully even in partial shade." },
+      { "icon": "💡", "title": "Bridgelux / Epistar LEDs", "desc": "160+ lm/W luminous efficacy. Consistent color temperature 4000–6500K." },
+      { "icon": "🛡️", "title": "IP65 / IP66 Rated", "desc": "Fully sealed against dust and rain. Withstands sandstorms common in Central Asia." },
+      { "icon": "📡", "title": "Smart Motion Sensor", "desc": "Optional PIR sensor dims to 30% when idle, extends runtime by up to 40%." },
+      { "icon": "🏆", "title": "CE · RoHS · ISO 9001", "desc": "All required certifications for import into Kazakhstan, Uzbekistan, and EU markets." }
+    ],
+    "scenesTitle": "Application Scenarios",
+    "scenesSub": "From remote villages to urban highways — one supplier for every project type.",
+    "scenes": [
+      { "icon": "🛣️", "title": "Main Roads & Highways", "desc": "60W–120W high-power models with 8–12m pole height. Uniform 30+ lux road illumination." },
+      { "icon": "🏘️", "title": "Residential & Community", "desc": "30W–60W with decorative pole options. Perfect for housing estates and public squares." },
+      { "icon": "🌾", "title": "Rural Villages", "desc": "20W–40W cost-effective models. No grid needed — ideal for off-grid communities." },
+      { "icon": "🏭", "title": "Industrial & Ports", "desc": "80W–150W flood-style models. High lux output for warehouses, yards, and logistics hubs." }
+    ],
+    "howTitle": "How to Order",
+    "howSteps": [
+      { "n": "01", "title": "Send Your Requirements", "desc": "Share site photos, pole spacing, and road width via WhatsApp or email." },
+      { "n": "02", "title": "Receive Free Lighting Plan", "desc": "Our engineers design a layout with lux simulation within 24 hours." },
+      { "n": "03", "title": "Confirm & Ship", "desc": "MOQ 10 units. Sea freight or air freight. Door-to-door delivery to Central Asia." }
+    ],
+    "howBtn": "Start on WhatsApp",
+    "popularTitle": "Popular Products",
+    "viewAll": "View All Products →",
+    "galleryTitle": "Real Installations",
+    "gallerySub": "Photos from actual project sites across China and export markets.",
+    "testimonialsTitle": "What Our Clients Say",
+    "testimonials": [
+      { "name": "Alibek Dzhaksybekov", "role": "Municipal Procurement, Almaty", "text": "Ordered 200 units for a road project. Installation was straightforward and the lights have been running flawlessly for 18 months." },
+      { "name": "Rustam Nazarov", "role": "Infrastructure Developer, Tashkent", "text": "CE certificate made customs clearance easy. The free lighting design service saved us weeks of engineering work." },
+      { "name": "Ahmed Al-Rashidi", "role": "Project Manager, Oman", "text": "IP66 model handles the desert heat and dust perfectly. No maintenance calls in the first year." }
+    ],
+    "ctaTitle": "Ready to light your next project?",
+    "ctaSub": "Get a free lighting plan and quote within 24 hours.",
+    "ctaBtn": "WhatsApp Us Now",
+    "ctaBtn2": "Browse Catalogue",
+    "trustBadges": ["CE Certified", "RoHS Compliant", "ISO 9001", "5-Year Warranty", "10+ Years Export"]
+  },
+  "about": {
+    "heroTag": "Solar Street Light Manufacturer",
+    "heroTitle": "Built on a Decade of Export Experience",
+    "heroSub": "From a small factory in Shenzhen to 500+ projects across 20+ countries — we deliver reliable solar lighting wherever the grid does not reach.",
+    "storyTitle": "Our Story",
+    "story": [
+      "SolarLight Solutions was founded in Shenzhen, China in 2014 by a team of engineers who saw a clear gap: developing markets needed reliable outdoor lighting, but extending the grid was too slow and too expensive.",
+      "We started with a single product — a 30W split-type solar street light — and shipped 50 units to a rural electrification project in Kazakhstan. That project is still running today.",
+      "Over the next decade we expanded our range to 20+ models covering 20W–150W, built a factory with ISO 9001 certification, and established export channels into 20+ countries across Central Asia, the Middle East, and Africa.",
+      "Today our lights illuminate village roads in Uzbekistan, school playgrounds in Kyrgyzstan, industrial yards in Oman, and commercial zones in Kazakhstan. Every product leaves our factory CE and RoHS certified."
+    ],
+    "statsTitle": "By the Numbers",
+    "stats": [
+      { "value": "500+", "label": "Projects completed" },
+      { "value": "20+", "label": "Countries served" },
+      { "value": "50,000+", "label": "Lights installed" },
+      { "value": "10+", "label": "Years of experience" },
+      { "value": "5-year", "label": "Product warranty" },
+      { "value": "ISO 9001", "label": "Certified factory" }
+    ],
+    "valuesTitle": "What We Stand For",
+    "values": [
+      { "icon": "🔬", "title": "Engineering First", "desc": "Every model is tested for 1,000+ hours before release. We only ship what we would install ourselves." },
+      { "icon": "🤝", "title": "Long-Term Partnership", "desc": "We provide free lighting plans, customs documentation support, and 5-year after-sales service." },
+      { "icon": "🌍", "title": "Local Market Knowledge", "desc": "Our team speaks Russian and Arabic. We understand Central Asian procurement requirements and standards." },
+      { "icon": "⚡", "title": "No Compromise on Components", "desc": "Lumileds/Bridgelux LEDs, CATL LiFePO4 cells, and Epever MPPT controllers — no substitutions." }
+    ],
+    "certTitle": "Certifications & Standards",
+    "certs": [
+      { "name": "CE", "desc": "Required for all EU and many CIS markets. Covers EMC, LVD, and RoHS directives." },
+      { "name": "RoHS", "desc": "Restriction of hazardous substances. No lead, mercury, or cadmium in our products." },
+      { "name": "ISO 9001", "desc": "Factory quality management system. Audited annually by Bureau Veritas." },
+      { "name": "IP66", "desc": "Full dust-tight seal, protected against powerful water jets. Suitable for desert conditions." },
+      { "name": "IEC 60598", "desc": "International standard for luminaire safety and performance." },
+      { "name": "LM-80", "desc": "LED lumen maintenance testing. Confirms L70 lifespan >100,000 hours." }
+    ],
+    "teamTitle": "The Team Behind the Products",
+    "team": [
+      { "name": "David Chen", "role": "Founder & Chief Engineer", "note": "15 years in LED lighting, led R&D for 3 product generations." },
+      { "name": "Elena Sorokina", "role": "Export Manager – CIS", "note": "Native Russian speaker, 8 years managing Kazakhstan and Uzbekistan accounts." },
+      { "name": "Omar Al-Khalidi", "role": "Regional Manager – Middle East", "note": "Based in Dubai, covers GCC and MENA project tenders." },
+      { "name": "Wei Zhang", "role": "Quality Assurance Director", "note": "Manages ISO 9001 compliance and pre-shipment inspection protocols." }
+    ],
+    "ctaTitle": "Ready to discuss your project?",
+    "ctaSub": "Our engineering team provides free lighting plans within 24 hours.",
+    "ctaBtn": "Contact Us",
+    "ctaWa": "WhatsApp Us"
+  },
+  "solutions": {
+    "heroTag": "Application Guide",
+    "heroTitle": "The Right Light for Every Project",
+    "heroSub": "Different locations have different lighting requirements. Choose your scenario below and we will show you exactly which product fits — with specs, use cases, and a direct quote link.",
+    "typicalApps": "Typical applications",
+    "recommendedModels": "Recommended models",
+    "viewSeries": "View all {series} products →",
+    "quickQuote": "Quick quote",
+    "guideTitle": "Quick Selection Guide",
+    "table": {
+      "application": "Application",
+      "power": "Power",
+      "height": "Mount height",
+      "type": "Type",
+      "autonomy": "Autonomy",
+      "rows": [
+        { "scene": "Highway / Main road", "power": "90–150 W", "height": "10–15 m", "type": "Split", "auto": "3 days" },
+        { "scene": "Secondary road", "power": "60–90 W", "height": "8–10 m", "type": "Split / AIO", "auto": "3 days" },
+        { "scene": "Residential area", "power": "40–60 W", "height": "6–8 m", "type": "All-in-one", "auto": "2–3 days" },
+        { "scene": "Village road", "power": "20–30 W", "height": "4–6 m", "type": "All-in-one", "auto": "3 days" },
+        { "scene": "Park / Pathway", "power": "30–40 W", "height": "5–6 m", "type": "All-in-one", "auto": "2 days" },
+        { "scene": "Industrial yard", "power": "100–150 W", "height": "10–16 m", "type": "Split", "auto": "3 days" }
+      ]
+    },
+    "ctaTitle": "Not sure which model fits your project?",
+    "ctaSub": "Send us photos and the road width — we will pick the right model and send a lux simulation.",
+    "ctaBtn": "Get Free Lighting Plan"
   },
   "contact": {
     "pageTitle": "Contact Us",
     "sectionTitle": "Get in Touch",
+    "heroTag": "Get in Touch",
+    "heroTitle": "We Reply Within 24 Hours",
+    "heroSub": "Send us your project requirements — site photos, road width, pole spacing — and we will return a free lighting design and quote.",
+    "channelsTitle": "Ways to Reach Us",
+    "channels": {
+      "whatsappTitle": "WhatsApp (Fastest)",
+      "whatsappDesc": "Send photos, specs, or questions. We monitor WhatsApp daily including weekends.",
+      "whatsappCta": "Chat on WhatsApp",
+      "emailTitle": "Email",
+      "emailDesc": "For formal inquiries, RFQs, or attaching project documents.",
+      "emailCta": "Send Email",
+      "factoryTitle": "Factory Address",
+      "factoryDesc": "Visitors welcome by appointment. We can arrange factory tours for buyers.",
+      "factoryCta": "View on Map"
+    },
+    "processTitle": "What Happens After You Contact Us",
+    "steps": [
+      { "n": "01", "title": "You send requirements", "desc": "Share road photos, pole spacing, wattage estimate, or just your location and project type." },
+      { "n": "02", "title": "We send a lighting plan", "desc": "Our engineer prepares a lux simulation layout within 24 hours at no cost." },
+      { "n": "03", "title": "You receive a quote", "desc": "Itemised quote with unit price, MOQ, lead time, and shipping options (FOB/CIF)." },
+      { "n": "04", "title": "We handle the rest", "desc": "Factory inspection, packing, customs docs (CO, packing list, invoice). Door-to-door available." }
+    ],
+    "faqTitle": "Frequently Asked Questions",
+    "faqs": [
+      { "q": "What is the minimum order quantity?", "a": "MOQ is 10 units. We can mix models in one order (e.g. 5 × 60W + 5 × 90W)." },
+      { "q": "How long does shipping to Central Asia take?", "a": "Sea freight via Caspian route: 18–25 days. Rail freight (China-Kazakhstan): 12–18 days. Air freight: 5–7 days." },
+      { "q": "Do you provide CE certificate?", "a": "Yes. CE, RoHS, and ISO 9001 certificates are included with every shipment at no extra cost." },
+      { "q": "Can you provide a sample before bulk order?", "a": "Yes. Sample orders of 1–3 units are available. Sample cost is refunded on first bulk order ≥50 units." },
+      { "q": "Do you offer OEM / custom branding?", "a": "Yes. We support custom logo on lamp head, pole, and packaging. MOQ for OEM is 50 units." }
+    ],
+    "formTitle": "Send an Inquiry",
+    "formSub": "Fill in the details below and we will reply with a quote and lighting plan.",
     "name": "Your Name",
     "company": "Company Name",
     "country": "Select Country",
@@ -21,10 +194,97 @@
     "email": "Email Address",
     "message": "Your Message",
     "submit": "Send Inquiry",
+    "sending": "Sending...",
     "success": "Thank you! We'll respond within 24 hours.",
     "error": "Failed to send. Please try again or contact us directly."
   },
-  "footer": {
-    "rights": "All rights reserved."
+  "products": {
+    "title": "Solar Street Lights",
+    "subtitle": "High-efficiency monocrystalline solar street lighting solutions for roads, communities, rural areas, and industrial facilities.",
+    "all": "All Products",
+    "home": "Home",
+    "breadcrumb": "Products",
+    "power": "Power",
+    "flux": "Flux",
+    "protection": "Protection",
+    "battery": "Battery",
+    "certifications": "Certifications",
+    "requestQuoteWhatsApp": "Request Quote on WhatsApp",
+    "sendEmailInquiry": "Send Email Inquiry",
+    "shippingNotice": "MOQ 10 units · Sea & rail freight to Central Asia · 3–5 week lead time",
+    "technicalSpecs": "Technical Specifications",
+    "whyChooseTitle": "Why Choose This Model?",
+    "moreInSeries": "More in This Series",
+    "noProducts": "No products found"
+  },
+  "calculator": {
+    "tag": "Interactive Engineering Tool",
+    "title": "Solar Lighting System Calculator",
+    "subtitle": "Calculate recommended LED wattage, battery capacity, panel rating, and pole height for your project in seconds.",
+    "scenarioLabel": "Application Scenario",
+    "scenarios": {
+      "road": "Highway & Main Road",
+      "community": "Residential & Park",
+      "rural": "Rural & Village Road",
+      "industrial": "Industrial Yard & Port"
+    },
+    "roadWidth": "Road Width",
+    "poleHeight": "Target Pole Height",
+    "autonomyDays": "Rainy Days Autonomy",
+    "daysUnit": "days",
+    "recommendations": "Engineering Recommendation",
+    "recWattage": "Recommended LED Power",
+    "recLumens": "Estimated Luminous Flux",
+    "recBattery": "Recommended LiFePO4 Battery",
+    "recPanel": "Recommended Solar Panel",
+    "recLux": "Estimated Ground Lux",
+    "recSpacing": "Recommended Pole Spacing",
+    "recModel": "Matching Production Series",
+    "viewProduct": "View Suggested Series →",
+    "ctaWhatsApp": "Request Free DIALux Simulation",
+    "ctaRfq": "Get Exact Price Quotation"
+  },
+  "rfq": {
+    "modalTitle": "Request B2B Quotation",
+    "modalSub": "Receive unit price, shipping freight, and DIALux lighting layout within 24 hours.",
+    "productLabel": "Selected Product / Series",
+    "name": "Your Name",
+    "company": "Company / Organization",
+    "country": "Delivery Destination",
+    "quantity": "Estimated Order Quantity (MOQ 10)",
+    "quantityPlaceholder": "e.g. 50 units",
+    "emailOrPhone": "Email Address or WhatsApp Number",
+    "projectNotes": "Project Notes / Road Dimensions",
+    "submitEmail": "Submit RFQ",
+    "submitWhatsApp": "Inquire Directly via WhatsApp",
+    "sending": "Submitting...",
+    "success": "RFQ Submitted! Our export engineer will contact you shortly.",
+    "error": "Submission failed. Please click below to send directly via WhatsApp.",
+    "close": "Close"
+  },
+  "floatingWidget": {
+    "badge": "Online",
+    "replyTime": "Replies in ~15 min",
+    "helpTitle": "B2B Export Support",
+    "helpSub": "Need lighting plan, pricing, or certificate?",
+    "chatWhatsApp": "Chat on WhatsApp",
+    "requestRfq": "Instant Quote / RFQ",
+    "emailUs": "Send Formal RFQ",
+    "call": "Call Factory Sales"
+  },
+  "datasheet": {
+    "button": "Print / PDF Datasheet",
+    "docTitle": "SolarLight™ Technical Specification Sheet",
+    "officialCert": "Official Export Product Specification Sheet",
+    "companyHeader": "SolarLight Solutions Co., Ltd. · Shenzhen, China",
+    "disclaimer": "Specifications are subject to engineering tolerances and tested under standard test conditions (STC: 1000W/m², AM 1.5, 25°C)."
+  },
+  "caseParams": {
+    "projectType": "Project Type",
+    "quantity": "Quantity",
+    "power": "Wattage",
+    "poleHeight": "Pole Height",
+    "location": "Site Location",
+    "requestSimilar": "Request Similar Solution Quote"
   }
 }

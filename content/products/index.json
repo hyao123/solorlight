@@ -5,8 +5,8 @@
     "slug": { "current": "falcon-pro-60w" },
     "series": "series-road",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2024/01/Falcon-Solar-Street-Light.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2024/01/Falcon-Split-Solar-Street-Light.jpg"
+      "/images/products/road-60w.jpg",
+      "/images/cases/closeup-panel-lamp.jpg"
     ],
     "specs": {
       "power": "60W",
@@ -35,8 +35,8 @@
     "slug": { "current": "falcon-pro-90w" },
     "series": "series-road",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2024/01/PV-falcon-scaled.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2024/01/Falcon-Solar-Street-Light.jpg"
+      "/images/products/road-90w.jpg",
+      "/images/cases/closeup-panel-lamp.jpg"
     ],
     "specs": {
       "power": "90W",
@@ -65,9 +65,8 @@
     "slug": { "current": "alca-split-120w" },
     "series": "series-road",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/1-2.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/2-2.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/3-2.jpg"
+      "/images/products/road-90w.jpg",
+      "/images/cases/closeup-panel-lamp.jpg"
     ],
     "specs": {
       "power": "120W",
@@ -96,8 +95,8 @@
     "slug": { "current": "pv-series-150w" },
     "series": "series-road",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2026/04/PV-Solar-Street-LED-Light.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2026/04/Solar-Street-LED-Light-2.jpg"
+      "/images/products/road-90w.jpg",
+      "/images/cases/closeup-panel-lamp.jpg"
     ],
     "specs": {
       "power": "150W",
@@ -126,8 +125,8 @@
     "slug": { "current": "leaf-aio-30w" },
     "series": "series-community",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Integrated-Solar-Powered-Street-Light.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Solar-Powered-Street-Lamp.jpg"
+      "/images/products/community-40w.jpg",
+      "/images/cases/community-building.jpg"
     ],
     "specs": {
       "power": "30W",
@@ -156,8 +155,8 @@
     "slug": { "current": "leaf-aio-40w" },
     "series": "series-community",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Leaf-Integrated-Solar-Street-Lamp.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Leaf-Integrated-Solar-Powered-Street-Light.jpg"
+      "/images/products/community-40w.jpg",
+      "/images/cases/community-building.jpg"
     ],
     "specs": {
       "power": "40W",
@@ -186,8 +185,8 @@
     "slug": { "current": "leaf-aio-60w" },
     "series": "series-community",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Integrated-Solar-Powered-Street-Lamp.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/Leaf-Integrated-Solar-Street-Lamp.jpg"
+      "/images/products/community-40w.jpg",
+      "/images/cases/community-building.jpg"
     ],
     "specs": {
       "power": "60W",
@@ -216,7 +215,8 @@
     "slug": { "current": "kmini-rural-20w" },
     "series": "series-rural",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/PV-kmini.jpg"
+      "/images/products/rural-30w.jpg",
+      "/images/cases/rural-village-1.jpg"
     ],
     "specs": {
       "power": "20W",
@@ -245,8 +245,8 @@
     "slug": { "current": "kmini-rural-30w" },
     "series": "series-rural",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/AIO-solar-street-lights-ZGSM.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2023/12/PV-kmini.jpg"
+      "/images/products/rural-30w.jpg",
+      "/images/cases/rural-school.jpg"
     ],
     "specs": {
       "power": "30W",
@@ -275,8 +275,8 @@
     "slug": { "current": "nova-industrial-100w" },
     "series": "series-industrial",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2024/01/PV-nova3.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/Split-Type.jpg"
+      "/images/products/industrial-120w.jpg",
+      "/images/cases/wall-mount-led.jpg"
     ],
     "specs": {
       "power": "100W",
@@ -305,8 +305,8 @@
     "slug": { "current": "rifle-industrial-120w" },
     "series": "series-industrial",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2024/01/PV-rifle3.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/Split-Type-2.jpg"
+      "/images/products/industrial-120w.jpg",
+      "/images/cases/wall-mount-led.jpg"
     ],
     "specs": {
       "power": "120W",
@@ -335,9 +335,8 @@
     "slug": { "current": "alca-industrial-150w" },
     "series": "series-industrial",
     "images": [
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/4.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/5.jpg",
-      "https://www.zgsm-china.com/wp-content/uploads/2025/12/Split-Type-installation-2.jpg"
+      "/images/products/industrial-120w.jpg",
+      "/images/cases/wall-mount-led.jpg"
     ],
     "specs": {
       "power": "150W",

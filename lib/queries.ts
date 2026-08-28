@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs'
 import path from 'path'
-import type { SanityProduct, SanityProductSeries, SanitySiteSettings, SanityCertificate } from '@/types/sanity'
+import type { Product, ProductSeries, SiteSettings, Certificate, ProjectCase } from '@/types/product'
 
 const contentDir = path.join(process.cwd(), 'content')
 
@@ -10,24 +10,24 @@ async function readJsonFile<T>(filePath: string): Promise<T> {
   return JSON.parse(fileContent)
 }
 
-let certificatesCache: SanityCertificate[] | null = null
-let seriesCache: SanityProductSeries[] | null = null
+let certificatesCache: Certificate[] | null = null
+let seriesCache: ProductSeries[] | null = null
 
-async function getCertificates(): Promise<SanityCertificate[]> {
+async function getCertificates(): Promise<Certificate[]> {
   if (!certificatesCache) {
-    certificatesCache = await readJsonFile<SanityCertificate[]>('certificates/index.json')
+    certificatesCache = await readJsonFile<Certificate[]>('certificates/index.json')
   }
   return certificatesCache
 }
 
-async function getSeries(): Promise<SanityProductSeries[]> {
+async function getSeries(): Promise<ProductSeries[]> {
   if (!seriesCache) {
-    seriesCache = await readJsonFile<SanityProductSeries[]>('series/index.json')
+    seriesCache = await readJsonFile<ProductSeries[]>('series/index.json')
   }
   return seriesCache
 }
 
-export async function getProducts(): Promise<SanityProduct[]> {
+export async function getProducts(): Promise<Product[]> {
   const [products, certificates, series] = await Promise.all([
     readJsonFile<any[]>('products/index.json'),
     getCertificates(),
@@ -36,33 +36,27 @@ export async function getProducts(): Promise<SanityProduct[]> {
 
   return products.map((product) => ({
     ...product,
-    certificates: product.certificates
+    certificates: (product.certificates || [])
       .map((certId: string) => certificates.find((c) => c._id === certId))
       .filter(Boolean),
     series: series.find((s) => s._id === product.series) || null,
   }))
 }
 
-export async function getProduct(slug: string): Promise<SanityProduct | null> {
+export async function getProduct(slug: string): Promise<Product | null> {
   const products = await getProducts()
   return products.find((p) => p.slug.current === slug) || null
 }
 
-export async function getProductSeries(): Promise<SanityProductSeries[]> {
+export async function getProductSeries(): Promise<ProductSeries[]> {
   return getSeries()
 }
 
-export async function getSiteSettings(): Promise<SanitySiteSettings> {
-  return readJsonFile<SanitySiteSettings>('settings.json')
+export async function getSiteSettings(): Promise<SiteSettings> {
+  return readJsonFile<SiteSettings>('settings.json')
 }
 
-export interface ProjectCase {
-  id: string
-  image: string
-  location: { en: string; ru: string }
-  scene: string
-  caption: { en: string; ru: string }
-}
+export type { ProjectCase }
 
 export async function getProjectCases(): Promise<ProjectCase[]> {
   return readJsonFile<ProjectCase[]>('cases.json')
