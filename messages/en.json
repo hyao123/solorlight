@@ -78,10 +78,10 @@
   "about": {
     "heroTag": "Solar Street Light Manufacturer",
     "heroTitle": "Built on a Decade of Export Experience",
-    "heroSub": "From a small factory in Shenzhen to 500+ projects across 20+ countries — we deliver reliable solar lighting wherever the grid does not reach.",
+    "heroSub": "From our factory in Weifang, Shandong to 500+ projects across 20+ countries — we deliver reliable solar lighting wherever the grid does not reach.",
     "storyTitle": "Our Story",
     "story": [
-      "SolarLight Solutions was founded in Shenzhen, China in 2014 by a team of engineers who saw a clear gap: developing markets needed reliable outdoor lighting, but extending the grid was too slow and too expensive.",
+      "SolarLight Solutions was founded in Weifang, Shandong, China in 2014 by a team of engineers who saw a clear gap: developing markets needed reliable outdoor lighting, but extending the grid was too slow and too expensive.",
       "We started with a single product — a 30W split-type solar street light — and shipped 50 units to a rural electrification project in Kazakhstan. That project is still running today.",
       "Over the next decade we expanded our range to 20+ models covering 20W–150W, built a factory with ISO 9001 certification, and established export channels into 20+ countries across Central Asia, the Middle East, and Africa.",
       "Today our lights illuminate village roads in Uzbekistan, school playgrounds in Kyrgyzstan, industrial yards in Oman, and commercial zones in Kazakhstan. Every product leaves our factory CE and RoHS certified."
@@ -276,7 +276,7 @@
     "button": "Print / PDF Datasheet",
     "docTitle": "SolarLight™ Technical Specification Sheet",
     "officialCert": "Official Export Product Specification Sheet",
-    "companyHeader": "SolarLight Solutions Co., Ltd. · Shenzhen, China",
+    "companyHeader": "SolarLight Solutions Co., Ltd. · Weifang, Shandong, China",
     "disclaimer": "Specifications are subject to engineering tolerances and tested under standard test conditions (STC: 1000W/m², AM 1.5, 25°C)."
   },
   "caseParams": {

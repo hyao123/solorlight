@@ -49,7 +49,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       icon: '📍',
       title: t('channels.factoryTitle'),
       desc: t('channels.factoryDesc'),
-      action: 'https://maps.google.com/?q=Shenzhen+Guangdong+China',
+      action: 'https://maps.google.com/?q=Weifang+Shandong+China',
       label: settings.address[locale],
       cta: t('channels.factoryCta'),
       external: true,

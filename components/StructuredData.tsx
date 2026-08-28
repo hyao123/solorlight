@@ -35,8 +35,8 @@ export function OrganizationJsonLd({
       'Manufacturer of industrial solar street lights, LiFePO4 solar lighting systems, and off-grid solutions.',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Shenzhen',
-      addressRegion: 'Guangdong',
+      addressLocality: 'Weifang',
+      addressRegion: 'Shandong',
       addressCountry: 'CN',
     },
     contactPoint: [
