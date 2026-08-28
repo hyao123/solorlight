@@ -4,6 +4,7 @@ import { getProducts, getSiteSettings, getProjectCases } from '@/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
 import { CaseGallery } from '@/components/CaseGallery'
 import { SolarCalculator } from '@/components/SolarCalculator'
+import { RegionalAdaptationMatrix } from '@/components/RegionalAdaptationMatrix'
 
 export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'ru' }]
@@ -135,9 +136,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: '
       )}
 
       {/* Interactive Sizing Calculator */}
-      <section className="bg-slate-950 py-20 border-y border-slate-800">
+      <section className="bg-slate-950 py-20 border-t border-slate-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SolarCalculator
+            locale={locale}
+            whatsappNumber={settings.whatsappNumber}
+          />
+        </div>
+      </section>
+
+      {/* Regional Climate Adaptation Matrix (GEO) */}
+      <section className="bg-slate-950 py-16 border-y border-slate-800/80">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <RegionalAdaptationMatrix
             locale={locale}
             whatsappNumber={settings.whatsappNumber}
           />

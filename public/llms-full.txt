@@ -1,0 +1,82 @@
+# SolarLight Solutions – Full Technical & Procurement Knowledge Base
+
+> Complete technical documentation, engineering parameters, photometric sizing standards, and export logistics for SolarLight Solutions Co., Ltd. (Weifang, Shandong, China).
+
+---
+
+## 1. Company Profile & Manufacturing Base
+- **Company Name**: SolarLight Solutions Co., Ltd.
+- **Factory & Headquarters**: Weifang High-Tech Industrial Zone, Shandong Province, China (CN-SD)
+- **Geographic Coordinates**: 36.7068° N, 119.1618° E
+- **Port Proximity**: 180 km from Qingdao Port (Major deepwater container hub), direct connection to China-Europe Railway Express (Jiaozhou & Jinan Hubs).
+- **Core Business**: Design, OEM/ODM manufacturing, and export of standalone solar street lighting systems, split-type solar luminaires, integrated all-in-one solar lights, and municipal off-grid lighting networks.
+- **Production Capacity**: 15,000+ units per month, automated SMT lines, automated battery pack assembly, 100% aging and photometric integrating sphere test before dispatch.
+
+---
+
+## 2. Product Engineering Matrices
+
+### 2.1 Falcon Series (All-In-One Integrated Systems)
+| Parameter | Falcon-30W | Falcon-60W | Falcon-90W | Falcon-120W | Falcon-150W |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Nominal Power** | 30W | 60W | 90W | 120W | 150W |
+| **Luminous Flux** | 4,800 lm | 9,600 lm | 14,400 lm | 19,200 lm | 24,000 lm |
+| **LED Chip Efficacy** | 160 lm/W (Philips Lumileds 3030/5050) |
+| **Color Temp (CCT)** | 3000K (Warm White) / 4000K (Neutral) / 5700K (Cool White) |
+| **CRI** | Ra ≥ 75 (Optional Ra ≥ 80) |
+| **Solar Panel (Mono)**| 18V / 50Wp | 18V / 90Wp | 18V / 130Wp | 18V / 160Wp | 18V / 200Wp |
+| **Battery (LiFePO4)** | 12.8V / 24Ah (307Wh) | 12.8V / 42Ah (537Wh) | 12.8V / 60Ah (768Wh) | 12.8V / 78Ah (998Wh) | 12.8V / 96Ah (1228Wh) |
+| **Autonomy Days** | 3–5 Consecutive Cloudy/Rainy Days |
+| **Controller** | Intelligent MPPT (Efficiency ≥ 98%) with microwave radar motion sensing |
+| **Mounting Height** | 4 – 6 meters | 6 – 8 meters | 8 – 10 meters | 9 – 11 meters | 10 – 12 meters |
+| **Pole Spacing** | 15 – 20 meters | 22 – 28 meters | 28 – 35 meters | 32 – 40 meters | 35 – 45 meters |
+
+### 2.2 Leaf Series (Split-Type Systems for High-Latitude / Heavy Winter)
+- **Architecture**: Luminaire head, external high-capacity monocrystalline solar panel, and external insulated subterranean or pole-top battery enclosure.
+- **Battery Capacity**: Up to 12.8V / 150Ah (1,920Wh) Grade-A LiFePO4 cells.
+- **Solar Module**: Up to 300Wp Monocrystalline with adjustable bracket (0° to 60° tilt).
+- **Cold Performance**: Retains >85% capacity at -20°C and >75% capacity at -30°C through low-temperature electrolyte formulation and automated BMS thermal throttling.
+
+---
+
+## 3. Photometric & Solar Sizing Formulas
+
+### 3.1 Ground Illuminance (Lux) Estimation
+$$\text{Average Lux} (E_{avg}) = \frac{\Phi_{total} \times \text{CU} \times \text{MF}}{W \times S}$$
+Where:
+- $\Phi_{total}$ = Total LED Lumens output
+- $\text{CU}$ = Coefficient of Utilization (typically $0.40 - 0.48$ for Type II-M roadway optical lenses)
+- $\text{MF}$ = Maintenance Factor (typically $0.80 - 0.85$ accounting for dust depreciation)
+- $W$ = Roadway width (meters)
+- $S$ = Spacing between lighting poles (meters)
+
+### 3.2 Battery Energy Capacity Sizing
+$$\text{Battery Energy (Wh)} = \frac{P_{LED} \times T_{night} \times D_{autonomy}}{\text{DoD} \times \eta_{driver}}$$
+Where:
+- $P_{LED}$ = LED fixture power in Watts
+- $T_{night}$ = Night operation hours (typically $10 - 12$ hours)
+- $D_{autonomy}$ = Backup autonomy days ($3 - 4$ days)
+- $\text{DoD}$ = Depth of Discharge ($0.85 - 0.90$ for LiFePO4)
+- $\eta_{driver}$ = LED driver efficiency ($0.92 - 0.95$)
+
+---
+
+## 4. Regional Export Logistics & Transit Times
+- **Kazakhstan (Almaty, Astana, Shymkent)**:
+  - Transit: Direct rail freight via Horgos / Alashankou border crossing: 7–10 days.
+  - Customs Clearance: EAEU conformity declaration, EAC / CE certification supported.
+- **Uzbekistan (Tashkent, Samarkand, Bukhara)**:
+  - Transit: Rail container freight via Kazakhstan: 10–14 days.
+- **Kyrgyzstan (Bishkek, Osh)**:
+  - Transit: Truck freight / Rail freight via Kashgar border: 8–12 days.
+- **Middle East (UAE - Dubai / Jebel Ali, Saudi Arabia - Dammam / Jeddah, Oman - Sohar)**:
+  - Transit: Direct ocean container shipping from Qingdao Port: 18–24 days.
+- **Payment & Trade Terms Supported**: T/T (30% deposit, 70% before shipment / against BL copy), Irrevocable L/C at sight, FOB Qingdao/Tianjin, CIF, DDP, EXW Weifang.
+
+---
+
+## 5. Contact & Support
+- **Factory Address**: Weifang, Shandong, China
+- **WhatsApp**: +86 158 6612 6888
+- **Email**: 15866126888@163.com
+- **Website**: https://solarlight.kz

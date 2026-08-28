@@ -32,19 +32,49 @@ export function OrganizationJsonLd({
     logo: logo || `${url}/images/products/road-90w.jpg`,
     description:
       description ||
-      'Manufacturer of industrial solar street lights, LiFePO4 solar lighting systems, and off-grid solutions.',
+      'Professional manufacturer of industrial solar street lights, LiFePO4 battery solar lighting systems, and off-grid solutions based in Weifang, Shandong, China.',
+    foundingLocation: {
+      '@type': 'Place',
+      name: 'Weifang, Shandong, China',
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Weifang',
       addressRegion: 'Shandong',
+      postalCode: '261000',
       addressCountry: 'CN',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '36.7068',
+      longitude: '119.1618',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Kazakhstan', identifier: 'KZ' },
+      { '@type': 'Country', name: 'Uzbekistan', identifier: 'UZ' },
+      { '@type': 'Country', name: 'Kyrgyzstan', identifier: 'KG' },
+      { '@type': 'Country', name: 'Tajikistan', identifier: 'TJ' },
+      { '@type': 'Country', name: 'Turkmenistan', identifier: 'TM' },
+      { '@type': 'Country', name: 'United Arab Emirates', identifier: 'AE' },
+      { '@type': 'Country', name: 'Saudi Arabia', identifier: 'SA' },
+      { '@type': 'Country', name: 'Oman', identifier: 'OM' },
+      { '@type': 'Country', name: 'Azerbaijan', identifier: 'AZ' },
+    ],
+    knowsAbout: [
+      'Solar Street Lighting Systems',
+      'LiFePO4 Lithium Battery Energy Storage',
+      'Monocrystalline Solar Panels',
+      'MPPT Solar Charge Controllers',
+      'DIALux Photometric Simulations',
+      'Off-Grid Road & Highway Illumination',
+      'Municipal Lighting Engineering',
+    ],
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: contactPhone || '+86 138 0000 0000',
+        telephone: contactPhone || '+86 158 6612 6888',
         contactType: 'sales',
-        email: email || 'sales@solarlight.kz',
+        email: email || '15866126888@163.com',
         availableLanguage: ['English', 'Russian', 'Chinese'],
       },
     ],

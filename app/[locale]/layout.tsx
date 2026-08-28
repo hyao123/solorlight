@@ -21,30 +21,54 @@ export async function generateMetadata({
   const settings = await getSiteSettings()
   const company = settings.companyName[en ? 'en' : 'ru']
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
+
   return {
-    metadataBase: new URL('https://solarlight-solutions.com'),
+    metadataBase: new URL(siteUrl),
     title: {
       default: en
-        ? `${company} – Solar Street Lights for Central Asia`
-        : `${company} – Солнечные фонари для Центральной Азии`,
+        ? `${company} – Industrial Solar Street Lights Manufacturer (Weifang, China)`
+        : `${company} – Завод солнечных уличных фонарей (Вэйфан, Китай)`,
       template: `%s | ${company}`,
     },
     description: en
-      ? 'CE & RoHS certified solar street lights. 20 W–150 W, LiFePO4 battery, 5-year warranty. Ships to Kazakhstan, Uzbekistan, and 20+ countries.'
-      : 'Солнечные уличные фонари с сертификатами CE и RoHS. 20–150 Вт, батарея LiFePO4, гарантия 5 лет. Доставка в Казахстан, Узбекистан и 20+ стран.',
+      ? 'Direct manufacturer of CE & RoHS certified solar street lights (20W–150W). High-efficiency LiFePO4 battery & MPPT system engineered for Central Asia (-30°C) and Middle East (+60°C). Factory in Weifang, Shandong.'
+      : 'Прямой завод-производитель солнечных уличных фонарей (20–150 Вт) с сертификатами CE и RoHS. Батареи LiFePO4 для морозов Центральной Азии (-30°C) и жары (+60°C). Завод в Вэйфане (Шаньдун).',
     keywords: en
-      ? ['solar street light', 'solar street lamp', 'Kazakhstan', 'Uzbekistan', 'Central Asia', 'CE certified', 'LiFePO4', 'off-grid lighting']
-      : ['солнечный уличный фонарь', 'Казахстан', 'Узбекистан', 'Центральная Азия', 'CE сертификат', 'LiFePO4'],
+      ? [
+          'solar street light manufacturer',
+          'solar street lamp factory China',
+          'Weifang Shandong solar lighting',
+          'Kazakhstan solar street lights',
+          'Uzbekistan solar lighting supplier',
+          'Kyrgyzstan solar road lighting',
+          'LiFePO4 solar street light',
+          'Central Asia solar lamp',
+          'all in one solar street light',
+          'off-grid solar lighting engineering',
+          'CE certified solar light factory',
+        ]
+      : [
+          'производитель солнечных уличных фонарей',
+          'завод солнечных светильников Вэйфан Шаньдун',
+          'солнечные уличные фонари Казахстан',
+          'солнечное освещение дорог Узбекистан',
+          'автономные фонари Кыргызстан',
+          'солнечные светильники LiFePO4',
+          'Центральная Азия уличное освещение',
+          'завод светодиодных солнечных фонарей',
+          'CE RoHS сертификация фонари',
+        ],
     openGraph: {
       type: 'website',
       locale: en ? 'en_US' : 'ru_RU',
       siteName: company,
       title: en
-        ? `${company} – Solar Street Lights for Central Asia`
-        : `${company} – Солнечные фонари для Центральной Азии`,
+        ? `${company} – Industrial Solar Street Lights Manufacturer`
+        : `${company} – Завод солнечных уличных фонарей (Вэйфан, Китай)`,
       description: en
-        ? 'CE & RoHS certified solar street lights. 5-year warranty. Ships to Kazakhstan, Uzbekistan & beyond.'
-        : 'Солнечные фонари с CE и RoHS. Гарантия 5 лет. Казахстан, Узбекистан и другие страны.',
+        ? 'Direct manufacturer of industrial solar street lights. 5-year warranty, -30°C winter-proof LiFePO4 battery. Rail & sea freight to Central Asia and Middle East.'
+        : 'Прямой производитель промышленных солнечных фонарей. Гарантия 5 лет, морозостойкие батареи LiFePO4 до -30°C. Доставка в Центральную Азию.',
     },
     twitter: {
       card: 'summary_large_image',
@@ -53,6 +77,13 @@ export async function generateMetadata({
       index: true,
       follow: true,
       googleBot: { index: true, follow: true },
+    },
+    other: {
+      'geo.region': 'CN-SD',
+      'geo.placename': 'Weifang, Shandong, China',
+      'geo.position': '36.7068;119.1618',
+      ICBM: '36.7068, 119.1618',
+      'target-markets': 'Kazakhstan, Uzbekistan, Kyrgyzstan, Tajikistan, Turkmenistan, UAE, Saudi Arabia, Oman, Central Asia, Middle East',
     },
     alternates: {
       languages: {

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getProductSeries, getProducts, getSiteSettings } from '@/lib/queries'
 import { SolarCalculator } from '@/components/SolarCalculator'
+import { RegionalAdaptationMatrix } from '@/components/RegionalAdaptationMatrix'
 import { BreadcrumbJsonLd } from '@/components/StructuredData'
 import type { Metadata } from 'next'
 
@@ -284,6 +285,16 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
           )
         })}
       </div>
+
+      {/* Regional Climate Adaptation Matrix (GEO) */}
+      <section className="bg-slate-950 py-16 border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <RegionalAdaptationMatrix
+            locale={locale}
+            whatsappNumber={settings.whatsappNumber}
+          />
+        </div>
+      </section>
 
       {/* Interactive Sizing Calculator */}
       <section className="bg-slate-950/80 py-16 border-t border-slate-800/80">

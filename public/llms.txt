@@ -1,0 +1,73 @@
+# SolarLight Solutions
+
+> Professional B2B Manufacturer of Industrial Solar Street Lights, LiFePO4 Solar Lighting Systems, and Off-Grid Illumination for Central Asia, the Middle East, and Global Export.
+
+## Organization Overview
+- **Legal Entity**: SolarLight Solutions Co., Ltd.
+- **Manufacturing Headquarters**: Weifang, Shandong Province, China (Postal Code: 261000)
+- **Established**: 2014 (10+ Years of Manufacturing & Export Experience)
+- **Facility Credentials**: ISO 9001:2015 Certified Production Facility
+- **Primary Export Regions**: Kazakhstan, Uzbekistan, Kyrgyzstan, Tajikistan, Turkmenistan, UAE, Saudi Arabia, Oman, Azerbaijan, CIS & Global Markets
+- **Official Website**: https://solarlight.kz
+
+## Core Product Series & Specifications
+- **Falcon Series (All-In-One Integrated Solar Street Light)**:
+  - Power: 30W – 150W | Luminous Flux: 4,800 lm – 24,000 lm (160 lm/W high-efficacy Philips Lumileds LED)
+  - Solar Panel: High-efficiency Monocrystalline Silicon (21.5% conversion efficiency)
+  - Energy Storage: Grade-A LiFePO4 Lithium Iron Phosphate Battery (3.2V / 12.8V, 2000+ deep cycles)
+  - Controller: Intelligent MPPT (Maximum Power Point Tracking) with microwave radar motion sensor
+  - Protection: IP66 Waterproof, IK10 Impact Resistance, Operating Temperature: -30°C to +60°C
+  - Recommended Applications: City avenues, highways, industrial parks, municipal roadways.
+
+- **Leaf Series (Split-Type High-Output Solar Lighting)**:
+  - Power: 60W – 150W | Luminous Flux: 9,600 lm – 24,000 lm
+  - Solar Panel: Independent Adjustable Monocrystalline Panel (100Wp – 300Wp)
+  - Features: Heavy-duty cold-climate battery box with thermal insulation for sub-zero steppe winters.
+  - Recommended Applications: Intercity highways, mountain passes, airport perimeters, mining sites.
+
+- **ALCA Series (Modular Solar Street Light)**:
+  - Power: 40W – 100W | Luminous Flux: 6,400 lm – 16,000 lm
+  - Features: Die-cast aluminum alloy housing, aerodynamic wind-resistant profile, tool-free maintenance.
+  - Recommended Applications: Residential developments, commercial boulevards, university campuses.
+
+- **Kmini & Nova Series (Compact Community & Village Lighting)**:
+  - Power: 20W – 60W | Luminous Flux: 3,200 lm – 9,600 lm
+  - Features: Plug-and-play installation, zero electrical cabling required, integrated twilight-to-dawn sensor.
+  - Recommended Applications: Rural village electrification, parking areas, public parks, perimeter security.
+
+## Engineering & Climate Adaptation
+- **Central Asian Steppe & Winter Conditions (-30°C to +40°C)**:
+  - Cold-resistant LiFePO4 battery chemistry with intelligent low-temperature charge protection.
+  - Optimized solar tilt angle (35°–45°) for maximum winter insolation and automatic snow shedding.
+  - 3–4 days continuous cloudy/snowy day autonomy.
+- **Middle Eastern Desert & Arid Conditions (-10°C to +60°C)**:
+  - Multi-fin die-cast aluminum heat sink design ensuring LED junction temperature remains <65°C.
+  - IP66 hermetically sealed optical chamber preventing dust and sand ingress.
+  - Anti-UV and anti-corrosion electrostatic powder coating for high-salinity and desert environments.
+
+## Certifications & Quality Compliance
+- **CE Certification**: EN 55015, EN 61547, EN 61000-3-2, EN 61000-3-3, EN 60598-1, EN 60598-2-3
+- **RoHS Compliance**: 2011/65/EU and amendment (EU) 2015/863
+- **Quality System**: ISO 9001:2015
+- **Ingress & Impact Protection**: IP66 (IEC 60529), IK10 (IEC 62262)
+- **Warranty**: 5-Year Comprehensive Manufacturer Warranty
+
+## B2B Procurement, Logistics & Engineering Support
+- **Minimum Order Quantity (MOQ)**: 10 Units (Sample evaluation orders supported)
+- **Trade Terms**: FOB Qingdao / FOB Tianjin / CIF Almaty / CIF Tashkent / DDP / EXW
+- **Freight Methods**: China-Europe Railway Express (Direct rail to Kazakhstan/Uzbekistan 7–12 days), Sea Freight, Air Cargo
+- **Free Engineering Services**: Complete DIALux photometric calculations, lux distribution mapping, and pole spacing engineering reports provided within 24 hours.
+
+## Direct Procurement & Contact Channels
+- **WhatsApp Sales Support**: +86 158 6612 6888 (24/7 B2B Sales & Engineering)
+- **Official RFQ Email**: 15866126888@163.com
+- **Factory Address**: Weifang, Shandong Province, China
+- **Languages Supported**: English, Russian (Русский), Chinese (中文)
+
+## Key URLs & Documentation
+- Full Product Catalog: https://solarlight.kz/en/products
+- Russian Product Catalog: https://solarlight.kz/ru/products
+- Solar Photometric & Sizing Calculator: https://solarlight.kz/en/solutions
+- About Factory & ISO Credentials: https://solarlight.kz/en/about
+- Request a Quotation (RFQ): https://solarlight.kz/en/contact
+- Full Technical Knowledge Base: https://solarlight.kz/llms-full.txt
