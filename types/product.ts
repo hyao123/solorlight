@@ -36,6 +36,18 @@ export interface ProductSpecs {
   workingHours?: number
   controller?: string
   motionSensor?: string
+  efficacy?: string
+  panelDimensions?: string
+  panelEfficiency?: string
+  ledLifetime?: string
+  batteryCycles?: string
+  autonomy?: string
+  nightlyRuntime?: string
+  poleConstruction?: string
+  arm?: string
+  flange?: string
+  foundation?: string
+  installationNote?: string
 }
 
 export interface Certificate {

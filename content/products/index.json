@@ -60,6 +60,45 @@
     }
   },
   {
+    "_id": "prod-classic-split-8m-60w",
+    "name": { "en": "Classic Split Solar Street Light 8m / 60W", "ru": "Классический раздельный солнечный фонарь 8 м / 60 Вт" },
+    "slug": { "current": "classic-split-8m-60w" },
+    "series": "series-road",
+    "images": [
+      "/images/products/classic-split-installation-desert-road.png",
+      "/images/products/classic-split-installation-field-road.png",
+      "/images/products/classic-split-installation-park-road.png"
+    ],
+    "specs": {
+      "power": "60 W",
+      "lumens": "6,000–7,200 lm",
+      "cct": "5700–6000 K",
+      "ipRating": "IP65 luminaire · IP67 battery",
+      "efficacy": "100–120 lm/W",
+      "solarPanel": "80 W · 6 V monocrystalline",
+      "panelDimensions": "800 × 670 × 25 mm",
+      "panelEfficiency": "19–21%",
+      "battery": "3.2 V / 60 Ah LiFePO4",
+      "batteryCycles": "≥2,000 cycles",
+      "autonomy": "5–7 rainy days",
+      "nightlyRuntime": "8–10 hours",
+      "ledLifetime": "30,000 hours (stated)",
+      "mountHeight": "8 m overall · 7.7 m pole",
+      "poleConstruction": "Q235 hot-dip galvanized, powder-coated steel · Ø60/140 × 2.5 mm",
+      "arm": "A-arm / shell arm",
+      "flange": "270 × 270 × 10 mm",
+      "foundation": "280 mm diagonal · M18 bolts · ≥500 mm height",
+      "installationNote": "Foundation pit sized for local rainfall, soil and wind conditions"
+    },
+    "certificates": [],
+    "isHotProduct": true,
+    "seoTitle": { "en": "8m 60W Split Solar Street Light", "ru": "Раздельный солнечный фонарь 8 м / 60 Вт" },
+    "seoDescription": {
+      "en": "Source-backed 8 m split solar street light with a 60 W LED head, 80 W monocrystalline panel and 60 Ah LiFePO4 battery for road projects.",
+      "ru": "Раздельный солнечный фонарь высотой 8 м: светильник 60 Вт, монокристаллическая панель 80 Вт и аккумулятор LiFePO4 60 А·ч для дорожных проектов."
+    }
+  },
+  {
     "_id": "prod-alca-120w",
     "name": { "en": "ALCA Split 120W", "ru": "ALCA Split 120 Вт" },
     "slug": { "current": "alca-split-120w" },
@@ -117,6 +156,45 @@
     "seoDescription": {
       "en": "150W PV series solar street light for highways. 24,000 lm, CE certified, 3-year warranty.",
       "ru": "Солнечный фонарь 150 Вт PV Series для магистралей. 24 000 лм, сертификат CE, гарантия 3 года."
+    }
+  },
+  {
+    "_id": "prod-classic-split-6m-60w",
+    "name": { "en": "Classic Split Solar Street Light 6m / 60W", "ru": "Классический раздельный солнечный фонарь 6 м / 60 Вт" },
+    "slug": { "current": "classic-split-6m-60w" },
+    "series": "series-community",
+    "images": [
+      "/images/products/classic-split-installation-field-road.png",
+      "/images/products/classic-split-installation-park-road.png",
+      "/images/products/classic-split-installation-desert-road.png"
+    ],
+    "specs": {
+      "power": "60 W",
+      "lumens": "6,000–7,200 lm",
+      "cct": "5700–6000 K",
+      "ipRating": "IP65 luminaire · IP67 battery",
+      "efficacy": "100–120 lm/W",
+      "solarPanel": "80 W · 6 V monocrystalline",
+      "panelDimensions": "800 × 670 × 25 mm",
+      "panelEfficiency": "19–21%",
+      "battery": "3.2 V / 60 Ah LiFePO4",
+      "batteryCycles": "≥2,000 cycles",
+      "autonomy": "5–7 rainy days",
+      "nightlyRuntime": "8–10 hours",
+      "ledLifetime": "30,000 hours (stated)",
+      "mountHeight": "6 m overall · 5.7 m pole",
+      "poleConstruction": "Q235 hot-dip galvanized, powder-coated steel · Ø60/130 × 2.0 mm",
+      "arm": "A-arm / shell arm",
+      "flange": "250 × 250 × 10 mm",
+      "foundation": "260 mm diagonal · M16 bolts · ≥400 mm height",
+      "installationNote": "Foundation pit sized for local rainfall, soil and wind conditions"
+    },
+    "certificates": [],
+    "isHotProduct": true,
+    "seoTitle": { "en": "6m 60W Split Solar Street Light", "ru": "Раздельный солнечный фонарь 6 м / 60 Вт" },
+    "seoDescription": {
+      "en": "Source-backed 6 m split solar street light with a 60 W LED head, 80 W monocrystalline panel and 60 Ah LiFePO4 battery for community and access roads.",
+      "ru": "Раздельный солнечный фонарь высотой 6 м: светильник 60 Вт, монокристаллическая панель 80 Вт и аккумулятор LiFePO4 60 А·ч для жилых и подъездных дорог."
     }
   },
   {
@@ -207,6 +285,41 @@
     "seoDescription": {
       "en": "60W all-in-one solar street light ideal for town squares and commercial areas. IP66, CE certified.",
       "ru": "Универсальный солнечный фонарь 60 Вт для городских площадей и коммерческих зон. IP66, сертификат CE."
+    }
+  },
+  {
+    "_id": "prod-wall-pole-mount-60w",
+    "name": { "en": "Wall & Pole-Mount Solar Street Light 60W", "ru": "Настенный солнечный светильник 60 Вт с креплением на опору" },
+    "slug": { "current": "wall-pole-mount-60w" },
+    "series": "series-rural",
+    "images": [
+      "/images/products/wall-pole-mount-60w-utility-front.png",
+      "/images/products/wall-pole-mount-60w-wall.png",
+      "/images/products/wall-pole-mount-60w-utility-back.png",
+      "/images/products/wall-pole-mount-60w-courtyard.png"
+    ],
+    "specs": {
+      "power": "60 W",
+      "lumens": "6,000–7,200 lm",
+      "cct": "5700–6000 K",
+      "ipRating": "IP65 luminaire · IP67 battery",
+      "efficacy": "100–120 lm/W",
+      "solarPanel": "60 W · 6 V monocrystalline",
+      "panelDimensions": "600 × 670 × 25 mm",
+      "panelEfficiency": "19–21%",
+      "battery": "3.2 V / 60 Ah LiFePO4",
+      "batteryCycles": "≥2,000 cycles",
+      "autonomy": "5–7 rainy days",
+      "nightlyRuntime": "8–10 hours",
+      "ledLifetime": "30,000 hours (stated)",
+      "arm": "1,200 mm · Q235 hot-dip galvanized steel · Ø50 × 1.3 mm"
+    },
+    "certificates": [],
+    "isHotProduct": false,
+    "seoTitle": { "en": "60W Wall & Pole-Mount Solar Street Light", "ru": "Настенный солнечный светильник 60 Вт" },
+    "seoDescription": {
+      "en": "A 60 W off-grid solar light for mounting on existing utility poles or exterior walls, with a 60 W panel and 60 Ah LiFePO4 battery.",
+      "ru": "Автономный солнечный светильник 60 Вт для монтажа на существующие опоры или наружные стены, с панелью 60 Вт и аккумулятором LiFePO4 60 А·ч."
     }
   },
   {
