@@ -169,27 +169,29 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         </div>
 
         {/* Why section */}
-        <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-white">
-          <h2 className="mb-6 text-xl font-bold text-slate-100">
-            {t('whyChooseTitle')}
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { icon: '🔋', title: locale === 'en' ? 'LiFePO4 Battery' : 'Батарея LiFePO4', desc: locale === 'en' ? '2000+ charge cycles. Stable in -20°C to +60°C. No thermal runaway risk.' : '2000+ циклов зарядки. Стабильна от -20°C до +60°C. Без риска теплового разгона.' },
-              { icon: '☀️', title: locale === 'en' ? 'MPPT Controller' : 'Контроллер MPPT', desc: locale === 'en' ? '99% tracking efficiency. Charges up to 30% faster than PWM controllers.' : 'Эффективность слежения 99%. Заряжает на 30% быстрее, чем контроллеры PWM.' },
-              { icon: '🛡️', title: locale === 'en' ? 'IP66 Sealed' : 'Защита IP66', desc: locale === 'en' ? 'Dust-proof and jet-water resistant. Designed for desert and steppe conditions.' : 'Защита от пыли и струй воды. Рассчитана на условия пустыни и степи.' },
-              { icon: '💡', title: locale === 'en' ? 'Bridgelux / Lumileds LEDs' : 'Светодиоды Bridgelux/Lumileds', desc: locale === 'en' ? '160+ lm/W efficacy. L70 lifespan >100,000 hours. Consistent output over time.' : 'Эффективность 160+ лм/Вт. Срок службы L70 >100 000 часов. Стабильный световой поток.' },
-              { icon: '📡', title: locale === 'en' ? 'Smart Dimming' : 'Умное диммирование', desc: locale === 'en' ? 'PIR motion sensor dims to 30% when idle. Extends battery life by up to 40%.' : 'ИК-датчик снижает яркость до 30% при простое. Продлевает срок службы батареи до 40%.' },
-              { icon: '🏆', title: locale === 'en' ? 'CE & RoHS Certified' : 'Сертификат CE и RoHS', desc: locale === 'en' ? 'All certificates included for customs clearance in Kazakhstan, Uzbekistan, and EU.' : 'Все сертификаты для таможенного оформления в Казахстане, Узбекистане и ЕС.' },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
-                <div className="mb-2 text-2xl">{item.icon}</div>
-                <div className="mb-1 font-semibold text-slate-100">{item.title}</div>
-                <div className="text-sm text-slate-400 leading-relaxed">{item.desc}</div>
-              </div>
-            ))}
+        {product.certificates.length > 0 && (
+          <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-white">
+            <h2 className="mb-6 text-xl font-bold text-slate-100">
+              {t('whyChooseTitle')}
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { icon: '🔋', title: locale === 'en' ? 'LiFePO4 Battery' : 'Батарея LiFePO4', desc: locale === 'en' ? '2000+ charge cycles. Stable in -20°C to +60°C. No thermal runaway risk.' : '2000+ циклов зарядки. Стабильна от -20°C до +60°C. Без риска теплового разгона.' },
+                { icon: '☀️', title: locale === 'en' ? 'MPPT Controller' : 'Контроллер MPPT', desc: locale === 'en' ? '99% tracking efficiency. Charges up to 30% faster than PWM controllers.' : 'Эффективность слежения 99%. Заряжает на 30% быстрее, чем контроллеры PWM.' },
+                { icon: '🛡️', title: locale === 'en' ? 'IP66 Sealed' : 'Защита IP66', desc: locale === 'en' ? 'Dust-proof and jet-water resistant. Designed for desert and steppe conditions.' : 'Защита от пыли и струй воды. Рассчитана на условия пустыни и степи.' },
+                { icon: '💡', title: locale === 'en' ? 'Bridgelux / Lumileds LEDs' : 'Светодиоды Bridgelux/Lumileds', desc: locale === 'en' ? '160+ lm/W efficacy. L70 lifespan >100,000 hours. Consistent output over time.' : 'Эффективность 160+ лм/Вт. Срок службы L70 >100 000 часов. Стабильный световой поток.' },
+                { icon: '📡', title: locale === 'en' ? 'Smart Dimming' : 'Умное диммирование', desc: locale === 'en' ? 'PIR motion sensor dims to 30% when idle. Extends battery life by up to 40%.' : 'ИК-датчик снижает яркость до 30% при простое. Продлевает срок службы батареи до 40%.' },
+                { icon: '🏆', title: locale === 'en' ? 'CE & RoHS Certified' : 'Сертификат CE и RoHS', desc: locale === 'en' ? 'All certificates included for customs clearance in Kazakhstan, Uzbekistan, and EU.' : 'Все сертификаты для таможенного оформления в Казахстане, Узбекистане и ЕС.' },
+              ].map((item) => (
+                <div key={item.title} className="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+                  <div className="mb-2 text-2xl">{item.icon}</div>
+                  <div className="mb-1 font-semibold text-slate-100">{item.title}</div>
+                  <div className="text-sm text-slate-400 leading-relaxed">{item.desc}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Related products */}
         {related.length > 0 && (

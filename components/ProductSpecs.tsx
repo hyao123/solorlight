@@ -50,6 +50,16 @@ const SPEC_GROUPS: {
   { key: 'installationNote', en: 'Foundation Note', ru: 'Примечание по фундаменту', icon: 'ℹ', group: 'construction' },
 ]
 
+function formatSpecValue(
+  value: SanityProductSpecs[keyof SanityProductSpecs],
+  locale: 'en' | 'ru',
+) {
+  if (typeof value === 'object' && value !== null && 'en' in value && 'ru' in value) {
+    return value[locale]
+  }
+  return String(value)
+}
+
 export function ProductSpecs({ specs, locale }: ProductSpecsProps) {
   const groups = (Object.keys(GROUP_LABELS) as SpecGroup[])
     .map((group) => ({
@@ -75,8 +85,20 @@ export function ProductSpecs({ specs, locale }: ProductSpecsProps) {
                 {heading[locale]}
               </h3>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[36rem] text-sm">
+            <dl className="divide-y divide-slate-200 sm:hidden">
+              {rows.map((row, index) => (
+                <div key={row.key} className={index % 2 === 0 ? 'bg-white px-4 py-3' : 'bg-slate-50 px-4 py-3'}>
+                  <dt className="text-xs font-medium text-slate-500">
+                    <span className="mr-2" aria-hidden="true">{row.icon}</span>
+                    {row[locale]}
+                  </dt>
+                  <dd className="mt-1 break-words text-sm font-semibold leading-5 text-slate-900">
+                    {formatSpecValue(row.value, locale)}{row.unit ? ` ${row.unit}` : ''}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <table className="hidden w-full text-sm sm:table">
                 <tbody>
                   {rows.map((row, index) => (
                     <tr key={row.key} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
@@ -85,13 +107,12 @@ export function ProductSpecs({ specs, locale }: ProductSpecsProps) {
                         {row[locale]}
                       </td>
                       <td className="break-words px-4 py-3 font-medium text-slate-900 sm:px-5">
-                        {String(row.value)}{row.unit ? ` ${row.unit}` : ''}
+                        {formatSpecValue(row.value, locale)}{row.unit ? ` ${row.unit}` : ''}
                       </td>
                     </tr>
                   ))}
                 </tbody>
-              </table>
-            </div>
+            </table>
           </section>
         )
       })}

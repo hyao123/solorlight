@@ -15,19 +15,25 @@ test('source-backed products preserve verified Excel specifications', () => {
   assert.equal(wall?.series, 'series-rural')
   assert.equal(wall?.isHotProduct, false)
   assert.equal(wall?.specs.panelDimensions, '600 × 670 × 25 mm')
-  assert.equal(wall?.specs.arm, '1,200 mm · Q235 hot-dip galvanized steel · Ø50 × 1.3 mm')
+  assert.equal(wall?.specs.arm.en, '1,200 mm · Q235 hot-dip galvanized steel · Ø50 × 1.3 mm')
+  assert.equal(wall?.specs.arm.ru, '1 200 мм · горячее цинкование Q235 · Ø50 × 1,3 мм')
 
   assert.equal(six?.series, 'series-community')
   assert.equal(six?.isHotProduct, true)
-  assert.equal(six?.specs.mountHeight, '6 m overall · 5.7 m pole')
+  assert.equal(six?.specs.mountHeight, '6 m')
   assert.equal(six?.specs.flange, '250 × 250 × 10 mm')
-  assert.equal(six?.specs.foundation, '260 mm diagonal · M16 bolts · ≥400 mm height')
+  assert.equal(six?.specs.foundation.ru, 'Диагональ 260 мм · болты M16 · высота ≥400 мм')
 
   assert.equal(eight?.series, 'series-road')
   assert.equal(eight?.isHotProduct, true)
-  assert.equal(eight?.specs.mountHeight, '8 m overall · 7.7 m pole')
+  assert.equal(eight?.specs.mountHeight, '8 m')
   assert.equal(eight?.specs.flange, '270 × 270 × 10 mm')
-  assert.equal(eight?.specs.foundation, '280 mm diagonal · M18 bolts · ≥500 mm height')
+  assert.equal(eight?.specs.foundation.en, '280 mm diagonal · M18 bolts · ≥500 mm height')
+  assert.equal(eight?.specs.foundation.ru, 'Диагональ 280 мм · болты M18 · высота ≥500 мм')
+
+  for (const product of [wall, six, eight]) {
+    assert.doesNotMatch(product.seoDescription.en, /source-backed/i)
+  }
 })
 
 test('source-backed product images exist locally', async () => {
@@ -51,6 +57,9 @@ test('extended specifications provide English and Russian labels', async () => {
   ]) {
     assert.match(source, new RegExp(text))
   }
+  assert.match(source, /value\[locale\]/)
+  assert.match(source, /sm:hidden/)
+  assert.match(source, /hidden w-full text-sm sm:table/)
 })
 
 test('products page includes a localized catalogue showcase', async () => {
@@ -62,4 +71,11 @@ test('products page includes a localized catalogue showcase', async () => {
   assert.match(component, /Варианты опор и дизайна/)
   assert.match(component, /road-light-options\.jpg/)
   assert.match(page, /<CatalogueShowcase locale={locale} \/>/)
+})
+
+test('unsupported generic claims are hidden for uncertified source products', async () => {
+  const detail = await readFile(new URL('../app/[locale]/products/[slug]/page.tsx', import.meta.url), 'utf8')
+  const card = await readFile(new URL('../components/ProductCard.tsx', import.meta.url), 'utf8')
+  assert.match(detail, /product\.certificates\.length > 0 && \(\s*<div className="mt-10/)
+  assert.match(card, /product\.certificates\.length > 0 && \(\s*<div className="flex items-center/)
 })

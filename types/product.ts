@@ -3,6 +3,8 @@
   ru: string
 }
 
+export type LocalizedSpecValue = string | BilingualString
+
 export interface ProductImage {
   _type?: 'image'
   asset?: { _ref?: string; _type?: 'reference'; url?: string }
@@ -40,14 +42,14 @@ export interface ProductSpecs {
   panelDimensions?: string
   panelEfficiency?: string
   ledLifetime?: string
-  batteryCycles?: string
-  autonomy?: string
-  nightlyRuntime?: string
-  poleConstruction?: string
-  arm?: string
+  batteryCycles?: LocalizedSpecValue
+  autonomy?: LocalizedSpecValue
+  nightlyRuntime?: LocalizedSpecValue
+  poleConstruction?: LocalizedSpecValue
+  arm?: LocalizedSpecValue
   flange?: string
-  foundation?: string
-  installationNote?: string
+  foundation?: LocalizedSpecValue
+  installationNote?: LocalizedSpecValue
 }
 
 export interface Certificate {
