@@ -25,8 +25,7 @@
 **Files:**
 - Create: `tests/source-content.test.mjs`
 - Create: `public/images/products/wall-pole-mount-60w-*.png`
-- Create: `public/images/products/classic-split-6m-60w-*.jpeg`
-- Create: `public/images/products/classic-split-8m-60w-*.jpeg`
+- Create: `public/images/products/classic-split-installation-*.png`
 - Modify: `content/products/index.json`
 - Modify: `types/product.ts`
 - Modify: `package.json`
@@ -76,7 +75,7 @@ test('source-backed product images exist locally', async () => {
   for (const slug of ['wall-pole-mount-60w', 'classic-split-6m-60w', 'classic-split-8m-60w']) {
     const product = bySlug(slug)
     assert.ok(product.images.length >= 2)
-    for (const image of product.images) await access(new URL(`..${image}`, import.meta.url))
+    for (const image of product.images) await access(new URL(`../public${image}`, import.meta.url))
   }
 })
 ```
