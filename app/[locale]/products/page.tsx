@@ -1,5 +1,6 @@
 import { getProducts, getProductSeries } from '@/lib/queries'
 import { ProductsFilter } from '@/components/ProductsFilter'
+import { CatalogueShowcase } from '@/components/CatalogueShowcase'
 import { BreadcrumbJsonLd } from '@/components/StructuredData'
 import type { Metadata } from 'next'
 
@@ -50,23 +51,25 @@ export default async function ProductsPage({
         ]}
       />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-50">
-          {locale === 'en' ? 'Solar Street Lights' : 'Солнечные уличные фонари'}
-        </h1>
-        <p className="mt-2 text-sm text-slate-400 max-w-3xl leading-relaxed">
-          {subtitle}
-        </p>
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-slate-50">
+            {locale === 'en' ? 'Solar Street Lights' : 'Солнечные уличные фонари'}
+          </h1>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-400">
+            {subtitle}
+          </p>
+        </div>
+
+        <ProductsFilter
+          products={products}
+          series={series}
+          locale={locale}
+          initialSeries={querySeries}
+        />
       </div>
 
-      <ProductsFilter
-        products={products}
-        series={series}
-        locale={locale}
-        initialSeries={querySeries}
-      />
-    </div>
-  </>
+      <CatalogueShowcase locale={locale} />
+    </>
   )
 }
 

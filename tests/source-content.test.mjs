@@ -52,3 +52,14 @@ test('extended specifications provide English and Russian labels', async () => {
     assert.match(source, new RegExp(text))
   }
 })
+
+test('products page includes a localized catalogue showcase', async () => {
+  const componentUrl = new URL('../components/CatalogueShowcase.tsx', import.meta.url)
+  await assert.doesNotReject(() => access(componentUrl))
+  const component = await readFile(componentUrl, 'utf8')
+  const page = await readFile(new URL('../app/[locale]/products/page.tsx', import.meta.url), 'utf8')
+  assert.match(component, /Pole & design options/)
+  assert.match(component, /Варианты опор и дизайна/)
+  assert.match(component, /road-light-options\.jpg/)
+  assert.match(page, /<CatalogueShowcase locale={locale} \/>/)
+})
