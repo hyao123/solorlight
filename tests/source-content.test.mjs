@@ -39,3 +39,16 @@ test('source-backed product images exist locally', async () => {
     }
   }
 })
+
+test('extended specifications provide English and Russian labels', async () => {
+  const source = await readFile(new URL('../components/ProductSpecs.tsx', import.meta.url), 'utf8')
+  for (const text of [
+    'Panel Dimensions', 'Размеры панели',
+    'Pole Construction', 'Конструкция опоры',
+    'Foundation Cage', 'Закладная деталь',
+    'Rainy-Day Autonomy', 'Автономность в пасмурные дни',
+    'Construction & Installation', 'Конструкция и монтаж',
+  ]) {
+    assert.match(source, new RegExp(text))
+  }
+})
