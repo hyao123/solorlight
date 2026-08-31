@@ -1,10 +1,23 @@
 import React from 'react'
 
-export function JsonLd({ data }: { data: Record<string, any> }) {
+type JsonLdValue =
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | JsonLdValue[]
+  | { [key: string]: JsonLdValue }
+
+type JsonLdObject = { [key: string]: JsonLdValue }
+
+export function JsonLd({ data }: { data: JsonLdObject }) {
+  const serialized = JSON.stringify(data).replace(/</g, '\\u003c')
+
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: serialized }}
     />
   )
 }
@@ -29,7 +42,7 @@ export function OrganizationJsonLd({
     '@type': 'Organization',
     name,
     url,
-    logo: logo || `${url}/images/products/road-90w.jpg`,
+    ...(logo ? { logo } : {}),
     description:
       description ||
       'Professional manufacturer of industrial solar street lights, LiFePO4 battery solar lighting systems, and off-grid solutions based in Weifang, Shandong, China.',
@@ -109,18 +122,6 @@ export function ProductJsonLd({
     brand: {
       '@type': 'Brand',
       name: brand,
-    },
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      price: '0.00',
-      priceValidUntil: '2027-12-31',
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@type': 'Organization',
-        name: brand,
-      },
     },
   }
 

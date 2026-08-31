@@ -1,28 +1,19 @@
-import nextPlugin from "@next/eslint-plugin-next";
-import tsParser from "@typescript-eslint/parser";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
 
 export default [
+  ...nextVitals,
+  ...nextTs,
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    plugins: {
-      "@next/next": nextPlugin,
-    },
-    languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
+    files: ["**/*.{js,jsx,mjs,ts,tsx,mts,cts}"],
     rules: {
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs["core-web-vitals"].rules,
+      // Keep the existing lint baseline while the project adopts Next's flat config.
+      "@typescript-eslint/no-explicit-any": "off",
+      "react/no-unescaped-entities": "off",
+      "react-hooks/set-state-in-effect": "off",
     },
   },
   {
-    ignores: [".next/**", "out/**", "build/**", "next-env.d.ts", "node_modules/**"],
+    ignores: ["node_modules/**"],
   },
 ];
