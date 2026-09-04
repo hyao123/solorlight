@@ -1,10 +1,12 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import { useState } from 'react'
-import { QuoteModal } from './QuoteModal'
+
+const QuoteModal = dynamic(() => import('./QuoteModal').then((module) => module.QuoteModal), { ssr: false })
 
 export function Header() {
   const t = useTranslations('nav')
@@ -159,11 +161,13 @@ export function Header() {
         )}
       </div>
 
-      <QuoteModal
-        isOpen={quoteOpen}
-        onClose={() => setQuoteOpen(false)}
-        locale={locale}
-      />
+      {quoteOpen && (
+        <QuoteModal
+          isOpen={quoteOpen}
+          onClose={() => setQuoteOpen(false)}
+          locale={locale}
+        />
+      )}
     </header>
   )
 }

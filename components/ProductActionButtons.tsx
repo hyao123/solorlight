@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'
-import { QuoteModal } from './QuoteModal'
 import { ProductDatasheetButton } from './ProductDatasheetButton'
+
+const QuoteModal = dynamic(() => import('./QuoteModal').then((module) => module.QuoteModal), { ssr: false })
 
 interface ProductActionButtonsProps {
   productName: string
@@ -70,13 +72,15 @@ export function ProductActionButtons({
         )}
       </div>
 
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        locale={locale}
-        prefilledProduct={productName}
-        whatsappNumber={whatsappNumber}
-      />
+      {isQuoteModalOpen && (
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+          locale={locale}
+          prefilledProduct={productName}
+          whatsappNumber={whatsappNumber}
+        />
+      )}
     </>
   )
 }

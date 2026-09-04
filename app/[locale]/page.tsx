@@ -1,10 +1,25 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { getTranslations } from 'next-intl/server'
 import { getProducts, getSiteSettings, getProjectCases } from '@/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
 import { CaseGallery } from '@/components/CaseGallery'
-import { SolarCalculator } from '@/components/SolarCalculator'
-import { RegionalAdaptationMatrix } from '@/components/RegionalAdaptationMatrix'
+
+const SolarCalculator = dynamic(() => import('@/components/SolarCalculator').then((module) => module.SolarCalculator), {
+  loading: () => <div className="min-h-[560px]" aria-hidden="true" />,
+})
+const RegionalAdaptationMatrix = dynamic(
+  () => import('@/components/RegionalAdaptationMatrix').then((module) => module.RegionalAdaptationMatrix),
+  { loading: () => <div className="min-h-[560px]" aria-hidden="true" /> },
+)
+const RegionalTransitMatrix = dynamic(
+  () => import('@/components/RegionalTransitMatrix').then((module) => module.RegionalTransitMatrix),
+  { loading: () => <div className="min-h-[400px]" aria-hidden="true" /> },
+)
+const GeoDirectAnswerFaq = dynamic(
+  () => import('@/components/GeoDirectAnswerFaq').then((module) => module.GeoDirectAnswerFaq),
+  { loading: () => <div className="min-h-[400px]" aria-hidden="true" /> },
+)
 
 export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'ru' }]
@@ -209,6 +224,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: '
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Export Logistics & Transit Corridors (GEO) */}
+      <section className="bg-slate-900/40 py-16 border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <RegionalTransitMatrix
+            locale={locale}
+            whatsappNumber={settings.whatsappNumber}
+          />
+        </div>
+      </section>
+
+      {/* Engineering Knowledge Base & Direct Answer FAQ (GEO) */}
+      <section className="bg-slate-950 py-16 border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <GeoDirectAnswerFaq locale={locale} />
         </div>
       </section>
 

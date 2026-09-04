@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { getProductSeries, getProducts, getSiteSettings } from '@/lib/queries'
 import { SolarCalculator } from '@/components/SolarCalculator'
 import { RegionalAdaptationMatrix } from '@/components/RegionalAdaptationMatrix'
+import { RegionalTransitMatrix } from '@/components/RegionalTransitMatrix'
+import { GeoDirectAnswerFaq } from '@/components/GeoDirectAnswerFaq'
 import { BreadcrumbJsonLd } from '@/components/StructuredData'
 import type { Metadata } from 'next'
 
@@ -343,6 +345,23 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
               </tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      {/* Export Logistics & Transit Corridors (GEO) */}
+      <section className="bg-slate-950 py-16 border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <RegionalTransitMatrix
+            locale={locale}
+            whatsappNumber={settings.whatsappNumber}
+          />
+        </div>
+      </section>
+
+      {/* Engineering Knowledge Base & Direct Answer FAQ (GEO) */}
+      <section className="bg-slate-950 py-16 border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <GeoDirectAnswerFaq locale={locale} />
         </div>
       </section>
 

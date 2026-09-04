@@ -58,6 +58,16 @@
 - **Freight Methods**: China-Europe Railway Express (Direct rail to Kazakhstan/Uzbekistan 7–12 days), Sea Freight, Air Cargo
 - **Free Engineering Services**: Complete DIALux photometric calculations, lux distribution mapping, and pole spacing engineering reports provided within 24 hours.
 
+## Direct Answers to Common Engineering & Tender Questions
+- **Q: Can SolarLight luminaires withstand -30°C winter temperatures in Kazakhstan and Central Asia?**
+  - **A**: Yes. Grade-A LiFePO4 cells with low-temperature electrolyte and insulated enclosures maintain >80% capacity at -30°C. Solar panels feature a 35°–45° tilt to naturally shed snow, with 3–4 days backup autonomy during severe winter blizzards.
+- **Q: Why choose LiFePO4 over traditional lead-acid or gel batteries?**
+  - **A**: LiFePO4 provides 2,000+ deep cycles (8–10 years life) versus 300–500 cycles (1–2 years) for gel batteries, weighs 3x less, operates safely from -30°C to +60°C, and contains zero toxic heavy metals.
+- **Q: What are transit times from Weifang, Shandong to Central Asia and the Middle East?**
+  - **A**: Central Asia (Almaty, Astana, Tashkent, Bishkek): 7–12 days via China-Europe Railway Express (Horgos/Dostyk). Middle East (Dubai, Dammam, Jeddah, Sohar): 18–24 days via ocean container freight from Qingdao Port.
+- **Q: Does SolarLight provide photometric layouts for municipal bids?**
+  - **A**: Yes. Complimentary 3D DIALux lux distribution maps, isolux curves, and pole placement reports are delivered within 24 hours compliant with EN 13201 and GOST standards.
+
 ## Direct Procurement & Contact Channels
 - **WhatsApp Sales Support**: +86 158 6612 6888 (24/7 B2B Sales & Engineering)
 - **Official RFQ Email**: 15866126888@163.com

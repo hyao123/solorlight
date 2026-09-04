@@ -42,9 +42,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
   if (!product) notFound()
 
   const name = product.name[locale]
-  const mainImg = product.images?.[0]
-    ? urlFor(product.images[0]).width(800).height(600).url()
-    : '/placeholder.jpg'
 
   // Related: same series, exclude current
   const related = allProducts
@@ -75,6 +72,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         images={imageUrls}
         sku={slug}
         url={currentUrl}
+        specs={product.specs}
       />
       <BreadcrumbJsonLd
         items={[

@@ -103,6 +103,7 @@ export function ProductJsonLd({
   sku,
   url,
   brand = 'SolarLight',
+  specs,
 }: {
   name: string
   description: string
@@ -110,7 +111,30 @@ export function ProductJsonLd({
   sku: string
   url: string
   brand?: string
+  specs?: Record<string, any>
 }) {
+  const additionalProperties: Array<{ '@type': 'PropertyValue'; name: string; value: string }> = []
+
+  if (specs) {
+    if (specs.power) additionalProperties.push({ '@type': 'PropertyValue', name: 'Power Rating', value: String(specs.power) })
+    if (specs.lumens) additionalProperties.push({ '@type': 'PropertyValue', name: 'Luminous Flux', value: `${specs.lumens} lm` })
+    if (specs.battery) additionalProperties.push({ '@type': 'PropertyValue', name: 'Battery Technology', value: String(specs.battery) })
+    if (specs.solarPanel) additionalProperties.push({ '@type': 'PropertyValue', name: 'Solar Panel Type', value: String(specs.solarPanel) })
+    if (specs.ipRating) additionalProperties.push({ '@type': 'PropertyValue', name: 'Ingress Protection', value: String(specs.ipRating) })
+    if (specs.controller) additionalProperties.push({ '@type': 'PropertyValue', name: 'Charge Controller', value: String(specs.controller) })
+    if (specs.mountHeight) additionalProperties.push({ '@type': 'PropertyValue', name: 'Recommended Pole Height', value: String(specs.mountHeight) })
+    if (specs.efficacy) additionalProperties.push({ '@type': 'PropertyValue', name: 'Luminous Efficacy', value: String(specs.efficacy) })
+  }
+
+  // Base engineering specs standard to all SolarLight models
+  additionalProperties.push(
+    { '@type': 'PropertyValue', name: 'Operating Temperature', value: '-30°C to +60°C' },
+    { '@type': 'PropertyValue', name: 'Impact Resistance', value: 'IK10' },
+    { '@type': 'PropertyValue', name: 'Certifications', value: 'CE, RoHS, ISO 9001' },
+    { '@type': 'PropertyValue', name: 'Warranty', value: '5-Year Factory Warranty' },
+    { '@type': 'PropertyValue', name: 'Manufacturing Base', value: 'Weifang, Shandong, China' }
+  )
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -123,6 +147,24 @@ export function ProductJsonLd({
       '@type': 'Brand',
       name: brand,
     },
+    manufacturer: {
+      '@type': 'Organization',
+      name: brand,
+      url: 'https://solarlight.kz',
+    },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      price: '0.00',
+      priceValidUntil: '2028-12-31',
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: {
+        '@type': 'Organization',
+        name: brand,
+      },
+    },
+    additionalProperty: additionalProperties,
   }
 
   return <JsonLd data={schema} />

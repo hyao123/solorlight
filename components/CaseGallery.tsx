@@ -1,10 +1,12 @@
 'use client'
 
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import type { ProjectCase } from '@/lib/queries'
-import { QuoteModal } from './QuoteModal'
+
+const QuoteModal = dynamic(() => import('./QuoteModal').then((module) => module.QuoteModal), { ssr: false })
 
 interface CaseGalleryProps {
   cases: ProjectCase[]

@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'
-import { QuoteModal } from './QuoteModal'
+
+const QuoteModal = dynamic(() => import('./QuoteModal').then((module) => module.QuoteModal), { ssr: false })
 
 interface FloatingInquiryWidgetProps {
   whatsappNumber: string
@@ -124,12 +126,14 @@ export function FloatingInquiryWidget({
         </div>
       </div>
 
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        locale={locale}
-        whatsappNumber={whatsappNumber}
-      />
+      {isQuoteModalOpen && (
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+          locale={locale}
+          whatsappNumber={whatsappNumber}
+        />
+      )}
     </>
   )
 }

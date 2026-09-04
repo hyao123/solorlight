@@ -1,16 +1,17 @@
-'use client'
-
 import Link from 'next/link'
-import { useTranslations, useLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import type { SanitySiteSettings } from '@/types/sanity'
 
 interface FooterProps {
   settings: SanitySiteSettings
+  locale: 'en' | 'ru'
 }
 
-export function Footer({ settings }: FooterProps) {
-  const locale = useLocale()
-  const t = useTranslations()
+export async function Footer({ settings, locale }: FooterProps) {
+  const [nav, footer] = await Promise.all([
+    getTranslations({ locale, namespace: 'nav' }),
+    getTranslations({ locale, namespace: 'footer' }),
+  ])
 
   return (
     <footer className="border-t border-slate-800 bg-slate-950">
@@ -25,26 +26,26 @@ export function Footer({ settings }: FooterProps) {
 
           {/* Quick links */}
           <div>
-            <h3 className="mb-3 text-lg font-semibold text-slate-50">{t('nav.products')}</h3>
+            <h3 className="mb-3 text-lg font-semibold text-slate-50">{nav('products')}</h3>
             <div className="flex flex-col gap-2">
               <Link href={`/${locale}/products`} className="text-sm text-slate-400 hover:text-sky-400">
-                {t('nav.products')}
+                {nav('products')}
               </Link>
               <Link href={`/${locale}/solutions`} className="text-sm text-slate-400 hover:text-sky-400">
-                {t('nav.solutions')}
+                {nav('solutions')}
               </Link>
               <Link href={`/${locale}/about`} className="text-sm text-slate-400 hover:text-sky-400">
-                {t('nav.about')}
+                {nav('about')}
               </Link>
               <Link href={`/${locale}/contact`} className="text-sm text-slate-400 hover:text-sky-400">
-                {t('nav.contact')}
+                {nav('contact')}
               </Link>
             </div>
           </div>
 
           {/* Social */}
           <div>
-            <h3 className="mb-3 text-lg font-semibold text-slate-50">Connect</h3>
+            <h3 className="mb-3 text-lg font-semibold text-slate-50">{footer('connect')}</h3>
             <div className="flex gap-4">
               {settings.socialLinks?.linkedin && (
                 <a
@@ -77,7 +78,7 @@ export function Footer({ settings }: FooterProps) {
         </div>
 
         <div className="mt-8 border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} {settings.companyName[locale as 'en' | 'ru']}. {t('footer.rights')}
+          © {new Date().getFullYear()} {settings.companyName[locale]}. {footer('rights')}
         </div>
       </div>
     </footer>

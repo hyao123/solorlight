@@ -119,7 +119,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="min-h-screen">{children}</main>
-          <Footer settings={settings} />
+          <Footer settings={settings} locale={locale === 'ru' ? 'ru' : 'en'} />
           <FloatingInquiryWidget
             whatsappNumber={settings.whatsappNumber}
             email={settings.email}

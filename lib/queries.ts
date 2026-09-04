@@ -10,37 +10,50 @@ async function readJsonFile<T>(filePath: string): Promise<T> {
   return JSON.parse(fileContent)
 }
 
-let certificatesCache: Certificate[] | null = null
-let seriesCache: ProductSeries[] | null = null
+type RawProduct = Omit<Product, 'certificates' | 'series'> & {
+  certificates?: string[]
+  series?: string | null
+}
+
+let certificatesCache: Promise<Certificate[]> | null = null
+let seriesCache: Promise<ProductSeries[]> | null = null
+let rawProductsCache: Promise<RawProduct[]> | null = null
+let productsCache: Promise<Product[]> | null = null
+let settingsCache: Promise<SiteSettings> | null = null
+let casesCache: Promise<ProjectCase[]> | null = null
 
 async function getCertificates(): Promise<Certificate[]> {
-  if (!certificatesCache) {
-    certificatesCache = await readJsonFile<Certificate[]>('certificates/index.json')
-  }
+  certificatesCache ??= readJsonFile<Certificate[]>('certificates/index.json')
   return certificatesCache
 }
 
 async function getSeries(): Promise<ProductSeries[]> {
-  if (!seriesCache) {
-    seriesCache = await readJsonFile<ProductSeries[]>('series/index.json')
-  }
+  seriesCache ??= readJsonFile<ProductSeries[]>('series/index.json')
   return seriesCache
 }
 
-export async function getProducts(): Promise<Product[]> {
-  const [products, certificates, series] = await Promise.all([
-    readJsonFile<any[]>('products/index.json'),
-    getCertificates(),
-    getSeries(),
-  ])
+async function getRawProducts(): Promise<RawProduct[]> {
+  rawProductsCache ??= readJsonFile<RawProduct[]>('products/index.json')
+  return rawProductsCache
+}
+
+async function loadProducts(): Promise<Product[]> {
+  const [products, certificates, series] = await Promise.all([getRawProducts(), getCertificates(), getSeries()])
+  const certificatesById = new Map(certificates.map((certificate) => [certificate._id, certificate]))
+  const seriesById = new Map(series.map((productSeries) => [productSeries._id, productSeries]))
 
   return products.map((product) => ({
     ...product,
-    certificates: (product.certificates || [])
-      .map((certId: string) => certificates.find((c) => c._id === certId))
-      .filter(Boolean),
-    series: series.find((s) => s._id === product.series) || null,
+    certificates: (product.certificates ?? [])
+      .map((certId) => certificatesById.get(certId))
+      .filter((certificate): certificate is Certificate => Boolean(certificate)),
+    series: product.series ? seriesById.get(product.series) ?? null : null,
   }))
+}
+
+export async function getProducts(): Promise<Product[]> {
+  productsCache ??= loadProducts()
+  return productsCache
 }
 
 export async function getProduct(slug: string): Promise<Product | null> {
@@ -53,11 +66,13 @@ export async function getProductSeries(): Promise<ProductSeries[]> {
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
-  return readJsonFile<SiteSettings>('settings.json')
+  settingsCache ??= readJsonFile<SiteSettings>('settings.json')
+  return settingsCache
 }
 
 export type { ProjectCase }
 
 export async function getProjectCases(): Promise<ProjectCase[]> {
-  return readJsonFile<ProjectCase[]>('cases.json')
+  casesCache ??= readJsonFile<ProjectCase[]>('cases.json')
+  return casesCache
 }

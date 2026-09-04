@@ -79,3 +79,16 @@ test('unsupported generic claims are hidden for uncertified source products', as
   assert.match(detail, /product\.certificates\.length > 0 && \(\s*<div className="mt-10/)
   assert.match(card, /product\.certificates\.length > 0 && \(\s*<div className="flex items-center/)
 })
+
+test('quote modal is mounted only after its trigger opens it', async () => {
+  const componentFiles = [
+    '../components/Header.tsx',
+    '../components/FloatingInquiryWidget.tsx',
+    '../components/ProductActionButtons.tsx',
+  ]
+
+  for (const file of componentFiles) {
+    const source = await readFile(new URL(file, import.meta.url), 'utf8')
+    assert.match(source, /(?:quoteOpen|isQuoteModalOpen) && \(\s*<QuoteModal/)
+  }
+})
