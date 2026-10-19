@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 const QuoteModal = dynamic(() => import('./QuoteModal').then((module) => module.QuoteModal), { ssr: false })
 
-export function Header() {
+export function Header({ whatsappNumber }: { whatsappNumber: string }) {
   const t = useTranslations('nav')
   const locale = useLocale() as 'en' | 'ru'
   const pathname = usePathname() || `/${locale}`
@@ -30,6 +30,7 @@ export function Header() {
   }
 
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-slate-800/60 bg-slate-950/95 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -161,13 +162,15 @@ export function Header() {
         )}
       </div>
 
+    </header>
       {quoteOpen && (
         <QuoteModal
           isOpen={quoteOpen}
           onClose={() => setQuoteOpen(false)}
           locale={locale}
+          whatsappNumber={whatsappNumber}
         />
       )}
-    </header>
+    </>
   )
 }

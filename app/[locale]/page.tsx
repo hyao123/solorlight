@@ -4,6 +4,12 @@ import { getTranslations } from 'next-intl/server'
 import { getProducts, getSiteSettings, getProjectCases } from '@/lib/queries'
 import { ProductGrid } from '@/components/ProductGrid'
 import { CaseGallery } from '@/components/CaseGallery'
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
+  const { locale } = await params
+  return { alternates: { canonical: `/${locale}`, languages: { en: '/en', ru: '/ru' } } }
+}
 
 const SolarCalculator = dynamic(() => import('@/components/SolarCalculator').then((module) => module.SolarCalculator), {
   loading: () => <div className="min-h-[560px]" aria-hidden="true" />,

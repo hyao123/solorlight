@@ -14,7 +14,7 @@ interface FloatingInquiryWidgetProps {
 
 export function FloatingInquiryWidget({
   whatsappNumber,
-  email = 'sales@solarlight.kz',
+  email = '15866126888@163.com',
   locale,
 }: FloatingInquiryWidgetProps) {
   const t = useTranslations('floatingWidget')

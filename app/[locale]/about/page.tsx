@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
     description: locale === 'en'
       ? 'Learn about SolarLight Solutions — 10+ years manufacturing solar street lights for Central Asia and the Middle East.'
       : 'Узнайте о SolarLight Solutions — более 10 лет производства солнечных фонарей для Центральной Азии и Ближнего Востока.',
-    alternates: { languages: { en: '/en/about', ru: '/ru/about' } },
+    alternates: { canonical: `/${locale}/about`, languages: { en: '/en/about', ru: '/ru/about' } },
   }
 }
 
@@ -31,7 +31,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const certs = t.raw('certs') as Array<{ name: string; desc: string }>
   const team = t.raw('team') as Array<{ name: string; role: string; note: string }>
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jiazun6888.com'
   const whatsappLink = `https://wa.me/${settings.whatsappNumber?.replace(/\D/g, '') ?? ''}`
 
   return (

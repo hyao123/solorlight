@@ -34,7 +34,7 @@ A high-performance bilingual (English/Russian) B2B catalog and inquiry website f
 
 ### Prerequisites
 
-- Node.js >= 20.x
+- Node.js 24.x LTS (recommended production runtime)
 - npm / pnpm / yarn
 
 ### Environment Variables
@@ -48,7 +48,7 @@ cp .env.example .env.local
 Configure your variables:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://solarlight.kz
+NEXT_PUBLIC_SITE_URL=https://jiazun6888.com
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
@@ -69,7 +69,10 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 # Run linting checks
 npm run lint
 
-# Build static production bundle
+# Run regression tests
+npm test
+
+# Build the Next.js production application
 npm run build
 ```
 
@@ -98,6 +101,20 @@ solarlight/
 ```
 
 ---
+
+## Free personal-site deployment
+
+For the current use case—an author profile and social-media landing page—use Netlify Free with the existing domain. Connect the Git repository, keep the production branch `master`, select the Next.js framework, and set `NEXT_PUBLIC_SITE_URL=https://jiazun6888.com` before building. The repository's `netlify.toml` sets Node 24, the build command, publish directory, and security headers. Netlify automatically supplies its current Next.js adapter; do not pin a legacy adapter. Do not add a database, CMS, or separate CDN at this stage.
+
+The current Free plan includes a 300-credit monthly hard limit shared by production deploys, traffic, and compute. It incurs no overage charges, but reaching the limit can pause all sites on the account. Avoid unnecessary production builds; use deploy previews for review. Verify the current plan limits when creating the site. The current product and quotation content makes Vercel Hobby's restriction to non-commercial personal use a poor fit, even if the site is personally owned.
+
+The free deployment still serves the current Next.js application, including the language proxy and image optimization; it is not a static export. Validate these features on the Netlify preview before changing DNS. The existing form remains a browser-side EmailJS contact path, with its own account and quota requirements. Keep WhatsApp and the existing `15866126888@163.com` contact available; no paid email service is required for this phase.
+
+### Production domain
+
+Primary URL: `https://jiazun6888.com`. Add both the root domain and `www.jiazun6888.com` to Netlify's Domain management, select the root domain as primary, and copy the DNS records from that site's domain setup panel. Existing DNS hosting can remain in place. Wait for HTTPS provisioning and verify the www redirect preserves paths and query parameters. This application requires Next.js hosting support; it is not a static export.
+
+See [deployment plan](docs/方案设计.md) for the domain setup and launch checklist.
 
 ## License
 

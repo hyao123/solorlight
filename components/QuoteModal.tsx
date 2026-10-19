@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useId } from 'react'
 import { useTranslations } from 'next-intl'
 import emailjs from '@emailjs/browser'
 
@@ -46,6 +46,8 @@ export function QuoteModal({
   whatsappNumber = '',
 }: QuoteModalProps) {
   const t = useTranslations('rfq')
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const titleId = useId()
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   const [formData, setFormData] = useState({
@@ -68,20 +70,18 @@ export function QuoteModal({
   }, [prefilledProduct, prefilledNote])
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-    }
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-      window.addEventListener('keydown', handleKeyDown)
-    } else {
-      document.body.style.overflow = ''
-    }
+    const dialog = dialogRef.current
+    if (!isOpen || !dialog) return
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    dialog.showModal()
     return () => {
-      document.body.style.overflow = ''
-      window.removeEventListener('keydown', handleKeyDown)
+      dialog.close()
+      document.body.style.overflow = previousOverflow
+      previousFocus?.focus()
     }
-  }, [isOpen, onClose])
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -113,12 +113,6 @@ export function QuoteModal({
 • Notes: ${formData.message || '—'}`
   }
 
-  const handleWhatsAppRedirect = () => {
-    const cleanPhone = whatsappNumber.replace(/\D/g, '')
-    const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(buildWhatsAppText())}`
-    window.open(url, '_blank')
-  }
-
   const handleSubmitEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('sending')
@@ -136,9 +130,26 @@ export function QuoteModal({
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm animate-in fade-in duration-200"
-      onClick={onClose}
+    <dialog
+      ref={dialogRef}
+      aria-labelledby={titleId}
+      aria-modal="true"
+      className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-slate-950/80 p-4 backdrop:bg-transparent open:flex open:items-center open:justify-center"
+      onCancel={(event) => { event.preventDefault(); onClose() }}
+      onClick={(event) => { if (event.target === event.currentTarget) onClose() }}
+      onKeyDown={(event) => {
+        if (event.key !== 'Tab') return
+        const elements = event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled)')
+        const first = elements[0]
+        const last = elements[elements.length - 1]
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last?.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first?.focus()
+        }
+      }}
     >
       <div
         className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-800 bg-slate-900 p-6 sm:p-8 shadow-2xl"
@@ -161,7 +172,7 @@ export function QuoteModal({
           <span className="inline-block rounded-full bg-yellow-400/10 px-3 py-0.5 text-xs font-semibold text-yellow-400 mb-2">
             RFQ · 24h Response Guarantee
           </span>
-          <h2 className="text-2xl font-bold text-slate-100">{t('modalTitle')}</h2>
+          <h2 id={titleId} className="text-2xl font-bold text-slate-100">{t('modalTitle')}</h2>
           <p className="mt-1 text-xs sm:text-sm text-slate-400">{t('modalSub')}</p>
         </div>
 
@@ -175,13 +186,14 @@ export function QuoteModal({
                 : 'Our export engineer will reply to your contact shortly. For immediate response, reach out directly on WhatsApp.'}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                type="button"
-                onClick={handleWhatsAppRedirect}
+              <a
+                href={`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(buildWhatsAppText())}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-xl bg-yellow-400 px-6 py-2.5 text-sm font-bold text-slate-900 hover:bg-yellow-300 transition"
               >
                 💬 {t('submitWhatsApp')}
-              </button>
+              </a>
               <button
                 type="button"
                 onClick={onClose}
@@ -323,18 +335,19 @@ export function QuoteModal({
                 {status === 'sending' ? t('sending') : t('submitEmail')}
               </button>
 
-              <button
-                type="button"
-                onClick={handleWhatsAppRedirect}
+              <a
+                href={`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(buildWhatsAppText())}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-5 py-3 text-sm font-bold text-emerald-400 hover:bg-emerald-500/20 transition flex items-center justify-center gap-1.5"
               >
                 <span>💬</span>
                 <span>{t('submitWhatsApp')}</span>
-              </button>
+              </a>
             </div>
           </form>
         )}
       </div>
-    </div>
+    </dialog>
   )
 }

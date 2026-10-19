@@ -3,6 +3,7 @@
 import { useState, useId } from 'react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { calculateSolarSizing } from '@/lib/solar-sizing'
 
 interface SolarCalculatorProps {
   locale: 'en' | 'ru'
@@ -64,8 +65,6 @@ const SCENARIO_CONFIG: Record<ScenarioKey, {
   },
 }
 
-const STANDARD_WATTS = [20, 30, 40, 60, 90, 100, 120, 150]
-
 export function SolarCalculator({ locale, whatsappNumber, onOpenQuoteModal }: SolarCalculatorProps) {
   const t = useTranslations('calculator')
   const [scenario, setScenario] = useState<ScenarioKey>('road')
@@ -78,32 +77,18 @@ export function SolarCalculator({ locale, whatsappNumber, onOpenQuoteModal }: So
 
   const cfg = SCENARIO_CONFIG[scenario]
 
-  // Photometric & Solar sizing math
-  const poleSpacing = Math.round(poleHeight * 3.2)
-  const areaPerPole = roadWidth * poleSpacing
-  const targetTotalLumens = Math.round(areaPerPole * cfg.targetLux * 1.8)
+  const {
+    poleSpacing, recommendedWatts, estimatedLumens, estimatedLux,
+    batteryWh, batteryAh12v, solarPanelWatts, requiresCustomDesign,
+  } = calculateSolarSizing(roadWidth, poleHeight, cfg.targetLux, autonomyDays)
 
-  // Standard wattage resolution (160 lm/W)
-  const rawWatts = targetTotalLumens / 160
-  const recommendedWatts = STANDARD_WATTS.reduce((prev, curr) => {
-    return Math.abs(curr - rawWatts) < Math.abs(prev - rawWatts) ? curr : prev
-  }, 60)
-
-  const estimatedLumens = recommendedWatts * 160
-  const estimatedLux = Math.round((estimatedLumens * 0.55) / areaPerPole)
-
-  // Battery & Solar sizing
-  const dailyWattHours = Math.round(recommendedWatts * 12 * 0.7) // 12h night with average 70% dimming
-  const batteryWh = Math.round((dailyWattHours * autonomyDays) / 0.85)
-  const batteryAh12v = Math.round(batteryWh / 12.8)
-  const solarPanelWatts = Math.round((dailyWattHours * 1.35) / 4.2)
-
-  const recommendedModel = locale === 'ru' ? cfg.recommendedModelRu : cfg.recommendedModelEn
+  const formattedLumens = estimatedLumens.toLocaleString(locale === 'ru' ? 'ru-RU' : 'en-US')
+  const recommendedModel = requiresCustomDesign ? t('customDesignTitle') : (locale === 'ru' ? cfg.seriesNameRu : cfg.seriesNameEn)
   const scenarioName = locale === 'ru' ? cfg.seriesNameRu : cfg.seriesNameEn
 
   const whatsappMessage = locale === 'ru'
-    ? `Здравствуйте! Рассчитал проект на сайте: Сценарий: ${t('scenarios.' + scenario)}, Ширина: ${roadWidth}м, Высота: ${poleHeight}м, Автономия: ${autonomyDays} дня. Рекомендовано: ${recommendedWatts} Вт (${estimatedLumens.toLocaleString()} лм, LiFePO4 ${batteryWh} Вт·ч / ${batteryAh12v} А·ч). Пришлите расчет DIALux и КП.`
-    : `Hello! I used your Solar Calculator: Scenario: ${t('scenarios.' + scenario)}, Width: ${roadWidth}m, Pole: ${poleHeight}m, Autonomy: ${autonomyDays} days. Recommended: ${recommendedWatts}W (${estimatedLumens.toLocaleString()} lm, LiFePO4 ${batteryWh}Wh / ${batteryAh12v}Ah). Please send a free DIALux lighting layout and quote.`
+    ? `Здравствуйте! Рассчитал проект на сайте: Сценарий: ${t('scenarios.' + scenario)}, Ширина: ${roadWidth}м, Высота: ${poleHeight}м, Автономия: ${autonomyDays} дня. Предварительная оценка: ${recommendedWatts} Вт (${formattedLumens} лм, LiFePO4 ${batteryWh} Вт·ч / ${batteryAh12v} А·ч). ${requiresCustomDesign ? t('customDesignNote') : ''} Пришлите расчет DIALux и КП.`
+    : `Hello! I used your Solar Calculator: Scenario: ${t('scenarios.' + scenario)}, Width: ${roadWidth}m, Pole: ${poleHeight}m, Autonomy: ${autonomyDays} days. Preliminary estimate: ${recommendedWatts}W (${formattedLumens} lm, LiFePO4 ${batteryWh}Wh / ${batteryAh12v}Ah). ${requiresCustomDesign ? t('customDesignNote') : ''} Please send a free DIALux lighting layout and quote.`
 
   const whatsappLink = `https://wa.me/${(whatsappNumber || '').replace(/\D/g, '')}?text=${encodeURIComponent(whatsappMessage)}`
 
@@ -132,6 +117,7 @@ export function SolarCalculator({ locale, whatsappNumber, onOpenQuoteModal }: So
                   <button
                     key={key}
                     type="button"
+                    aria-pressed={isActive}
                     onClick={() => {
                       setScenario(key)
                       setRoadWidth(SCENARIO_CONFIG[key].defaultWidth)
@@ -208,6 +194,7 @@ export function SolarCalculator({ locale, whatsappNumber, onOpenQuoteModal }: So
                 <button
                   key={days}
                   type="button"
+                  aria-pressed={autonomyDays === days}
                   onClick={() => setAutonomyDays(days)}
                   className={`rounded-xl py-2 text-center text-xs font-semibold transition ${
                     autonomyDays === days
@@ -233,11 +220,17 @@ export function SolarCalculator({ locale, whatsappNumber, onOpenQuoteModal }: So
               <span className="text-3xl">💡</span>
             </div>
 
+            {requiresCustomDesign && (
+              <p role="status" className="mt-4 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 text-sm text-amber-200">
+                {t('customDesignNote')}
+              </p>
+            )}
+
             <div className="grid grid-cols-2 gap-4 my-6">
               <div className="rounded-xl border border-slate-800/80 bg-slate-900/80 p-4">
                 <div className="text-xs text-slate-400">{t('recWattage')}</div>
                 <div className="text-2xl font-bold text-yellow-400 mt-1">{recommendedWatts} W</div>
-                <div className="text-xs text-slate-500 mt-0.5">~{estimatedLumens.toLocaleString()} lm</div>
+                <div className="text-xs text-slate-500 mt-0.5">~{formattedLumens} lm</div>
               </div>
 
               <div className="rounded-xl border border-slate-800/80 bg-slate-900/80 p-4">

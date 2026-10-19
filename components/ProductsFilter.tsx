@@ -1,6 +1,6 @@
 'use client'
  
-import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { ProductGrid } from './ProductGrid'
 import type { SanityProduct, SanityProductSeries } from '@/types/sanity'
 
@@ -8,17 +8,11 @@ interface ProductsFilterProps {
   products: SanityProduct[]
   series: SanityProductSeries[]
   locale: 'en' | 'ru'
-  initialSeries?: string
 }
 
-export function ProductsFilter({ products, series, locale, initialSeries }: ProductsFilterProps) {
-  const [activeSeries, setActiveSeries] = useState<string | null>(initialSeries ?? null)
-
-  useEffect(() => {
-    if (initialSeries !== undefined) {
-      setActiveSeries(initialSeries)
-    }
-  }, [initialSeries])
+export function ProductsFilter({ products, series, locale }: ProductsFilterProps) {
+  const searchParams = useSearchParams()
+  const activeSeries = searchParams.get('series') || null
 
   const isMatchedSeries = (productSeries: unknown, target: string) => {
     if (!productSeries) return false
@@ -37,7 +31,6 @@ export function ProductsFilter({ products, series, locale, initialSeries }: Prod
     : products
 
   const handleSelect = (seriesKey: string | null) => {
-    setActiveSeries(seriesKey)
     if (typeof window !== 'undefined') {
       const url = new URL(window.location.href)
       if (seriesKey) {
@@ -45,7 +38,7 @@ export function ProductsFilter({ products, series, locale, initialSeries }: Prod
       } else {
         url.searchParams.delete('series')
       }
-      window.history.replaceState({}, '', url.toString())
+      window.history.replaceState(null, '', url.toString())
     }
   }
 
@@ -55,6 +48,8 @@ export function ProductsFilter({ products, series, locale, initialSeries }: Prod
     <div>
       <div className="mb-8 flex flex-wrap gap-2.5">
         <button
+          type="button"
+          aria-pressed={activeSeries === null}
           onClick={() => handleSelect(null)}
           className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
             activeSeries === null
@@ -70,6 +65,8 @@ export function ProductsFilter({ products, series, locale, initialSeries }: Prod
 
           return (
             <button
+              type="button"
+              aria-pressed={isSelected}
               key={s._id}
               onClick={() => handleSelect(s.slug.current)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${

@@ -7,8 +7,8 @@ export interface ImageUrlResult {
 function makeResult(src: string): ImageUrlResult {
   const result: ImageUrlResult = {
     url: () => src,
-    width: (_w: number) => result,
-    height: (_h: number) => result,
+    width: () => result,
+    height: () => result,
   }
   return result
 }

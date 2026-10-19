@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
     description: locale === 'en'
       ? 'Get a free lighting plan and quote within 24 hours. WhatsApp, email, or inquiry form.'
       : 'Получите бесплатный светотехнический проект и КП в течение 24 часов. WhatsApp, email или форма запроса.',
-    alternates: { languages: { en: '/en/contact', ru: '/ru/contact' } },
+    alternates: { canonical: `/${locale}/contact`, languages: { en: '/en/contact', ru: '/ru/contact' } },
   }
 }
 
@@ -59,7 +59,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const steps = t.raw('steps') as Array<{ n: string; title: string; desc: string }>
   const faqs = t.raw('faqs') as Array<{ q: string; a: string }>
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jiazun6888.com'
 
   return (
     <>

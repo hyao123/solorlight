@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
     description: locale === 'en'
       ? 'Solar street lights for roads, rural villages, community areas, and industrial sites. CE certified, 5-year warranty, ships to Central Asia and Middle East.'
       : 'Солнечные уличные фонари для дорог, сёл, жилых районов и промышленных объектов. Сертификат CE, гарантия 5 лет, доставка в Центральную Азию.',
-    alternates: { languages: { en: '/en/solutions', ru: '/ru/solutions' } },
+    alternates: { canonical: `/${locale}/solutions`, languages: { en: '/en/solutions', ru: '/ru/solutions' } },
   }
 }
 
@@ -144,7 +144,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
   ])
 
   const en = locale === 'en'
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jiazun6888.com'
 
   return (
     <>

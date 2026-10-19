@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import { getMessages, setRequestLocale } from 'next-intl/server'
+import { notFound } from 'next/navigation'
+import { routing } from '@/i18n/routing'
 import { getSiteSettings } from '@/lib/queries'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -11,17 +13,24 @@ import '../globals.css'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) notFound()
   const en = locale === 'en'
   const settings = await getSiteSettings()
   const company = settings.companyName[en ? 'en' : 'ru']
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jiazun6888.com'
 
   return {
     metadataBase: new URL(siteUrl),
@@ -102,9 +111,11 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
+  if (!hasLocale(routing.locales, locale)) notFound()
+  setRequestLocale(locale)
   const [settings, messages] = await Promise.all([
     getSiteSettings(),
-    getMessages(),
+    getMessages({ locale }),
   ])
 
   return (
@@ -112,12 +123,12 @@ export default async function LocaleLayout({
       <body className={`${inter.className} bg-slate-950 text-slate-50 antialiased`}>
         <OrganizationJsonLd
           name={settings.companyName[locale === 'ru' ? 'ru' : 'en']}
-          url={process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'}
+          url={process.env.NEXT_PUBLIC_SITE_URL || 'https://jiazun6888.com'}
           contactPhone={settings.whatsappNumber}
           email={settings.email}
         />
-        <NextIntlClientProvider messages={messages}>
-          <Header />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header whatsappNumber={settings.whatsappNumber} />
           <main className="min-h-screen">{children}</main>
           <Footer settings={settings} locale={locale === 'ru' ? 'ru' : 'en'} />
           <FloatingInquiryWidget

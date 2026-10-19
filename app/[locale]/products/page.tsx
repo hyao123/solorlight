@@ -3,6 +3,8 @@ import { ProductsFilter } from '@/components/ProductsFilter'
 import { CatalogueShowcase } from '@/components/CatalogueShowcase'
 import { BreadcrumbJsonLd } from '@/components/StructuredData'
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
+import { ProductGrid } from '@/components/ProductGrid'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
   const { locale } = await params
@@ -15,6 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
     title,
     description,
     alternates: {
+      canonical: `/${locale}/products`,
       languages: {
         en: '/en/products',
         ru: '/ru/products',
@@ -25,19 +28,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
 
 export default async function ProductsPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: 'en' | 'ru' }>
-  searchParams?: Promise<{ series?: string }>
 }) {
   const { locale } = await params
-  const { series: querySeries } = (await searchParams) || {}
   const [products, series] = await Promise.all([
     getProducts(),
     getProductSeries(),
   ])
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jiazun6888.com'
   const subtitle = locale === 'en'
     ? 'High-efficiency monocrystalline solar street lighting solutions for roads, communities, rural areas, and industrial facilities.'
     : 'Высокоэффективные решения солнечного уличного освещения для дорог, жилых районов, сёл и промышленных объектов.'
@@ -60,12 +60,13 @@ export default async function ProductsPage({
           </p>
         </div>
 
-        <ProductsFilter
-          products={products}
-          series={series}
-          locale={locale}
-          initialSeries={querySeries}
-        />
+        <Suspense fallback={<ProductGrid products={products} locale={locale} />}>
+          <ProductsFilter
+            products={products}
+            series={series}
+            locale={locale}
+          />
+        </Suspense>
       </div>
 
       <CatalogueShowcase locale={locale} />

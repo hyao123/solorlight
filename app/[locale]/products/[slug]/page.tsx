@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: product.seoTitle[locale] || product.name[locale],
     description: product.seoDescription[locale],
-    alternates: { languages: { en: `/en/products/${slug}`, ru: `/ru/products/${slug}` } },
+    alternates: { canonical: `/${locale}/products/${slug}`, languages: { en: `/en/products/${slug}`, ru: `/ru/products/${slug}` } },
   }
 }
 
@@ -57,7 +57,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
     .map((img) => urlFor(img).width(800).height(600).url())
     .filter((u): u is string => typeof u === 'string' && u.length > 0)
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://solarlight.kz'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jiazun6888.com'
   const currentUrl = `${siteUrl}/${locale}/products/${slug}`
 
   const whatsappMsg = locale === 'en'
@@ -73,6 +73,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         sku={slug}
         url={currentUrl}
         specs={product.specs}
+        certificates={product.certificates.map((certificate) => certificate.name[locale])}
       />
       <BreadcrumbJsonLd
         items={[

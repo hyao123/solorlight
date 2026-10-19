@@ -104,6 +104,7 @@ export function ProductJsonLd({
   url,
   brand = 'SolarLight',
   specs,
+  certificates = [],
 }: {
   name: string
   description: string
@@ -111,13 +112,17 @@ export function ProductJsonLd({
   sku: string
   url: string
   brand?: string
-  specs?: Record<string, any>
+  specs?: import('@/types/product').ProductSpecs
+  certificates?: string[]
 }) {
   const additionalProperties: Array<{ '@type': 'PropertyValue'; name: string; value: string }> = []
 
   if (specs) {
     if (specs.power) additionalProperties.push({ '@type': 'PropertyValue', name: 'Power Rating', value: String(specs.power) })
-    if (specs.lumens) additionalProperties.push({ '@type': 'PropertyValue', name: 'Luminous Flux', value: `${specs.lumens} lm` })
+    if (specs.lumens) {
+      const value = String(specs.lumens)
+      additionalProperties.push({ '@type': 'PropertyValue', name: 'Luminous Flux', value: /\blm\b/i.test(value) ? value : value + ' lm' })
+    }
     if (specs.battery) additionalProperties.push({ '@type': 'PropertyValue', name: 'Battery Technology', value: String(specs.battery) })
     if (specs.solarPanel) additionalProperties.push({ '@type': 'PropertyValue', name: 'Solar Panel Type', value: String(specs.solarPanel) })
     if (specs.ipRating) additionalProperties.push({ '@type': 'PropertyValue', name: 'Ingress Protection', value: String(specs.ipRating) })
@@ -126,21 +131,16 @@ export function ProductJsonLd({
     if (specs.efficacy) additionalProperties.push({ '@type': 'PropertyValue', name: 'Luminous Efficacy', value: String(specs.efficacy) })
   }
 
-  // Base engineering specs standard to all SolarLight models
-  additionalProperties.push(
-    { '@type': 'PropertyValue', name: 'Operating Temperature', value: '-30°C to +60°C' },
-    { '@type': 'PropertyValue', name: 'Impact Resistance', value: 'IK10' },
-    { '@type': 'PropertyValue', name: 'Certifications', value: 'CE, RoHS, ISO 9001' },
-    { '@type': 'PropertyValue', name: 'Warranty', value: '5-Year Factory Warranty' },
-    { '@type': 'PropertyValue', name: 'Manufacturing Base', value: 'Weifang, Shandong, China' }
-  )
+  if (certificates.length > 0) {
+    additionalProperties.push({ '@type': 'PropertyValue', name: 'Certifications', value: certificates.join(', ') })
+  }
 
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name,
     description,
-    image: images.length > 0 ? images : undefined,
+    image: images.length > 0 ? images.map((image) => new URL(image, url).href) : undefined,
     sku,
     url,
     brand: {
@@ -150,19 +150,7 @@ export function ProductJsonLd({
     manufacturer: {
       '@type': 'Organization',
       name: brand,
-      url: 'https://solarlight.kz',
-    },
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      price: '0.00',
-      priceValidUntil: '2028-12-31',
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@type': 'Organization',
-        name: brand,
-      },
+      url: new URL(url).origin,
     },
     additionalProperty: additionalProperties,
   }

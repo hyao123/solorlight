@@ -1,0 +1,16 @@
+# Netlify Free deployment; the platform supplies the current Next.js adapter.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    "Content-Security-Policy" = "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.emailjs.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://www.zgsm-china.com data: blob:; font-src 'self' data:; connect-src 'self' https://api.emailjs.com; base-uri 'self'; form-action 'self'"
+    "X-Content-Type-Options" = "nosniff"
+    "X-Frame-Options" = "SAMEORIGIN"
+    "Referrer-Policy" = "strict-origin-when-cross-origin"
+    "Strict-Transport-Security" = "max-age=31536000; includeSubDomains"

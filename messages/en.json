@@ -242,7 +242,9 @@
     "recModel": "Matching Production Series",
     "viewProduct": "View Suggested Series →",
     "ctaWhatsApp": "Request Free DIALux Simulation",
-    "ctaRfq": "Get Exact Price Quotation"
+    "ctaRfq": "Get Exact Price Quotation",
+    "customDesignTitle": "Custom lighting design required",
+    "customDesignNote": "A single 150W light at this spacing cannot meet the target illuminance. Request a DIALux study for closer pole spacing or multiple luminaires. Values below are preliminary estimates for the 150W option."
   },
   "rfq": {
     "modalTitle": "Request B2B Quotation",
