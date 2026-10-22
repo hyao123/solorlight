@@ -1,9 +1,12 @@
 'use client'
 
 import { useState, useId } from 'react'
+import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { calculateSolarSizing } from '@/lib/solar-sizing'
+
+const QuoteModal = dynamic(() => import('./QuoteModal').then((module) => module.QuoteModal), { ssr: false })
 
 interface SolarCalculatorProps {
   locale: 'en' | 'ru'
@@ -71,6 +74,7 @@ export function SolarCalculator({ locale, whatsappNumber, onOpenQuoteModal }: So
   const [roadWidth, setRoadWidth] = useState<number>(10)
   const [poleHeight, setPoleHeight] = useState<number>(9)
   const [autonomyDays, setAutonomyDays] = useState<number>(3)
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false)
 
   const widthId = useId()
   const heightId = useId()
@@ -274,18 +278,33 @@ export function SolarCalculator({ locale, whatsappNumber, onOpenQuoteModal }: So
               <span>{t('ctaWhatsApp')}</span>
             </a>
 
-            {onOpenQuoteModal && (
-              <button
-                type="button"
-                onClick={() => onOpenQuoteModal(whatsappMessage)}
-                className="w-full rounded-xl border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-200 hover:border-yellow-400/50 hover:text-yellow-400 transition"
-              >
-                {t('ctaRfq')}
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => {
+                if (onOpenQuoteModal) {
+                  onOpenQuoteModal(whatsappMessage)
+                } else {
+                  setIsQuoteOpen(true)
+                }
+              }}
+              className="w-full rounded-xl border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-200 hover:border-yellow-400/50 hover:text-yellow-400 transition"
+            >
+              {t('ctaRfq')}
+            </button>
           </div>
         </div>
       </div>
+
+      {isQuoteOpen && (
+        <QuoteModal
+          isOpen={isQuoteOpen}
+          onClose={() => setIsQuoteOpen(false)}
+          locale={locale}
+          prefilledProduct={`${recommendedModel} (${recommendedWatts}W)`}
+          prefilledNote={whatsappMessage}
+          whatsappNumber={whatsappNumber}
+        />
+      )}
     </div>
   )
 }

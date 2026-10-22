@@ -74,44 +74,44 @@ export function ProductSpecs({ specs, locale }: ProductSpecsProps) {
   if (groups.length === 0) return null
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {groups.map(({ group, rows }) => {
         const heading = GROUP_LABELS[group]
         return (
-          <section key={group} className="overflow-hidden rounded-2xl border border-slate-200">
-            <div className="border-b border-slate-200 bg-slate-50 px-5 py-3">
-              <h3 className="font-semibold text-slate-900">
-                <span className="mr-2" aria-hidden="true">{heading.icon}</span>
-                {heading[locale]}
+          <section key={group} className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/70 shadow-lg">
+            <div className="border-b border-slate-800 bg-slate-900/90 px-5 py-3.5">
+              <h3 className="font-semibold text-slate-100 flex items-center">
+                <span className="mr-2 text-lg" aria-hidden="true">{heading.icon}</span>
+                <span>{heading[locale]}</span>
               </h3>
             </div>
-            <dl className="divide-y divide-slate-200 sm:hidden">
+            <dl className="divide-y divide-slate-800/80 sm:hidden">
               {rows.map((row, index) => (
-                <div key={row.key} className={index % 2 === 0 ? 'bg-white px-4 py-3' : 'bg-slate-50 px-4 py-3'}>
-                  <dt className="text-xs font-medium text-slate-500">
+                <div key={row.key} className={index % 2 === 0 ? 'bg-slate-950/60 px-4 py-3' : 'bg-slate-900/40 px-4 py-3'}>
+                  <dt className="text-xs font-medium text-slate-400 flex items-center">
                     <span className="mr-2" aria-hidden="true">{row.icon}</span>
                     {row[locale]}
                   </dt>
-                  <dd className="mt-1 break-words text-sm font-semibold leading-5 text-slate-900">
+                  <dd className="mt-1 break-words text-sm font-semibold leading-5 text-slate-100">
                     {formatSpecValue(row.value, locale)}{row.unit ? ` ${row.unit}` : ''}
                   </dd>
                 </div>
               ))}
             </dl>
             <table className="hidden w-full text-sm sm:table">
-                <tbody>
-                  {rows.map((row, index) => (
-                    <tr key={row.key} className={index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                      <td className="w-40 px-4 py-3 text-slate-500 sm:w-56 sm:px-5">
-                        <span className="mr-2" aria-hidden="true">{row.icon}</span>
-                        {row[locale]}
-                      </td>
-                      <td className="break-words px-4 py-3 font-medium text-slate-900 sm:px-5">
-                        {formatSpecValue(row.value, locale)}{row.unit ? ` ${row.unit}` : ''}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+              <tbody className="divide-y divide-slate-800/60">
+                {rows.map((row, index) => (
+                  <tr key={row.key} className={index % 2 === 0 ? 'bg-slate-950/50' : 'bg-slate-900/30'}>
+                    <td className="w-48 px-5 py-3 text-slate-400 font-medium sm:w-60">
+                      <span className="mr-2" aria-hidden="true">{row.icon}</span>
+                      {row[locale]}
+                    </td>
+                    <td className="break-words px-5 py-3 font-semibold text-slate-100">
+                      {formatSpecValue(row.value, locale)}{row.unit ? ` ${row.unit}` : ''}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </section>
         )

@@ -25,6 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: `${BASE_URL}/en${path}`,
           ru: `${BASE_URL}/ru${path}`,
+          'x-default': `${BASE_URL}/en${path}`,
         },
       },
     },
@@ -37,6 +38,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: `${BASE_URL}/en${path}`,
           ru: `${BASE_URL}/ru${path}`,
+          'x-default': `${BASE_URL}/en${path}`,
         },
       },
     },
