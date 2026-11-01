@@ -21,7 +21,7 @@
   "home": {
     "badge": "B2B Solar Lighting Manufacturer",
     "heroTitle": "Solar Street Lights Built for Harsh Climates",
-    "heroSub": "CE & RoHS certified · LiFePO4 battery · 5-year warranty · Ships to Kazakhstan, Uzbekistan & beyond",
+    "heroSub": "CE & RoHS documentation by model · LiFePO4 battery · Warranty confirmed in quotation · Ships to Kazakhstan, Uzbekistan & beyond",
     "heroBtn": "Get a Free Quote",
     "heroBtn2": "Browse Products",
     "stats": {
@@ -29,28 +29,28 @@
       "projectsSub": "Completed worldwide",
       "countries": "20+ Countries",
       "countriesSub": "Active export markets",
-      "warranty": "5-Year Warranty",
-      "warrantySub": "On all products",
+      "warranty": "Model-Specific Warranty",
+      "warrantySub": "Confirmed in your quotation",
       "exp": "10+ Years",
       "expSub": "Manufacturing experience"
     },
     "whyTitle": "Why Choose SolarLight?",
     "whySub": "Engineered for reliability in extreme heat, dust, and off-grid environments.",
     "features": [
-      { "icon": "🔋", "title": "LiFePO4 Battery", "desc": "Safer and longer-lasting than Li-ion. Rated 2000+ cycles, works from -20°C to +60°C." },
-      { "icon": "☀️", "title": "Monocrystalline Panel", "desc": "22%+ efficiency panels with anti-reflective glass. Charges fully even in partial shade." },
-      { "icon": "💡", "title": "Bridgelux / Epistar LEDs", "desc": "160+ lm/W luminous efficacy. Consistent color temperature 4000–6500K." },
-      { "icon": "🛡️", "title": "IP65 / IP66 Rated", "desc": "Fully sealed against dust and rain. Withstands sandstorms common in Central Asia." },
-      { "icon": "📡", "title": "Smart Motion Sensor", "desc": "Optional PIR sensor dims to 30% when idle, extends runtime by up to 40%." },
-      { "icon": "🏆", "title": "CE · RoHS · ISO 9001", "desc": "All required certifications for import into Kazakhstan, Uzbekistan, and EU markets." }
+      { "icon": "🔋", "title": "LiFePO4 Battery", "desc": "Capacity, cycle-life conditions and charging temperature limits are confirmed for the selected model." },
+      { "icon": "☀️", "title": "Monocrystalline Panel", "desc": "Panel ratings and efficiency vary by model. Size the system for shading and worst-month solar yield." },
+      { "icon": "💡", "title": "LED Lighting", "desc": "Compare each model’s rated power, luminous flux and color temperature in its specification table." },
+      { "icon": "🛡️", "title": "IP65 / IP66 Options", "desc": "Protection ratings vary by model and component. Confirm the required environmental tests for your site." },
+      { "icon": "📡", "title": "Motion Sensor Options", "desc": "PIR availability and dimming schedules depend on the model and ordered controller configuration." },
+      { "icon": "🏆", "title": "Compliance Documentation", "desc": "Request model-specific CE/RoHS documents and the manufacturer’s ISO 9001 certificate for review." }
     ],
     "scenesTitle": "Application Scenarios",
     "scenesSub": "From remote villages to urban highways — one supplier for every project type.",
     "scenes": [
-      { "icon": "🛣️", "title": "Main Roads & Highways", "desc": "60W–120W high-power models with 8–12m pole height. Uniform 30+ lux road illumination." },
+      { "icon": "🛣️", "title": "Main Roads & Highways", "desc": "60W–150W models with 8–15m mounting options. Confirm road illumination with a project-specific lighting study." },
       { "icon": "🏘️", "title": "Residential & Community", "desc": "30W–60W with decorative pole options. Perfect for housing estates and public squares." },
-      { "icon": "🌾", "title": "Rural Villages", "desc": "20W–40W cost-effective models. No grid needed — ideal for off-grid communities." },
-      { "icon": "🏭", "title": "Industrial & Ports", "desc": "80W–150W flood-style models. High lux output for warehouses, yards, and logistics hubs." }
+      { "icon": "🌾", "title": "Rural Villages", "desc": "20W–60W options for village roads and retrofit projects. Select mounting and output for the site." },
+      { "icon": "🏭", "title": "Industrial & Ports", "desc": "100W–150W models for warehouses, yards and logistics hubs. Confirm photometry and structural design." }
     ],
     "howTitle": "How to Order",
     "howSteps": [
@@ -73,7 +73,7 @@
     "ctaSub": "Get a free lighting plan and quote within 24 hours.",
     "ctaBtn": "WhatsApp Us Now",
     "ctaBtn2": "Browse Catalogue",
-    "trustBadges": ["CE Certified", "RoHS Compliant", "ISO 9001", "5-Year Warranty", "10+ Years Export"]
+    "trustBadges": ["CE Documents by Model", "RoHS Documents by Model", "ISO 9001 Documents on Request", "Model-Specific Warranty", "10+ Years Export"]
   },
   "about": {
     "heroTag": "Solar Street Light Manufacturer",
@@ -92,13 +92,13 @@
       { "value": "20+", "label": "Countries served" },
       { "value": "50,000+", "label": "Lights installed" },
       { "value": "10+", "label": "Years of experience" },
-      { "value": "5-year", "label": "Product warranty" },
+      { "value": "By model", "label": "Warranty confirmed in quotation" },
       { "value": "ISO 9001", "label": "Certified factory" }
     ],
     "valuesTitle": "What We Stand For",
     "values": [
       { "icon": "🔬", "title": "Engineering First", "desc": "Every model is tested for 1,000+ hours before release. We only ship what we would install ourselves." },
-      { "icon": "🤝", "title": "Long-Term Partnership", "desc": "We provide free lighting plans, customs documentation support, and 5-year after-sales service." },
+      { "icon": "🤝", "title": "Long-Term Partnership", "desc": "We provide free lighting plans and customs documentation support; warranty scope and service terms are confirmed for the selected model." },
       { "icon": "🌍", "title": "Local Market Knowledge", "desc": "Our team speaks Russian and Arabic. We understand Central Asian procurement requirements and standards." },
       { "icon": "⚡", "title": "No Compromise on Components", "desc": "Lumileds/Bridgelux LEDs, CATL LiFePO4 cells, and Epever MPPT controllers — no substitutions." }
     ],
@@ -180,7 +180,7 @@
     "faqs": [
       { "q": "What is the minimum order quantity?", "a": "MOQ is 10 units. We can mix models in one order (e.g. 5 × 60W + 5 × 90W)." },
       { "q": "How long does shipping to Central Asia take?", "a": "Sea freight via Caspian route: 18–25 days. Rail freight (China-Kazakhstan): 12–18 days. Air freight: 5–7 days." },
-      { "q": "Do you provide CE certificate?", "a": "Yes. CE, RoHS, and ISO 9001 certificates are included with every shipment at no extra cost." },
+      { "q": "Do you provide CE certificate?", "a": "Request the applicable CE and RoHS documents for the selected model, and the manufacturer’s ISO 9001 certificate. Coverage and destination requirements are confirmed before shipment." },
       { "q": "Can you provide a sample before bulk order?", "a": "Yes. Sample orders of 1–3 units are available. Sample cost is refunded on first bulk order ≥50 units." },
       { "q": "Do you offer OEM / custom branding?", "a": "Yes. We support custom logo on lamp head, pole, and packaging. MOQ for OEM is 50 units." }
     ],

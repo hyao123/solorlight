@@ -20,9 +20,9 @@ export function CertificateBadge({ certificate, locale = 'en' }: CertificateBadg
       <div>
         <p className="text-sm font-medium text-slate-100">{name}</p>
         {certificate.validUntil ? (
-          <p className="text-xs text-slate-400">Valid until {certificate.validUntil}</p>
+          <p className="text-xs text-slate-400">{locale === 'en' ? 'Valid until' : 'Действует до'} {certificate.validUntil}</p>
         ) : (
-          <p className="text-xs text-emerald-400 font-medium">✓ Verified Standard</p>
+          <p className="text-xs text-slate-400">{locale === 'en' ? 'Request model-specific documents' : 'Запросите документы на модель'}</p>
         )}
       </div>
     </div>

@@ -9,8 +9,8 @@
       "current": "road"
     },
     "description": {
-      "en": "High-power solar street lights for main roads and highways. 60W-120W output with extended lighting duration.",
-      "ru": "Мощные солнечные фонари для основных дорог и магистралей. Мощность 60-120 Вт с продолжительным освещением."
+      "en": "High-power solar street lights for main roads and highways. 60W–150W options; output and runtime depend on the selected configuration.",
+      "ru": "Солнечные фонари для основных дорог и магистралей. Варианты 60–150 Вт; световой поток и автономность зависят от комплектации."
     },
     "targetScene": "road"
   },
@@ -39,8 +39,8 @@
       "current": "rural"
     },
     "description": {
-      "en": "Cost-effective solar lights for rural roads and villages. 20W-40W output with long battery life.",
-      "ru": "Экономичные солнечные фонари для сельских дорог и деревень. Мощность 20-40 Вт с длительным сроком службы батареи."
+      "en": "Solar lighting options for rural roads and villages. 20W–60W models, including existing-pole and wall retrofits.",
+      "ru": "Солнечное освещение сельских дорог и деревень. Модели 20–60 Вт, включая монтаж на существующие опоры и стены."
     },
     "targetScene": "rural"
   },
@@ -54,8 +54,8 @@
       "current": "industrial"
     },
     "description": {
-      "en": "Heavy-duty solar lights for industrial zones, ports, and large facilities. 80W-150W output.",
-      "ru": "Сверхмощные солнечные фонари для промышленных зон, портов и крупных объектов. Мощность 80-150 Вт."
+      "en": "Solar lighting for industrial zones, ports and large facilities. 100W–150W models with model-specific configurations.",
+      "ru": "Солнечные фонари для промышленных зон, портов и крупных объектов. Модели 100–150 Вт с индивидуальной комплектацией."
     },
     "targetScene": "industrial"
   }

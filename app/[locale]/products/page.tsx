@@ -59,6 +59,12 @@ export default async function ProductsPage({
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-400">
             {subtitle}
           </p>
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <a href={`/downloads/solarlight-full-catalogue-${locale}.pdf`} download className="rounded-xl bg-yellow-400 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-yellow-300">
+              {locale === 'en' ? 'Download full catalogue · 20 models (PDF)' : 'Скачать полный каталог · 20 моделей (PDF)'}
+            </a>
+            <span className="text-xs text-slate-400">{locale === 'en' ? 'Model comparison, specifications and selection conditions · November 2026' : 'Сравнение моделей, характеристики и условия подбора · Ноябрь 2026'}</span>
+          </div>
         </div>
 
         <JzCatalogueEntry locale={locale} />

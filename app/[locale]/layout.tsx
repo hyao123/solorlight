@@ -41,8 +41,8 @@ export async function generateMetadata({
       template: `%s | ${company}`,
     },
     description: en
-      ? 'Direct manufacturer of CE & RoHS certified solar street lights (20W–150W). High-efficiency LiFePO4 battery & MPPT system engineered for Central Asia (-30°C) and Middle East (+60°C). Factory in Weifang, Shandong.'
-      : 'Прямой завод-производитель солнечных уличных фонарей (20–150 Вт) с сертификатами CE и RoHS. Батареи LiFePO4 для морозов Центральной Азии (-30°C) и жары (+60°C). Завод в Вэйфане (Шаньдун).',
+      ? 'Direct manufacturer of solar street lights (20W–150W). Compare model specifications and confirm the battery, controller, climate suitability and compliance documents for your project. Weifang, Shandong.'
+      : 'Производитель солнечных фонарей (20–150 Вт). Сравните модели и согласуйте батарею, контроллер, климатические условия и документы для проекта. Вэйфан, Шаньдун.',
     keywords: en
       ? [
           'solar street light manufacturer',
@@ -76,8 +76,8 @@ export async function generateMetadata({
         ? `${company} – Industrial Solar Street Lights Manufacturer`
         : `${company} – Завод солнечных уличных фонарей (Вэйфан, Китай)`,
       description: en
-        ? 'Direct manufacturer of industrial solar street lights. 5-year warranty, -30°C winter-proof LiFePO4 battery. Rail & sea freight to Central Asia and Middle East.'
-        : 'Прямой производитель промышленных солнечных фонарей. Гарантия 5 лет, морозостойкие батареи LiFePO4 до -30°C. Доставка в Центральную Азию.',
+        ? 'Solar street light manufacturer. Model-specific warranty and project configurations. Rail & sea freight to Central Asia and the Middle East.'
+        : 'Производитель солнечных фонарей. Гарантия по модели и комплектация для объекта. Доставка в Центральную Азию и на Ближний Восток.',
     },
     twitter: {
       card: 'summary_large_image',

@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: '
       ? 'Solar Lighting Solutions by Application – SolarLight Solutions'
       : 'Решения солнечного освещения по применению – SolarLight Solutions',
     description: locale === 'en'
-      ? 'Solar street lights for roads, rural villages, community areas, and industrial sites. CE certified, 5-year warranty, ships to Central Asia and Middle East.'
-      : 'Солнечные уличные фонари для дорог, сёл, жилых районов и промышленных объектов. Сертификат CE, гарантия 5 лет, доставка в Центральную Азию.',
+      ? 'Solar street lights for roads, villages, communities and industrial sites. Model-specific specifications, documentation and warranty terms; shipping to Central Asia and the Middle East.'
+      : 'Солнечные фонари для дорог, сёл, жилых районов и промышленных объектов. Характеристики, документы и гарантия по модели; доставка в Центральную Азию.',
     alternates: { canonical: `/${locale}/solutions`, languages: { en: '/en/solutions', ru: '/ru/solutions' } },
   }
 }
@@ -39,6 +39,27 @@ const SCENE_CONFIG: Record<string, {
   challengesRu: string
   recommendedWatts: string
 }> = {
+  'jz-split': {
+    icon: '☀️', heroImg: '/images/jz/jz-hl0001.webp',
+    colorFrom: 'from-amber-900', colorTo: 'to-slate-900', accent: 'text-amber-400',
+    statsEn: [
+      { label: 'LED reference', value: '60 W' },
+      { label: 'Mounting height', value: '6–8 m' },
+      { label: 'Battery energy', value: '192 Wh' },
+      { label: 'LED / battery protection', value: 'IP65 / IP67' },
+    ],
+    statsRu: [
+      { label: 'Мощность LED', value: '60 Вт' },
+      { label: 'Высота монтажа', value: '6–8 м' },
+      { label: 'Энергия батареи', value: '192 Вт·ч' },
+      { label: 'Защита LED / батареи', value: 'IP65 / IP67' },
+    ],
+    useCasesEn: ['Village streets', 'Community lanes', 'Courtyards', 'Existing-pole retrofits', 'Wall-mounted entrances'],
+    useCasesRu: ['Сельские улицы', 'Жилые проезды', 'Дворы', 'Монтаж на существующие опоры', 'Настенное освещение входов'],
+    challengesEn: 'Choose from conch, A-arm, meander, clamp and wall mounting. Clamp and wall models use an approved existing support; 6–8 m is the installation height. A 192 Wh battery provides about 3.2 h at continuous 60 W before losses; the stated longer runtime requires a confirmed dimming schedule and solar yield.',
+    challengesRu: 'Выберите дуговой, А-образный, орнаментальный, хомутовый или настенный монтаж. Последние два используют подходящую существующую конструкцию; 6–8 м — высота монтажа. Батарея 192 Вт·ч даёт около 3,2 ч при постоянных 60 Вт без потерь; большая автономность требует согласованного диммирования и инсоляции.',
+    recommendedWatts: '60 W',
+  },
   road: {
     icon: '🛣️',
     heroImg: '/images/products/road-90w.jpg',
@@ -47,20 +68,20 @@ const SCENE_CONFIG: Record<string, {
     accent: 'text-blue-400',
     statsEn: [
       { label: 'Recommended power', value: '60 W – 150 W' },
-      { label: 'Lumen output', value: '9,600 – 24,000 lm' },
+      { label: 'Lumen output', value: '6,000 – 24,000 lm' },
       { label: 'Mount height', value: '8 – 15 m' },
-      { label: 'Protection', value: 'IP66 / IK10' },
+      { label: 'Protection', value: 'IP65–IP66; IK by model' },
     ],
     statsRu: [
       { label: 'Рекомендуемая мощность', value: '60 Вт – 150 Вт' },
-      { label: 'Световой поток', value: '9 600 – 24 000 лм' },
+      { label: 'Световой поток', value: '6 000 – 24 000 лм' },
       { label: 'Высота монтажа', value: '8 – 15 м' },
-      { label: 'Защита', value: 'IP66 / IK10' },
+      { label: 'Защита', value: 'IP65–IP66; IK по модели' },
     ],
     useCasesEn: ['National highways', 'Inter-city roads', 'Ring roads & bypass routes', 'Border crossing zones', 'Bridge lighting'],
     useCasesRu: ['Национальные автомагистрали', 'Межгородские дороги', 'Кольцевые и объездные дороги', 'Зоны пограничных переходов', 'Освещение мостов'],
-    challengesEn: 'Main roads demand maximum lux levels, consistent beam uniformity, and lights that stay on through 3+ cloudy days. We specify split-type systems with oversized panels and LiFePO4 batteries rated for -30 °C so that winter conditions in Kazakhstan or the Afghan highlands are not a problem.',
-    challengesRu: 'Основные дороги требуют максимального уровня освещённости, равномерного светораспределения и автономии на 3+ пасмурных дня. Мы применяем раздельные системы с увеличенными панелями и батареями LiFePO4 на -30 °C — чтобы зима в Казахстане или горах Афганистана не была проблемой.',
+    challengesEn: 'Main roads require a project-specific photometric layout and energy budget. Compare the listed 60–150 W split systems; confirm winter charging limits, dimming and the required cloudy-day autonomy before ordering.',
+    challengesRu: 'Для дорог нужны светотехнический расчёт и энергобаланс объекта. Сравните раздельные системы 60–150 Вт; до заказа уточните температурные пределы зарядки, диммирование и требуемую автономность.',
     recommendedWatts: '60 W · 90 W · 120 W · 150 W',
   },
   community: {
@@ -73,18 +94,18 @@ const SCENE_CONFIG: Record<string, {
       { label: 'Recommended power', value: '30 W – 60 W' },
       { label: 'Lumen output', value: '4,800 – 9,600 lm' },
       { label: 'Mount height', value: '5 – 10 m' },
-      { label: 'Protection', value: 'IP66' },
+      { label: 'Protection', value: 'IP65–IP66 by model' },
     ],
     statsRu: [
       { label: 'Рекомендуемая мощность', value: '30 Вт – 60 Вт' },
       { label: 'Световой поток', value: '4 800 – 9 600 лм' },
       { label: 'Высота монтажа', value: '5 – 10 м' },
-      { label: 'Защита', value: 'IP66' },
+      { label: 'Защита', value: 'IP65–IP66 по модели' },
     ],
     useCasesEn: ['Residential neighbourhoods', 'Parks & squares', 'School playgrounds', 'Markets & bazaars', 'Mosque & church surrounds'],
     useCasesRu: ['Жилые кварталы', 'Парки и площади', 'Школьные дворы', 'Рынки и базары', 'Территории мечетей и церквей'],
-    challengesEn: 'Community areas need warm, welcoming light at moderate heights — not industrial brightness. All-in-one integrated designs keep installation simple and pole costs low. PIR sensors cut power use by 40 % when no one is around.',
-    challengesRu: 'Жилые зоны требуют тёплого, комфортного освещения на умеренной высоте. Универсальные интегрированные конструкции упрощают монтаж и снижают стоимость столбов. Датчики PIR снижают потребление на 40 % при отсутствии людей.',
+    challengesEn: 'Compare split and all-in-one models for residential spaces. Select mounting height, color temperature and beam layout for the site; sensor availability and energy savings depend on the ordered configuration.',
+    challengesRu: 'Сравните раздельные и интегрированные модели для жилых зон. Высота, цветовая температура и светораспределение подбираются для объекта; наличие датчика и экономия зависят от комплектации.',
     recommendedWatts: '30 W · 40 W · 60 W',
   },
   rural: {
@@ -94,22 +115,22 @@ const SCENE_CONFIG: Record<string, {
     colorTo: 'to-slate-900',
     accent: 'text-amber-400',
     statsEn: [
-      { label: 'Recommended power', value: '20 W – 40 W' },
-      { label: 'Lumen output', value: '3,000 – 6,400 lm' },
-      { label: 'Mount height', value: '4 – 7 m' },
-      { label: 'Battery autonomy', value: '3 rainy days' },
+      { label: 'Recommended power', value: '20 W – 60 W' },
+      { label: 'Lumen output', value: '3,000 – 7,200 lm' },
+      { label: 'Mount height', value: 'By model and support' },
+      { label: 'Battery autonomy', value: 'Confirm dimming and solar yield' },
     ],
     statsRu: [
-      { label: 'Рекомендуемая мощность', value: '20 Вт – 40 Вт' },
-      { label: 'Световой поток', value: '3 000 – 6 400 лм' },
-      { label: 'Высота монтажа', value: '4 – 7 м' },
-      { label: 'Автономность батареи', value: '3 пасмурных дня' },
+      { label: 'Рекомендуемая мощность', value: '20 Вт – 60 Вт' },
+      { label: 'Световой поток', value: '3 000 – 7 200 лм' },
+      { label: 'Высота монтажа', value: 'По модели и опоре' },
+      { label: 'Автономность батареи', value: 'Уточните диммирование и инсоляцию' },
     ],
     useCasesEn: ['Village main streets', 'Rural schools & clinics', 'Farm access roads', 'Irrigation canal paths', 'Off-grid settlements'],
     useCasesRu: ['Главные улицы сёл', 'Сельские школы и фельдшерские пункты', 'Сельскохозяйственные дороги', 'Тропы вдоль ирригационных каналов', 'Автономные посёлки'],
-    challengesEn: 'Rural budgets are tight. Our Kmini range delivers 90 % of road performance at 60 % of the cost by using proven monocrystalline panels and LiFePO4 cells without the premium form factor. No electrician required — a village handyman can install one in 2 hours.',
-    challengesRu: 'Сельские бюджеты ограничены. Линейка Kmini обеспечивает 90 % характеристик дорожных моделей за 60 % стоимости за счёт монокристаллических панелей и элементов LiFePO4 без премиальных корпусов. Электрик не нужен — сельский мастер установит один фонарь за 2 часа.',
-    recommendedWatts: '20 W · 30 W',
+    challengesEn: 'Compare Kmini 20/30 W lights and the 60 W wall/pole retrofit option. Confirm road width, support strength, shading and winter solar yield. Mounting near utilities or at height requires a qualified installer.',
+    challengesRu: 'Сравните Kmini 20/30 Вт и настенный/опорный вариант 60 Вт. Проверьте ширину дороги, несущую способность, затенение и зимнюю инсоляцию. Высотный монтаж и работы у коммуникаций выполняют специалисты.',
+    recommendedWatts: '20 W · 30 W · 60 W',
   },
   industrial: {
     icon: '🏭',
@@ -121,18 +142,18 @@ const SCENE_CONFIG: Record<string, {
       { label: 'Recommended power', value: '100 W – 150 W' },
       { label: 'Lumen output', value: '16,000 – 26,400 lm' },
       { label: 'Mount height', value: '10 – 16 m' },
-      { label: 'Protection', value: 'IP66 / IK10' },
+      { label: 'Protection', value: 'IP66 / IK09–IK10 by model' },
     ],
     statsRu: [
       { label: 'Рекомендуемая мощность', value: '100 Вт – 150 Вт' },
       { label: 'Световой поток', value: '16 000 – 26 400 лм' },
       { label: 'Высота монтажа', value: '10 – 16 м' },
-      { label: 'Защита', value: 'IP66 / IK10' },
+      { label: 'Защита', value: 'IP66 / IK09–IK10 по модели' },
     ],
     useCasesEn: ['Logistics yards & warehouses', 'Port terminals', 'Mining site perimeters', 'Oil field access roads', 'Airport ground areas'],
     useCasesRu: ['Логистические дворы и склады', 'Портовые терминалы', 'Периметры горнодобывающих предприятий', 'Дороги нефтяных месторождений', 'Наземные зоны аэропортов'],
-    challengesEn: 'Industrial sites run 24/7 and cannot tolerate lighting failures. We pair high-output 100–150 W heads with 1,000+ Wh battery packs and dual MPPT controllers for redundancy. Remote monitoring via 4G is available on request.',
-    challengesRu: 'Промышленные объекты работают круглосуточно и не могут допустить сбоев освещения. Мы комплектуем мощные головки 100–150 Вт батарейными блоками 1000+ Вт·ч и двойными контроллерами MPPT для резервирования. Дистанционный мониторинг через 4G — по запросу.',
+    challengesEn: 'Compare 100–150 W models with the battery and MPPT specifications listed for each product. Continuous operation, backup duration and monitoring options require a project-specific power budget and confirmed equipment configuration.',
+    challengesRu: 'Сравните модели 100–150 Вт по характеристикам батарей и MPPT. Непрерывная работа, резервная автономность и мониторинг требуют энергобаланса объекта и подтверждения комплектации.',
     recommendedWatts: '100 W · 120 W · 150 W',
   },
 }
@@ -174,7 +195,7 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
       {/* Solution cards — one per series */}
       <div className="divide-y divide-slate-800">
         {series.map((s, idx) => {
-          const cfg = SCENE_CONFIG[s.targetScene]
+          const cfg = SCENE_CONFIG[s.slug.current] ?? SCENE_CONFIG[s.targetScene]
           if (!cfg) return null
           const stats = en ? cfg.statsEn : cfg.statsRu
           const useCases = en ? cfg.useCasesEn : cfg.useCasesRu
@@ -345,6 +366,9 @@ export default async function SolutionsPage({ params }: { params: Promise<{ loca
               </tbody>
             </table>
           </div>
+          <p className="mt-4 text-sm leading-relaxed text-slate-400">
+            {en ? 'Selection ranges are preliminary. Autonomy depends on the selected battery, dimming schedule and local solar yield; confirm full-output hours separately.' : 'Диапазоны приведены для предварительного выбора. Автономность зависит от батареи, диммирования и местной инсоляции; время полной мощности уточняется отдельно.'}
+          </p>
         </div>
       </section>
 

@@ -73,10 +73,8 @@ test('products page includes a localized catalogue showcase', async () => {
   assert.match(page, /<CatalogueShowcase locale={locale} \/>/)
 })
 
-test('unsupported generic claims are hidden for uncertified source products', async () => {
-  const detail = await readFile(new URL('../app/[locale]/products/[slug]/page.tsx', import.meta.url), 'utf8')
+test('product cards omit certificate counts for products without certificates', async () => {
   const card = await readFile(new URL('../components/ProductCard.tsx', import.meta.url), 'utf8')
-  assert.match(detail, /product\.certificates\.length > 0 && \(\s*<div className="mt-10/)
   assert.match(card, /product\.certificates\.length > 0 && \(\s*<div className="flex items-center/)
 })
 

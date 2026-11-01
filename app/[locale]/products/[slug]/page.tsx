@@ -11,6 +11,7 @@ import { ProductImageGallery } from '@/components/ProductImageGallery'
 import { ProductActionButtons } from '@/components/ProductActionButtons'
 import { ProductJsonLd, BreadcrumbJsonLd } from '@/components/StructuredData'
 import { JzProductNotes } from '@/components/JzCatalogue'
+import { productHighlights, runtimeGuidance, sharedImageNote } from '@/lib/product-guidance'
 
 interface Params { locale: 'en' | 'ru'; slug: string }
 
@@ -43,6 +44,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
   if (!product) notFound()
 
   const name = product.name[locale]
+  const highlights = productHighlights(product.specs, locale)
+  const imageNote = sharedImageNote(product, allProducts, locale)
 
   // Related: same series, exclude current
   const related = allProducts
@@ -104,7 +107,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         <div className="grid gap-10 lg:grid-cols-[1fr_440px]">
 
           {/* Image gallery */}
-          <ProductImageGallery images={imageUrls} name={name} />
+          <div>
+            <ProductImageGallery images={imageUrls} name={name} />
+            {imageNote && <p className="mt-3 text-sm leading-relaxed text-slate-400">{imageNote}</p>}
+          </div>
 
           {/* Right panel */}
           <div className="flex flex-col">
@@ -144,6 +150,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
                     <CertificateBadge key={cert._id} certificate={cert} locale={locale} />
                   ))}
                 </div>
+                <p className="mt-3 text-xs leading-relaxed text-slate-400">
+                  {locale === 'en'
+                    ? 'Request the certificate number, issuer, validity and covered models before ordering. ISO 9001 concerns the manufacturer’s quality system; it is not a product approval.'
+                    : 'До заказа запросите номер, орган выдачи, срок действия и перечень моделей. ISO 9001 относится к системе менеджмента производителя, а не к допуску конкретного изделия.'}
+                </p>
               </div>
             )}
 
@@ -169,27 +180,25 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         {product.catalogue === 'jz-split' && <JzProductNotes product={product} locale={locale} />}
         <div className="mt-12">
           <ProductSpecs specs={product.specs} locale={locale} />
+          <div className="mt-5 rounded-xl border border-sky-500/20 bg-sky-500/5 p-5 text-sm leading-relaxed text-slate-300">
+            <h2 className="mb-2 font-semibold text-slate-100">{locale === 'en' ? 'Runtime & configuration conditions' : 'Условия автономности и комплектации'}</h2>
+            <p>{runtimeGuidance(product.specs, locale)}</p>
+            <p className="mt-2">{locale === 'en' ? 'Warranty scope and duration are confirmed for the selected model and components in the quotation.' : 'Срок и объём гарантии на выбранную модель и компоненты подтверждаются в коммерческом предложении.'}</p>
+          </div>
         </div>
 
-        {/* Why section */}
-        {product.certificates.length > 0 && (
+        {/* Model-specific configuration */}
+        {highlights.length > 0 && (
           <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-white">
             <h2 className="mb-6 text-xl font-bold text-slate-100">
               {t('whyChooseTitle')}
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                { icon: '🔋', title: locale === 'en' ? 'LiFePO4 Battery' : 'Батарея LiFePO4', desc: locale === 'en' ? '2000+ charge cycles. Stable in -20°C to +60°C. No thermal runaway risk.' : '2000+ циклов зарядки. Стабильна от -20°C до +60°C. Без риска теплового разгона.' },
-                { icon: '☀️', title: locale === 'en' ? 'MPPT Controller' : 'Контроллер MPPT', desc: locale === 'en' ? '99% tracking efficiency. Charges up to 30% faster than PWM controllers.' : 'Эффективность слежения 99%. Заряжает на 30% быстрее, чем контроллеры PWM.' },
-                { icon: '🛡️', title: locale === 'en' ? 'IP66 Sealed' : 'Защита IP66', desc: locale === 'en' ? 'Dust-proof and jet-water resistant. Designed for desert and steppe conditions.' : 'Защита от пыли и струй воды. Рассчитана на условия пустыни и степи.' },
-                { icon: '💡', title: locale === 'en' ? 'Bridgelux / Lumileds LEDs' : 'Светодиоды Bridgelux/Lumileds', desc: locale === 'en' ? '160+ lm/W efficacy. L70 lifespan >100,000 hours. Consistent output over time.' : 'Эффективность 160+ лм/Вт. Срок службы L70 >100 000 часов. Стабильный световой поток.' },
-                { icon: '📡', title: locale === 'en' ? 'Smart Dimming' : 'Умное диммирование', desc: locale === 'en' ? 'PIR motion sensor dims to 30% when idle. Extends battery life by up to 40%.' : 'ИК-датчик снижает яркость до 30% при простое. Продлевает срок службы батареи до 40%.' },
-                { icon: '🏆', title: locale === 'en' ? 'CE & RoHS Certified' : 'Сертификат CE и RoHS', desc: locale === 'en' ? 'All certificates included for customs clearance in Kazakhstan, Uzbekistan, and EU.' : 'Все сертификаты для таможенного оформления в Казахстане, Узбекистане и ЕС.' },
-              ].map((item) => (
+              {highlights.map((item) => (
                 <div key={item.title} className="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
                   <div className="mb-2 text-2xl">{item.icon}</div>
                   <div className="mb-1 font-semibold text-slate-100">{item.title}</div>
-                  <div className="text-sm text-slate-400 leading-relaxed">{item.desc}</div>
+                  <div className="text-sm text-slate-400 leading-relaxed">{item.value}</div>
                 </div>
               ))}
             </div>

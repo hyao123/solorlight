@@ -21,12 +21,12 @@ export function GeoDirectAnswerFaq({ locale }: GeoFaqProps) {
         {
           tag: 'Морозостойкость · Казахстан / СНГ',
           q: 'Как солнечные фонари SolarLight работают при морозах -30°C в Казахстане и Центральной Азии?',
-          a: 'Светильники SolarLight разработаны специально для сурового климата Центральной Азии. В них используются аккумуляторы LiFePO4 высшего класса A со специализированным низкотемпературным электролитом и термоизоляцией отсека. Угол наклона монокристаллической панели 35°–45° обеспечивает естественный сход снега под действием силы тяжести, а микропроцессорный MPPT контроллер поддерживает 3–4 дня автономной работы в условиях затяжных метелей.',
+          a: 'Для холодной зимы нужно подтвердить допустимые температуры зарядки и разрядки, настройки BMS и наличие обогрева у выбранной модели. Низкотемпературная защита и термоизоляция не подразумеваются автоматически. Панель, наклон и полезную ёмкость рассчитывают по снеговой нагрузке, инсоляции худшего месяца и графику диммирования.',
         },
         {
           tag: 'Технологии аккумуляторов',
           q: 'В чём преимущество LiFePO4 батарей перед традиционными свинцово-кислотными и гелевыми?',
-          a: 'Литий-железо-фосфатные батареи (LiFePO4) обеспечивают более 2000 полных циклов заряда/разряда (срок службы 8–10 лет) против всего 300–500 циклов (1–2 года) у гелевых аккумуляторов. LiFePO4 в 3 раза легче, стабильно работают в диапазоне от -30°C до +60°C без риска вздутия или деградации ёмкости, не требуют обслуживания и являются экологически безопасными.',
+          a: 'LiFePO4 часто выбирают для солнечного освещения. Ёмкость, ресурс в циклах и температурные пределы зависят от ячеек, BMS и режима работы; их подтверждают по документации модели. Число циклов само по себе не гарантирует срок службы или гарантию в годах.',
         },
         {
           tag: 'Логистика · Маршруты Шаньдун – СНГ',
@@ -41,24 +41,24 @@ export function GeoDirectAnswerFaq({ locale }: GeoFaqProps) {
         {
           tag: 'Защита от жары и песка · Ближний Восток',
           q: 'Как светильники защищены от жары (+60°C), песчаных бурь и соляного тумана?',
-          a: 'Корпуса светильников отливаются из алюминиевого сплава под высоким давлением с глубокими радиаторными рёбрами охлаждения, удерживающими температуру LED кристалла ниже 65°C даже при +50°C на открытом воздухе. Оптический блок имеет герметичность IP66 (пыленепроницаемость), закалённое ударопрочное стекло IK10 и антикоррозийное полиэфирное порошковое покрытие.',
+          a: 'Проверьте температурные пределы и снижение мощности всех компонентов, класс IP/IK конкретной модели и данные покрытия. IP и IK сами по себе не подтверждают стойкость к солевому туману, абразивному песку или работу при +60°C. Нужны документы и расчёт для условий объекта.',
         },
         {
           tag: 'Условия закупки · Гарантия',
           q: 'Каков минимальный объём заказа (MOQ), гарантия и производственные сертификаты?',
-          a: 'Минимальный объём заказа (MOQ) составляет 10 единиц (для пилотных участков и тендерных испытаний доступны единичные образцы). На все промышленные серии предоставляется официальная 5-летняя заводская гарантия. Завод сертифицирован по стандарту ISO 9001:2015, а продукция имеет сертификаты CE и RoHS.',
+          a: 'Минимальный объём заказа — 10 единиц; образцы согласуются отдельно. Срок, компоненты и исключения гарантии подтверждаются для модели в предложении. До заказа запросите документы CE/RoHS с перечнем моделей и сертификат ISO 9001 производителя; ISO 9001 относится к системе менеджмента, а не к допуску изделия.',
         },
       ]
     : [
         {
           tag: 'Winter Performance · Central Asia',
           q: 'How do SolarLight solar street lights perform in -30°C winter conditions in Kazakhstan & Central Asia?',
-          a: 'SolarLight luminaires are specifically engineered for Central Asian climates. They feature Grade-A LiFePO4 cells with low-temperature electrolyte chemistry, insulated battery enclosures, and automated BMS thermal management. The 35°–45° solar bracket inclination ensures natural snow shedding, while the intelligent MPPT controller delivers 3–4 continuous days of backup autonomy during severe winter blizzards.',
+          a: 'For winter projects, confirm the selected model’s charge/discharge temperature limits, BMS settings and any heating requirement. Low-temperature protection and insulation are not included by assumption. Size the panel, tilt and usable battery energy for snow loads, worst-month solar yield and the agreed dimming schedule.',
         },
         {
           tag: 'Battery Technology Benchmark',
           q: 'Why is LiFePO4 battery technology superior to traditional lead-acid or gel batteries in solar lighting?',
-          a: 'Lithium Iron Phosphate (LiFePO4) batteries deliver 2,000+ deep cycles (8–10 years service life), whereas conventional gel or lead-acid batteries degrade within 300–500 cycles (1–2 years). LiFePO4 is 3x lighter, operates safely across -30°C to +60°C without thermal runaway, requires zero maintenance, and contains no hazardous heavy metals.',
+          a: 'LiFePO4 is commonly used in solar lighting. Capacity, cycle life and temperature limits depend on the cells, BMS and operating conditions and must be checked in the model documentation. A cycle rating alone does not guarantee a service life or warranty duration in years.',
         },
         {
           tag: 'Logistics · Shandong to Central Asia & Gulf',
@@ -73,12 +73,12 @@ export function GeoDirectAnswerFaq({ locale }: GeoFaqProps) {
         {
           tag: 'Desert & High Ambient Heat (+60°C)',
           q: 'How are luminaires protected against extreme desert ambient temperatures (+60°C) and sandstorms?',
-          a: 'Die-cast aluminum alloy housings feature aerodynamic convection cooling fins that maintain LED junction temperatures below 65°C in +50°C desert heat. The optical module is hermetically sealed to IP66 (dust-tight), protected by IK10 impact-resistant tempered glass, and coated with electrostatically applied anti-salinity powder.',
+          a: 'Review component temperature limits and derating, the selected model’s IP/IK ratings, and coating test data. IP and IK ratings alone do not establish resistance to salt spray or abrasive sand, or operation at +60°C. Confirm the configuration against site conditions and supporting reports.',
         },
         {
           tag: 'Procurement Terms & Warranty',
           q: 'What are the Minimum Order Quantity (MOQ), warranty terms, and factory certifications?',
-          a: 'The standard MOQ is 10 units (sample evaluation units are supported for project bidding). All industrial series come with a 5-year comprehensive manufacturer warranty. Our factory in Weifang, Shandong operates under ISO 9001:2015 quality management, with all luminaires holding CE and RoHS certifications.',
+          a: 'The standard MOQ is 10 units; sample arrangements are confirmed separately. Warranty duration, covered components and exclusions are agreed for the model in the quotation. Request CE/RoHS documentation with covered models and the manufacturer’s ISO 9001 certificate before ordering; ISO 9001 concerns the quality system rather than product approval.',
         },
       ]
 
