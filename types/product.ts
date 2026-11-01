@@ -62,6 +62,14 @@ export interface Certificate {
 
 export interface Product {
   _id: string
+  model?: string
+  brand?: string
+  catalogue?: string
+  badge?: BilingualString
+  highlights?: BilingualString[]
+  applications?: BilingualString
+  selectionNote?: BilingualString
+  imageNote?: BilingualString
   slug: { current: string }
   name: BilingualString
   series: ProductSeries | string | null

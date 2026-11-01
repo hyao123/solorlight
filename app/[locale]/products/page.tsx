@@ -5,6 +5,7 @@ import { BreadcrumbJsonLd } from '@/components/StructuredData'
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { ProductGrid } from '@/components/ProductGrid'
+import { JzCatalogueEntry } from '@/components/JzCatalogue'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: 'en' | 'ru' }> }): Promise<Metadata> {
   const { locale } = await params
@@ -60,6 +61,7 @@ export default async function ProductsPage({
           </p>
         </div>
 
+        <JzCatalogueEntry locale={locale} />
         <Suspense fallback={<ProductGrid products={products} locale={locale} />}>
           <ProductsFilter
             products={products}

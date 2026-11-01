@@ -32,6 +32,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
       </div>
 
       <div className="p-4">
+        {product.model && <p className="mb-2 font-mono text-xs font-semibold tracking-wide text-yellow-400">{product.model}</p>}
         <h3 className="mb-2 text-lg font-semibold text-slate-50 group-hover:text-sky-400">
           {product.name[locale] ?? product.name.en ?? 'Product'}
         </h3>

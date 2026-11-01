@@ -10,6 +10,7 @@ import { CertificateBadge } from '@/components/CertificateBadge'
 import { ProductImageGallery } from '@/components/ProductImageGallery'
 import { ProductActionButtons } from '@/components/ProductActionButtons'
 import { ProductJsonLd, BreadcrumbJsonLd } from '@/components/StructuredData'
+import { JzProductNotes } from '@/components/JzCatalogue'
 
 interface Params { locale: 'en' | 'ru'; slug: string }
 
@@ -70,7 +71,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         name={name}
         description={product.seoDescription[locale]}
         images={imageUrls}
-        sku={slug}
+        sku={product.model || slug}
+        brand={product.brand || 'SolarLight'}
         url={currentUrl}
         specs={product.specs}
         certificates={product.certificates.map((certificate) => certificate.name[locale])}
@@ -112,6 +114,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
               </span>
             )}
             <h1 className="text-3xl font-bold text-slate-100">{name}</h1>
+            {product.model && <p className="mt-3 font-mono text-lg tracking-wider text-yellow-400">{product.model}</p>}
             <p className="mt-2 text-slate-400 leading-relaxed">{product.seoDescription[locale]}</p>
 
             {/* Key highlights */}
@@ -163,6 +166,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<Pa
         </div>
 
         {/* Full spec table */}
+        {product.catalogue === 'jz-split' && <JzProductNotes product={product} locale={locale} />}
         <div className="mt-12">
           <ProductSpecs specs={product.specs} locale={locale} />
         </div>

@@ -28,12 +28,24 @@ async function getCertificates(): Promise<Certificate[]> {
 }
 
 async function getSeries(): Promise<ProductSeries[]> {
-  seriesCache ??= readJsonFile<ProductSeries[]>('series/index.json')
+  seriesCache ??= readJsonFile<ProductSeries[]>('series/index.json').then((series) => [
+    {
+      _id: 'series-jz-split',
+      slug: { current: 'jz-split' },
+      name: { en: 'JZ Split Series', ru: 'Раздельная серия JZ' },
+      description: { en: 'Five mounting styles for 6–8 m solar lighting projects.', ru: 'Пять вариантов монтажа для солнечного освещения высотой 6–8 м.' },
+      targetScene: 'rural',
+    },
+    ...series,
+  ])
   return seriesCache
 }
 
 async function getRawProducts(): Promise<RawProduct[]> {
-  rawProductsCache ??= readJsonFile<RawProduct[]>('products/index.json')
+  rawProductsCache ??= Promise.all([
+    readJsonFile<RawProduct[]>('products/index.json'),
+    readJsonFile<{ models: RawProduct[] }>('catalogues/jz-split.json'),
+  ]).then(([products, catalogue]) => [...catalogue.models, ...products])
   return rawProductsCache
 }
 
