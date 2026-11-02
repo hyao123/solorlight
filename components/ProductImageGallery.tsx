@@ -33,6 +33,7 @@ export function ProductImageGallery({ images, name }: ProductImageGalleryProps) 
             alt={name}
             fill
             priority
+            fetchPriority="high"
             className="object-cover transition duration-300 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 45vw, 520px"
           />
