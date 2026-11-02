@@ -17,16 +17,6 @@
     "Cache-Control" = "public, max-age=604800"
 
 [[headers]]
-  for = "/en*"
-  [headers.values]
-    "Cache-Control" = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
-
-[[headers]]
-  for = "/ru*"
-  [headers.values]
-    "Cache-Control" = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
-
-[[headers]]
   for = "/*"
   [headers.values]
     "Content-Security-Policy" = "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.emailjs.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://www.zgsm-china.com data: blob:; font-src 'self' data:; connect-src 'self' https://api.emailjs.com; base-uri 'self'; form-action 'self'"
