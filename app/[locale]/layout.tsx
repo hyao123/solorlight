@@ -13,6 +13,9 @@ import '../globals.css'
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 
+// Namespaces read by client components; only these are serialized into the HTML.
+const CLIENT_MESSAGE_NAMESPACES = ['nav', 'cta', 'floatingWidget', 'products', 'calculator', 'rfq', 'datasheet', 'caseParams', 'contact'] as const
+
 export const dynamicParams = false
 
 export function generateStaticParams() {
@@ -114,10 +117,11 @@ export default async function LocaleLayout({
   const { locale } = await params
   if (!hasLocale(routing.locales, locale)) notFound()
   setRequestLocale(locale)
-  const [settings, messages] = await Promise.all([
+  const [settings, allMessages] = await Promise.all([
     getSiteSettings(),
     getMessages({ locale }),
   ])
+  const messages = Object.fromEntries(CLIENT_MESSAGE_NAMESPACES.map((key) => [key, allMessages[key]]))
 
   return (
     <html lang={locale}>
