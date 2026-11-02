@@ -62,7 +62,7 @@ const SCENE_CONFIG: Record<string, {
   },
   road: {
     icon: '🛣️',
-    heroImg: '/images/products/road-90w.jpg',
+    heroImg: '/images/products/road-90w.webp',
     colorFrom: 'from-blue-900',
     colorTo: 'to-slate-900',
     accent: 'text-blue-400',
@@ -86,7 +86,7 @@ const SCENE_CONFIG: Record<string, {
   },
   community: {
     icon: '🏘️',
-    heroImg: '/images/products/community-40w.jpg',
+    heroImg: '/images/products/community-40w.webp',
     colorFrom: 'from-emerald-900',
     colorTo: 'to-slate-900',
     accent: 'text-emerald-400',
@@ -110,7 +110,7 @@ const SCENE_CONFIG: Record<string, {
   },
   rural: {
     icon: '🌾',
-    heroImg: '/images/products/rural-30w.jpg',
+    heroImg: '/images/products/rural-30w.webp',
     colorFrom: 'from-amber-900',
     colorTo: 'to-slate-900',
     accent: 'text-amber-400',
@@ -134,7 +134,7 @@ const SCENE_CONFIG: Record<string, {
   },
   industrial: {
     icon: '🏭',
-    heroImg: '/images/products/industrial-120w.jpg',
+    heroImg: '/images/products/industrial-120w.webp',
     colorFrom: 'from-violet-900',
     colorTo: 'to-slate-900',
     accent: 'text-violet-400',

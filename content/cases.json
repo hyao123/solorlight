@@ -1,7 +1,7 @@
 [
   {
     "id": "case-1",
-    "image": "/images/cases/rural-village-1.jpg",
+    "image": "/images/cases/rural-village-1.webp",
     "location": {
       "en": "Rural Village Road, China",
       "ru": "Сельская дорога, Китай"
@@ -14,7 +14,7 @@
   },
   {
     "id": "case-2",
-    "image": "/images/cases/rural-school.jpg",
+    "image": "/images/cases/rural-school.webp",
     "location": {
       "en": "School Entrance, Rural Area",
       "ru": "Въезд в школу, сельская местность"
@@ -27,7 +27,7 @@
   },
   {
     "id": "case-3",
-    "image": "/images/cases/closeup-panel-lamp.jpg",
+    "image": "/images/cases/closeup-panel-lamp.webp",
     "location": {
       "en": "Retrofit Installation on Existing Pole",
       "ru": "Установка на существующий столб"
@@ -40,7 +40,7 @@
   },
   {
     "id": "case-4",
-    "image": "/images/cases/wall-mount-led.jpg",
+    "image": "/images/cases/wall-mount-led.webp",
     "location": {
       "en": "Wall Mount, Building Exterior",
       "ru": "Настенный монтаж, фасад здания"
@@ -53,7 +53,7 @@
   },
   {
     "id": "case-5",
-    "image": "/images/cases/product-display.jpg",
+    "image": "/images/cases/product-display.webp",
     "location": {
       "en": "Factory Showroom",
       "ru": "Заводской шоурум"
@@ -66,7 +66,7 @@
   },
   {
     "id": "case-6",
-    "image": "/images/cases/community-building.jpg",
+    "image": "/images/cases/community-building.webp",
     "location": {
       "en": "Commercial Zone, Urban Area",
       "ru": "Коммерческая зона, городской район"

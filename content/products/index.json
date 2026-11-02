@@ -5,8 +5,8 @@
     "slug": { "current": "falcon-pro-60w" },
     "series": "series-road",
     "images": [
-      "/images/products/road-60w.jpg",
-      "/images/cases/closeup-panel-lamp.jpg"
+      "/images/products/road-60w.webp",
+      "/images/cases/closeup-panel-lamp.webp"
     ],
     "specs": {
       "power": "60W",
@@ -35,8 +35,8 @@
     "slug": { "current": "falcon-pro-90w" },
     "series": "series-road",
     "images": [
-      "/images/products/road-90w.jpg",
-      "/images/cases/closeup-panel-lamp.jpg"
+      "/images/products/road-90w.webp",
+      "/images/cases/closeup-panel-lamp.webp"
     ],
     "specs": {
       "power": "90W",
@@ -65,9 +65,9 @@
     "slug": { "current": "classic-split-8m-60w" },
     "series": "series-road",
     "images": [
-      "/images/products/classic-split-installation-desert-road.png",
-      "/images/products/classic-split-installation-field-road.png",
-      "/images/products/classic-split-installation-park-road.png"
+      "/images/products/classic-split-installation-desert-road.webp",
+      "/images/products/classic-split-installation-field-road.webp",
+      "/images/products/classic-split-installation-park-road.webp"
     ],
     "specs": {
       "power": "60 W",
@@ -113,8 +113,8 @@
     "slug": { "current": "alca-split-120w" },
     "series": "series-road",
     "images": [
-      "/images/products/road-90w.jpg",
-      "/images/cases/closeup-panel-lamp.jpg"
+      "/images/products/road-90w.webp",
+      "/images/cases/closeup-panel-lamp.webp"
     ],
     "specs": {
       "power": "120W",
@@ -143,8 +143,8 @@
     "slug": { "current": "pv-series-150w" },
     "series": "series-road",
     "images": [
-      "/images/products/road-90w.jpg",
-      "/images/cases/closeup-panel-lamp.jpg"
+      "/images/products/road-90w.webp",
+      "/images/cases/closeup-panel-lamp.webp"
     ],
     "specs": {
       "power": "150W",
@@ -173,9 +173,9 @@
     "slug": { "current": "classic-split-6m-60w" },
     "series": "series-community",
     "images": [
-      "/images/products/classic-split-installation-field-road.png",
-      "/images/products/classic-split-installation-park-road.png",
-      "/images/products/classic-split-installation-desert-road.png"
+      "/images/products/classic-split-installation-field-road.webp",
+      "/images/products/classic-split-installation-park-road.webp",
+      "/images/products/classic-split-installation-desert-road.webp"
     ],
     "specs": {
       "power": "60 W",
@@ -221,8 +221,8 @@
     "slug": { "current": "leaf-aio-30w" },
     "series": "series-community",
     "images": [
-      "/images/products/community-40w.jpg",
-      "/images/cases/community-building.jpg"
+      "/images/products/community-40w.webp",
+      "/images/cases/community-building.webp"
     ],
     "specs": {
       "power": "30W",
@@ -251,8 +251,8 @@
     "slug": { "current": "leaf-aio-40w" },
     "series": "series-community",
     "images": [
-      "/images/products/community-40w.jpg",
-      "/images/cases/community-building.jpg"
+      "/images/products/community-40w.webp",
+      "/images/cases/community-building.webp"
     ],
     "specs": {
       "power": "40W",
@@ -281,8 +281,8 @@
     "slug": { "current": "leaf-aio-60w" },
     "series": "series-community",
     "images": [
-      "/images/products/community-40w.jpg",
-      "/images/cases/community-building.jpg"
+      "/images/products/community-40w.webp",
+      "/images/cases/community-building.webp"
     ],
     "specs": {
       "power": "60W",
@@ -311,10 +311,10 @@
     "slug": { "current": "wall-pole-mount-60w" },
     "series": "series-rural",
     "images": [
-      "/images/products/wall-pole-mount-60w-utility-front.png",
-      "/images/products/wall-pole-mount-60w-wall.png",
-      "/images/products/wall-pole-mount-60w-utility-back.png",
-      "/images/products/wall-pole-mount-60w-courtyard.png"
+      "/images/products/wall-pole-mount-60w-utility-front.webp",
+      "/images/products/wall-pole-mount-60w-wall.webp",
+      "/images/products/wall-pole-mount-60w-utility-back.webp",
+      "/images/products/wall-pole-mount-60w-courtyard.webp"
     ],
     "specs": {
       "power": "60 W",
@@ -349,8 +349,8 @@
     "slug": { "current": "kmini-rural-20w" },
     "series": "series-rural",
     "images": [
-      "/images/products/rural-30w.jpg",
-      "/images/cases/rural-village-1.jpg"
+      "/images/products/rural-30w.webp",
+      "/images/cases/rural-village-1.webp"
     ],
     "specs": {
       "power": "20W",
@@ -379,8 +379,8 @@
     "slug": { "current": "kmini-rural-30w" },
     "series": "series-rural",
     "images": [
-      "/images/products/rural-30w.jpg",
-      "/images/cases/rural-school.jpg"
+      "/images/products/rural-30w.webp",
+      "/images/cases/rural-school.webp"
     ],
     "specs": {
       "power": "30W",
@@ -409,8 +409,8 @@
     "slug": { "current": "nova-industrial-100w" },
     "series": "series-industrial",
     "images": [
-      "/images/products/industrial-120w.jpg",
-      "/images/cases/wall-mount-led.jpg"
+      "/images/products/industrial-120w.webp",
+      "/images/cases/wall-mount-led.webp"
     ],
     "specs": {
       "power": "100W",
@@ -439,8 +439,8 @@
     "slug": { "current": "rifle-industrial-120w" },
     "series": "series-industrial",
     "images": [
-      "/images/products/industrial-120w.jpg",
-      "/images/cases/wall-mount-led.jpg"
+      "/images/products/industrial-120w.webp",
+      "/images/cases/wall-mount-led.webp"
     ],
     "specs": {
       "power": "120W",
@@ -469,8 +469,8 @@
     "slug": { "current": "alca-industrial-150w" },
     "series": "series-industrial",
     "images": [
-      "/images/products/industrial-120w.jpg",
-      "/images/cases/wall-mount-led.jpg"
+      "/images/products/industrial-120w.webp",
+      "/images/cases/wall-mount-led.webp"
     ],
     "specs": {
       "power": "150W",

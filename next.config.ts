@@ -7,6 +7,28 @@ const config: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+    deviceSizes: [360, 640, 828, 1080, 1200, 1600],
+    imageSizes: [40, 80, 160, 320, 384, 520],
+  },
+  async headers() {
+    return [
+      {
+        source: '/_next/static/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/images/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=2592000, stale-while-revalidate=86400' }],
+      },
+      {
+        source: '/downloads/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=604800' }],
+      },
+    ]
+  },
 }
 
 export default withNextIntl(config)

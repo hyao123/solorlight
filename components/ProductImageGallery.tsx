@@ -34,7 +34,7 @@ export function ProductImageGallery({ images, name }: ProductImageGalleryProps) 
             fill
             priority
             className="object-cover transition duration-300 group-hover:scale-105"
-            sizes="(max-width: 1024px) 100vw, 55vw"
+            sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 45vw, 520px"
           />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
             <span className="rounded-full bg-black/50 px-3 py-1 text-sm text-white">
@@ -64,7 +64,7 @@ export function ProductImageGallery({ images, name }: ProductImageGalleryProps) 
                   alt={`${name} ${i + 1}`}
                   fill
                   className="object-cover"
-                  sizes="80px"
+                  sizes="(max-width: 640px) 40vw, 80px"
                 />
               </button>
             ))}
@@ -83,13 +83,13 @@ export function ProductImageGallery({ images, name }: ProductImageGalleryProps) 
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={images[active]}
-                alt={name}
-                fill
-                className="object-contain"
-                sizes="90vw"
-              />
+                <Image
+                  src={images[active]}
+                  alt={name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 90vw, 800px"
+                />
             </div>
             {/* Prev/Next */}
             {images.length > 1 && (

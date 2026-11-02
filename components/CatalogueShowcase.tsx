@@ -8,7 +8,7 @@ interface CatalogueShowcaseProps {
 const ITEMS = [
   {
     code: 'A / ROAD',
-    image: '/images/catalogue/road-light-options.jpg',
+    image: '/images/catalogue/road-light-options.webp',
     en: 'Road & avenue configurations',
     ru: 'Конфигурации для дорог и проспектов',
     noteEn: 'Single- and double-arm forms for road projects.',
@@ -17,7 +17,7 @@ const ITEMS = [
   },
   {
     code: 'B / PARK',
-    image: '/images/catalogue/decorative-light-options.jpg',
+    image: '/images/catalogue/decorative-light-options.webp',
     en: 'Decorative park lighting',
     ru: 'Декоративное освещение парков',
     noteEn: 'Coordinated lamp heads and poles for public spaces.',
@@ -26,7 +26,7 @@ const ITEMS = [
   },
   {
     code: 'C / LANDSCAPE',
-    image: '/images/catalogue/landscape-light-options.jpg',
+    image: '/images/catalogue/landscape-light-options.webp',
     en: 'Landscape & courtyard forms',
     ru: 'Ландшафтные и дворовые решения',
     noteEn: 'Compact forms for paths, entrances and courtyards.',

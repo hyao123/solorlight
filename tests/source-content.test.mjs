@@ -69,7 +69,7 @@ test('products page includes a localized catalogue showcase', async () => {
   const page = await readFile(new URL('../app/[locale]/products/page.tsx', import.meta.url), 'utf8')
   assert.match(component, /Pole & design options/)
   assert.match(component, /Варианты опор и дизайна/)
-  assert.match(component, /road-light-options\.jpg/)
+  assert.match(component, /road-light-options\.webp/)
   assert.match(page, /<CatalogueShowcase locale={locale} \/>/)
 })
 
